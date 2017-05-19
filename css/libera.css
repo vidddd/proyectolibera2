@@ -1,0 +1,172 @@
+article {
+	text-align:center;
+}
+
+h1 {
+	font-size:42px;
+	line-height:45px;
+	}
+
+h2 {
+	font-size:22px;
+}
+
+p {
+	color:#1e1e1e;
+	font-size:22px;
+	line-height:25px;
+}
+		
+#video {
+	height:auto;
+	width:100%;
+	margin:0 auto;
+	background-color:#000;
+}
+	
+#video iframe {
+	width:100%;
+	height:1080px;
+	float: left;
+}
+	
+#que {
+	background: #83dba9 url("../imagenes/que_fondo.jpg") no-repeat scroll left 80% bottom / 351px 398px;
+}
+	
+#que article {
+	width:472px;
+	padding:130px 0;
+}
+	
+#nace {
+	background: #ededed;
+	background: url(../imagenes/fondo_flor.png) left 30% bottom #ededed no-repeat;
+}
+	
+#nace article {
+	width:472px;
+	padding:130px 18px 130px 500px;
+}
+	
+#desarrollo {
+	background: #c5e3e2;
+}
+	
+#desarrollo article {
+	padding:130px 0;
+}
+
+#desarrollo h1 {
+	margin-bottom:22px;
+}
+	
+#desarrollo img{
+	margin:5px 0 27px 0;
+}
+	
+
+
+
+@media screen and (max-width: 990px) {
+
+article {
+	width:100%;
+	}
+
+#video iframe {
+	height:557px;
+	}
+
+#que {
+	background: #83dba9 url("../imagenes/que_fondo.jpg") no-repeat scroll left 95% bottom / 200px 227px;
+	}
+
+
+#nace {
+    background: #ededed url("../imagenes/fondo_flor.png") no-repeat scroll left 5% bottom;
+}
+	
+#nace article {
+	padding:130px 10px;
+	}
+	
+#desarrollo article {
+	padding: 130px 0;
+    width: 95%;
+	}
+}
+	
+@media only screen and (max-width: 768px) {
+	
+#video iframe {
+	height:432px;
+	}
+	
+h1 {
+	font-size:36px;
+	font-weight:bold;
+	line-height:37px;
+	}
+
+h2 {
+	font-size:18px;
+}
+
+
+p {
+	font-size:18px;
+	line-height:20px;
+	}
+
+#nace {
+    background: #ededed url("../imagenes/fondo_flor2.png") no-repeat scroll left 5% bottom;
+}
+
+	}
+	
+@media only screen and (max-width: 412px) {
+
+h1 {
+    font-size: 30px;
+	line-height: 32px;
+}
+
+p {
+    font-size: 16px;
+    line-height: 18px;
+}
+
+br {
+	display:none;
+	}
+
+#video iframe {
+	height:232px;
+	}
+
+#que {
+    background: #83dba9 url("../imagenes/que_fondo.jpg") no-repeat scroll left 100% bottom / 140px 160px;
+}
+
+#que article {
+	width:auto;
+	padding: 60px 10px 130px;
+	}
+	
+#nace {
+    background: #ededed;
+}	
+
+#nace article {
+    padding: 60px 10px;
+    width: auto;
+}
+
+
+#desarrollo article {
+    padding: 60px 10px;
+    width:auto;
+}
+	
+}

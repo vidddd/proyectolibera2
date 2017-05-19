@@ -1,0 +1,6 @@
+AuthGroupFile /dev/null
+AuthType Basic
+AuthUserFile /home/libera2/domains/2fase.proyectolibera.org/.htpasswd/public_html/.htpasswd
+AuthName "Admin"
+require valid-user
+ErrorDocument 401 "Unauthorized Access"
