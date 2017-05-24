@@ -1,0 +1,300 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+/*--------------- Difunde Un metro Cuadrado -------------------------------*/
+
+.difunde {
+	background-size:100% auto;
+	background-repeat:no-repeat;
+	background-position:left top;
+}
+
+.difunde .centrador{
+	margin:0 auto;
+	width:1080px;
+	height:auto;	
+}
+
+.difunde article {
+	width:100%;
+}
+
+.difunde .titular{
+	padding:130px 0;
+	float:left;
+	background-color:#c5c5c5;
+}
+
+.difunde .titular h1{
+	font-size:39px;
+	color:#fff;	
+	font-weight:900;
+	line-height:45px;
+}
+
+.difunde .titular .txt_verde{
+	color:#2ad566;
+}
+
+.difunde .seleccion{
+	padding:130px 0 90px;
+	float:left;
+}
+
+.difunde .opcion{
+	width:260px;
+	height:auto;
+	color:#6E6E6E;
+	float:left;
+	background-color:#fff !important;
+}
+
+.difunde .cuadro{
+	width:230px;
+	height:230px;
+	border:15px solid #6E6E6E;
+	color:#6E6E6E;
+	display:table;
+	float:left;
+	cursor:pointer;
+	-webkit-transition: 0.5s;
+	-moz-transition: 0.5s;
+	transition: 0.5s;
+}
+
+.difunde .cuadro .txt{
+	width:200px;
+	height:200px;
+	padding:15px;
+	display:table-cell;
+	text-align:center;
+	vertical-align:middle;
+	font-size:28px;
+	font-weight:800;
+	line-height:33px;
+	-webkit-transition: 0.5s;
+	-moz-transition: 0.5s;
+	transition: 0.5s;
+}
+
+.difunde .naranja {
+	
+}
+
+.difunde .rosa {
+	margin:0 150px;
+}
+.difunde .azul {	
+}
+
+.difunde .naranja:hover .cuadro, .participa .marcado1 .cuadro{
+	border-color:#ff8022;
+}
+.difunde .naranja:hover .txt, .participa .marcado1 .txt{
+	color:#ff8022;
+}
+.difunde .naranja:hover .boton{
+	color:#ff8022;
+	border-color:#ff8022;
+}
+
+.difunde .rosa:hover .cuadro, .participa .marcado2 .cuadro{
+	border-color:#fa55a6;
+}
+.difunde .rosa:hover .txt, .participa .marcado2 .txt{
+	color:#fa55a6;
+}
+.difunde .rosa:hover .boton{
+	color:#fa55a6;
+	border-color:#fa55a6;
+}
+
+.difunde .azul:hover .cuadro, .participa .marcado3 .cuadro{
+	border-color:#00d7e5;
+}
+.difunde .azul:hover .txt, .participa .marcado3 .txt{
+	color:#00d7e5;
+}
+.difunde .azul:hover .boton{
+	color:#00d7e5;
+	border-color:#00d7e5;
+}
+.difunde .azul .txt{
+	text-align:left;
+	width:160px;
+	height:160px;
+	padding:35px;
+}
+
+.difunde  .entradilla{
+	padding:30px 0;
+	float:left;
+	width:100%;
+	height:130px;
+	text-align:left;
+}
+
+.difunde  .entradilla p{
+	margin:0;
+}
+.difunde .boton{
+	font-size:20px;
+	border:solid 3px #6E6E6E;
+	color:#6E6E6E;
+	padding:13px 0;
+	background-color:transparent;
+	font-weight:900;
+	width:253px;
+	float:left;
+	text-align:center;
+	-webkit-transition: 0.5s;
+	-moz-transition: 0.5s;
+	transition: 0.5s;
+	cursor:pointer;
+	margin:40px 0 0;
+}
+
+.difunde .explicacion {
+	padding:90px 0;
+	float:left;
+	background-position:left 25% top;
+	background-image:url(../imagenes/flecha_gris_grande.png);
+	background-repeat:no-repeat;	
+	padding:130px 0 120px;
+	background-color:#2ad566;
+}
+
+.difunde .explicacion h2{
+	color: #fff;
+}
+
+#redes .solapa_azul {
+	background:url(../imagenes/linea_azul.png) top center no-repeat;
+	width:1080px;
+	height:27px;
+	position:absolute;
+	display:none;
+	}
+	
+#banners .solapa_rosa {
+	background:url(../imagenes/linea_rosa.png) top center no-repeat;
+	width:1080px;
+	height:27px;
+	position:absolute;
+	display:none;
+	}
+	
+#banners .solapa_rosa  img {
+	padding-left: 410px;
+	}
+	
+#redes .btn1 {
+    background-color: transparent;
+    border: 3px solid #6e6e6e;
+    color: #6e6e6e;
+    cursor: pointer;
+    float: left;
+    font-size: 20px;
+    font-weight: 900;
+    padding: 13px 0;
+    text-align: center;
+    transition: all 0.5s ease 0s;
+    width: 253px;
+}
+
+#banners .btn1 {
+    background-color: transparent;
+    border: 3px solid #6e6e6e;
+    color: #6e6e6e;
+    cursor: pointer;
+    float: left;
+    font-size: 20px;
+    font-weight: 900;
+    padding: 13px 0;
+    text-align: center;
+    transition: all 0.5s ease 0s;
+    width: 253px;
+}
+
+.solapa_contenido {
+	padding-top:97px;
+	display:inline-grid;
+	}
+
+#redes{
+	color:#6e6e6e;
+}
+#redes .arriba{
+	background-position:left top;
+}
+#banners{
+	color:#fff;
+}
+#banners .arriba{
+	background-position:center top;
+}
+
+#redes .centrador{
+	margin:0 auto;
+	width:1080px;
+	height:auto;
+	padding:0 97px 97px;
+}
+
+#manifiesto{
+	color:#fff;
+	background-color:#ff8022;
+}
+
+.cerrado{
+	height:0px;
+}
+
+#redes.abierto{
+	height:auto;
+		
+}
+
+#banners.abierto{
+	height:auto;
+}
+
+
+#manifiesto.abierto{
+	height:450px;
+}
+
+#banners .centrador{
+	margin:0 auto;
+	width:1080px;
+	height:auto;
+	padding:0 97px 97px;
+}
+
+#manifiesto article{
+	background-position:right top;
+	background-image:url(../imagenes/flecha_blanca_grande.png);
+	background-repeat:no-repeat;	
+	padding:130px 0 120px;
+	text-align:center;
+	color:#fff;
+}
+
+#manifiesto h1{
+	margin:0 auto 50px;
+	color:#fff;	
+}
+#manifiesto .boton{
+	font-size:18px;
+	border:solid 2px #fff;
+	color:#fff;
+	padding:10px 20px;
+	background-color:transparent;
+	font-weight:900;
+}
+#manifiesto .boton:hover{
+	color:#00d7e5;
+	background-color:#fff;
+
+}

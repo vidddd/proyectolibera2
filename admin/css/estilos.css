@@ -1,0 +1,364 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+body{
+	margin:0;
+	padding:0;
+	background-color: #f1da36;
+	font-family: 'Fira Sans', sans-serif;
+	color:#222221;
+	font-size:22px;
+}
+header, footer, section, nav{
+	margin:0;
+	padding:0;
+	border:none 0px;
+	width:100%;
+	float:left;
+}
+a{
+	text-decoration:none;
+	-moz-opacity: 0.8;
+	-khtml-opacity: 0.8;
+	opacity: 0.8;
+	filter:alpha(opacity=80);
+	-webkit-transition: 0.3s;
+	-moz-transition: 0.3s;
+	transition: 0.3s;
+	cursor:pointer;
+}
+a:hover{
+	-moz-opacity: 1;
+	-khtml-opacity: 1;
+	opacity: 1;
+	filter:alpha(opacity=100);
+}
+h1, h2, h3, h4{
+	text-transform:uppercase;
+	font-weight:500;
+	letter-spacing:5px;
+	margin:0;
+	padding:0;
+}
+h1{
+	font-size:23px;
+}
+h2{
+	font-size:18px;
+	padding-top:5px;
+}
+h3{
+	font-size:15px;
+}
+h4{
+	font-size:11px;
+	font-weight:600;
+	letter-spacing:1px;
+}
+header{
+	height:30px;
+	background-color:#ebebeb;
+	border-bottom:1px #acacab solid;
+	background-image:url(../imagenes/logo.jpg);
+	background-repeat:no-repeat;
+	background-position:left center;
+	background-size:auto 80%;
+	text-align:right;
+	width:98%;
+	padding:30px 2% 30px 0;
+}
+
+header a{
+	color:#BA2A38;
+	font-size:12px;
+}
+nav{
+
+    height: 700px;
+    padding: 30px 1% 0;
+    text-align: left;
+    width: 13%;
+	font-size:14px;
+	text-transform:uppercase;
+	color:#111;
+
+}
+nav ul{
+	display: block;
+    list-style: outside none none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li{
+	margin: 0;
+    padding: 0;
+}
+
+nav .categoria{
+
+}
+
+nav .subcategoria{
+	padding: 10px 0 0 10px;
+}
+nav .subcategoria li{
+	background-image: url("../imagenes/icono_triangulo.png");
+    background-position: left 5px;
+    background-repeat: no-repeat;
+    padding: 0 0 10px 10px;
+}
+
+nav .activo a{
+	color:#A7940C;
+	-moz-opacity: 1;
+	-khtml-opacity: 1;
+	opacity: 1;
+	filter:alpha(opacity=100);
+	cursor:default;
+}
+nav a{
+	margin: 0;
+	padding: 0;
+	letter-spacing:2px;
+	font-weight:500;
+	color:#111;
+	cursor:pointer;
+}
+
+nav .activo{
+
+}
+
+nav .cantidad{
+	color:#A7940C;
+	font-size:12px;
+	font-weight:400;
+}
+
+#contenedor{
+	width:80%;
+	padding:30px 2.5%;
+	margin:0;
+	background-color:#fafafa;
+	height:auto;
+}
+#titulo{
+	width:100%;
+	float:left;
+	margin:0;
+	padding:0 0 20px;
+	text-align:left;
+}
+#titulo h1, #titulo h2{
+	float:left;
+	display:inline-block;
+}
+.descargar{
+	float:right;
+	padding:10px 15px 8px;
+	background-color:#F1DA36;
+	color:#000;
+	font-size:10px;
+	font-weight:700;
+	text-transform:uppercase;
+	letter-spacing:3px;
+	border-radius:10px;
+}
+.descargar img{
+	float:right;
+	margin:-1px 0 0 8px;
+}
+
+#listado{
+	width:100%;
+	float:left;
+	margin:0;
+	padding:0 0 20px;
+	text-align:left;
+	height:auto;
+}
+/*--------------*/
+
+.leyenda{
+	width:100%;
+	float:left;
+	padding:8px 0;
+	margin:0 0 0;
+	text-align:left;
+	height:30;
+}
+
+.leyenda div{
+	border: 0 none;
+    color: #202020;
+    float: left;
+    font-size: 11px;
+    font-weight: 400;
+    height: 12px;
+    letter-spacing: 2px;
+    margin: 0;
+    padding: 5px 1% 5px;
+    text-align: left;
+}
+
+.leyenda .id{
+	width:auto;
+}
+
+.leyenda .nombre, .leyenda .personas, .leyenda .hora, .leyenda .provincia, .leyenda .localizacion{
+	border-left: 1px solid #c2c2c2;
+    width: auto;
+}
+
+
+/*--------------*/
+.item{
+	width:99%;
+	float:left;
+	padding:8px 0.5%;
+	margin:0 0 20px;
+	text-align:left;
+	height:30;
+	background-color:#eee;
+	border-radius:10px;
+}
+
+.item div{
+	border: 0 none;
+    color: #202020;
+    float: left;
+    font-size: 11px;
+    font-weight: 400;
+    height: 12px;
+    letter-spacing: 2px;
+    margin: 0;
+    padding: 9px 1%;
+    text-align: left;
+}
+
+.item .id{
+	width:auto;
+}
+
+.item .nombre, .item .personas, .item .hora, .item .provincia, .item .localizacion, .item .masinfo{
+	border-left: 1px solid #c2c2c2;
+    width: auto;
+}
+.item .mapa{
+	padding:0 1%;
+	height:30px;
+	border-left: 1px solid #c2c2c2;
+    width: auto;
+}
+.item .mensaje{
+	padding:10px 0;
+	float:left;
+	font-size:10px;
+}
+.item .mapa a{
+	color:#000;
+	font-weight:500;
+	font-style:italic;
+}
+.item .mapa img{
+	height:30px;
+	width:auto;
+	float:left;
+	margin:0 0 0 10px;
+
+}
+.item .masinfo a{
+	color:#000;
+	font-weight:500;
+	font-style:italic;
+	font-size:12px;
+}
+.btns{
+	width:auto;
+	border-left: 1px solid #c2c2c2;
+	float:right !important;
+	height:30px !important;
+	padding:0 !important;
+}
+.btns a{
+	padding:7px 15px;
+	border-radius:10px;
+	color:#fff;
+	margin:0 0 0 10px;
+	font-size:13px;
+	display:inline-block;
+}
+.btns .aceptar{
+	background-color:#27A561;
+}
+.btns .denegar{
+	background-color:#DC493C;
+}
+
+/**------------------------------------------------ */
+
+.informacion{
+	position:fixed;
+	width:100%;
+	height:100vh;
+	border:none 0;
+	margin:0;
+	padding:0;
+	display:table;
+	left:0;
+	top:0;
+	background-color:rgba(0,0,0,0.6);
+	z-index:1000;
+}
+
+.ventana{
+	width:800px;
+	background-color:#fff;
+	border-radius:15px;
+	padding:30px;
+	height:400px;
+	position:fixed;
+	top:50%;
+	left:50%;
+	margin:-230px 0 0 -430px;
+}
+.ventana div{
+	float: left;
+    font-size: 14px;
+    height: 25px;
+    margin: 0 1% 0 0;
+    padding: 0 0 30px;
+    width: 32.333%;
+}
+.ventana .arriba{
+	width:100%;
+	text-align:right;
+	padding:0 0 10px;
+}
+.ventana .arriba a{
+	color:#A7940C;
+	font-weight:600;
+	letter-spacing:2px;
+}
+.ventana .comentarios{
+	width:100%;
+}
+.forme {
+	clear:both;
+	position: relative;
+	float:left;
+	display:flex;
+	width:900px;
+	margin: 10px 0 ;
+}
+.column div {
+	margin:20px 0;
+}
+.column {
+	width: 400px;
+}
+.column input {
+	width:300px;
+}

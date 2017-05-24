@@ -4,15 +4,33 @@
         <nav>
         	<ul>
             	<li><a href="index.php?quees=1" target="_self">¿QUÉ ES LIBERA?</a></li>
-                <li onMouseOver="mostrarSubmenu();" onMouseOut="cerrarSubmenu();"><a href="index.php?unmetro=1" target="_self" class="desplegable">1m<sup>2</sup> POR LA NATURALEZA</a></li>
-                <li class="destacado rojo">17 &bull; JUNIO<br><span class="hastag">#loremipsum</span></li>
+                <li onMouseOver="mostrarSubmenu();" onMouseOut="cerrarSubmenu();"><a href="index.php?unmetro=1" class="desplegable">1m<sup>2</sup> POR LA NATURALEZA</a></li>
+                <li class="destacado rojo">17 &bull; JUNIO<br><span class="hastag">#Libera1m2</span></li>
             </ul>
         </nav>
     </div>
 </header>
+<div id="boton_menu"><a class="icono_menu" style="cursor:pointer;"><span class="cd-menu-icon"></span></a></div>
+<div class="destacadomobile rojo">17 &bull; JUNIO<br><span class="hastag">#Libera1m2</span></div>
+<div id="menumobile" class="oculto">
+	<nav>
+        	<ul>
+            	<li><a href="index.php?quees=1" target="_self">¿QUÉ ES LIBERA?</a></li>
+                <li>
+                    <a target="_self" class="desplegable" onclick="versub();">1m<sup>2</sup> POR LA NATURALEZA</a><img src="../imagenes/down_arrow_grande.png" id="flecha_desplegable" />
+                </li>
+                <li id="sub1" class="submenumobile novisible"><a href="index.php?unmetro=1" target="_self" class="desplegable">¿Qué es 1m<sup>2</sup> por la Naturaleza?</a></li>
+                <li id="sub2" class="submenumobile novisible"><a href="index.php?participa=1" target="_self">Participa</a></li>
+                <li id="sub3" class="submenumobile novisible"><a href="index.php?difunde=1" target="_self">Difunde</a></li>
+                <li class="submenumobile comparte"><span>Comparte esta web:</span> <a href="#"><img src="../imagenes/share_fb.png" /></a><a href="#"><img src="../imagenes/share_tw.png" /></a></li>
+            </ul>
+            
+        </nav>
+</div>
 <div class="submenu ocultarsubmenu" onMouseOver="mostrarSubmenu();" onMouseOut="cerrarSubmenu();">
 	<div class="centrador">
         <ul>
+        	<li><a href="index.php?unmetro=1" target="_self" class="desplegable">¿Qué es 1m<sup>2</sup> por la Naturaleza?</a></li>
             <li><a href="index.php?participa=1" target="_self">Participa</a></li>
             <li><a href="index.php?difunde=1" target="_self">Difunde</a></li>
         </ul>

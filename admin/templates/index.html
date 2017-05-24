@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+   {% block content %}
+    	<article id="titulo"><h1>ORGANIZADORES/</h1>{% if es == 1 %}<h2>PENDIENTES</h2>
+      {% endif %}
+      {% if es == 2 %}<h2>APROBADOS</h2>
+      {% endif %}
+      {% if es == 3 %}<h2>DENEGADOS</h2>
+      {% endif %}
+        <a href="zeta.php?es={{ es }}" class="descargar">DESCARGAR .XLS <img src="imagenes/icono_descarga.png"></a></article>
+        <article id="listado">
+        	<div class="leyenda">
+            	<div class="id">Identificador</div>
+                <div class="nombre">Nombre y Apellidos</div>
+                <div class="personas">Número de Personas</div>
+                <div class="hora">Hora</div>
+                <div class="provincia">Provincia</div>
+                <div class="localizacion">Localización</div>
+           </div>
+          {% for pa in parti %}
+          <div class="item">
+            <div class="id"><a href="index.php?edit=1&id={{ pa.id }}&par={{ es }}">#0{{ pa.id }}</div>
+            <div class="nombre">{{ pa.persona }}</div>
+            <div class="personas">{{ pa.numerop }}</div>
+            <div class="hora">{{ pa.hora }}</div>
+            <div class="provincia">{{ provincias[pa.provincia] }}</div>
+            <div class="localizacion">{{ pa.lugar }}</div>
+            <div class="mapa"><a href="https://www.google.es/maps/place/{{ pa.lugar|url_encode }}" target="_blank"><span class="mensaje">Ver en mapa</span> <img src="imagenes/icono_map.png"></a></div>
+            <div class="masinfo"><a onClick="mostrarVentana({{ loop.index }})" href="#">Ampliar Info</a></div>
+            <div class="btns">
+               {% if es == 1 %}<a class="aceptar" href="index.php?change=2&id={{ pa.id }}">Aprobar</a><a class="denegar" href="index.php?change=3&id={{ pa.id }}">Denegar</a>
+               {% endif %}
+               {% if es == 2 %}<a class="denegar" href="index.php?change=3&id={{ pa.id }}">Denegar</a>
+               {% endif %}
+               {% if es == 3 %}<a class="aceptar" href="index.php?change=2&id={{ pa.id }}">Aprobar</a>
+               {% endif %}
+             </div>
+         </div>
+         <div class="informacion informacion{{ loop.index }}" style="display:none;">
+           <div class="ventana">
+               <div class="arriba"><a class="cerrar" onClick="cerrarVentana({{ loop.index }})">CERRAR X</a></div>
+                 <div class="cuadricula">
+                     <h4>Persona de contacto:</h4>
+                     <span class="persona">{{ pa.persona }}</span>
+                 </div>
+                 <div>
+                     <h4>Email de contacto:</h4>
+                     <span class="email">{{ pa.email }}</span>
+                 </div>
+                 <div>
+                     <h4>Teléfono de contacto:</h4>
+                     <span class="telefono">{{ pa.telefono }}</span>
+                 </div>
+           <div>
+                     <h4>Dirección:</h4>
+                     <span class="direccion">{{ pa.direccion }}</span>
+                 </div>
+                 <div>
+                     <h4>Organiza:</h4>
+                     <span class="organiza">{{ pa.organiza }}</span>
+                 </div>
+                 <div>
+                     <h4>Mas información:</h4>
+                     <span class="masinfo">{{ pa.masinfo }}</span>
+                 </div>
+                 <div>
+                     <h4>Hora:</h4>
+                     <span class="hora">{{ pa.hora }}</span>
+                 </div>
+                 <div>
+                     <h4>Número de personas:</h4>
+                     <span class="numero">{{ pa.numerop }}</span>
+                 </div>
+                 <div>
+                     <h4>Provincia:</h4>
+                     <span class="provincia">{{ provincias[pa.provincia] }}</span>
+                 </div>
+                 <div class="comentarios">
+                     <h4>Lugar:</h4>
+                     <span class="lugar">{{ pa.lugar }}</span>
+                 </div>
+                 <div class="comentarios">
+                     <h4>Comentarios:</h4>
+                     <span class="comentarios">{{ pa.comentarios }}</span>
+                 </div>
+             </div>
+         </div>
+        {% endfor %}
+        </article>
+    {% endblock %}

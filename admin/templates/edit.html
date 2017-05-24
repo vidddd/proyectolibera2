@@ -1,0 +1,105 @@
+{% extends "base.html" %} {% block content %}
+<form name="editf" id="editf" method="post" action="index.php?edit=1&guarda=1">
+<article id="titulo">
+  <h1>Editar Participacion</h1>
+  <div style="clear:both"></div>
+  <div class="forme">
+    <div class="column">
+        <div>
+          <h4>Persona de contacto:</h4>
+          <span class="persona"><input type="text" name="persona" value="{{ participacion.persona }}" /></span>
+        </div>
+        <div>
+          <h4>Email de contacto:</h4>
+          <span class="email"><input type="text" name="email" value="{{ participacion.email }}" /></span>
+        </div>
+        <div>
+          <h4>Teléfono de contacto:</h4>
+          <span class="telefono"><input type="text" name="telefono" value="{{ participacion.telefono }}" /></span>
+        </div>
+      <div>
+        <h4>Dirección:</h4>
+        <span class="direccion"><input type="text" name="direccion" value="{{ participacion.direccion }}" /></span>
+      </div>
+      <div>
+        <h4>Organiza:</h4>
+        <span class="organiza"><input type="text" name="organiza" value="{{ participacion.organiza }}" /></span>
+      </div>
+      <div>
+        <h4>Mas información:</h4>
+        <span class="masinfo"><input type="text" name="masinfo" value="{{ participacion.masinfo }}" /></span>
+      </div>
+  </div>
+  <div class="column">
+      <div>
+        <h4>Hora:</h4>
+        <span class="hora"><input type="text" name="hora" value="{{ participacion.hora }}" /></span>
+      </div>
+      <div>
+        <h4>Número de personas:</h4>
+        <span class="numero"><input type="text" name="numerop" value="{{ participacion.numerop }}" /></span>
+      </div>
+      <div>
+        <h4>Provincia:</h4>
+        <span class="provincia"></span>
+        <select name="provincia" id="provincia">
+          {% for key,value in provincias %}
+              <option value="{{ key }}" {% if key == participacion.provincia %}selected{% endif %}>{{ value }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="comentarios">
+
+        <div class="pac-card" id="pac-card">
+        <h4>Lugar</h4>
+
+          <div id="pac-container">
+            <input id="pac-input" type="text" name="lugar" value="{{ participacion.lugar }}" required>
+          </div>
+        </div>
+        <div>
+          <h4>Coordenadas:</h4>
+          <span class="hora"><input type="text" name="hora" value="{{ participacion.coordenadas }}" /></span>
+        </div>
+        <input type="hidden" id="par" name="par" value="{{ es }}" />
+        <input type="hidden" name="id" value="{{ participacion.id }}"/>
+      </div>
+      <div class="comentarios">
+        <h4>Comentarios:</h4>
+        <span class="comentarios"><textarea name="comentarios">{{ participacion.comentarios }}</textarea></span>
+      </div>
+    </div>
+
+  </div>
+ <div class="forme">
+     <input type="submit" value="Guardar" />
+ </div>
+
+  <article>
+</form>
+<script>
+  function initMap() {
+
+    var card = document.getElementById('pac-card');
+    var input = document.getElementById('pac-input');
+    var autocomplete = new google.maps.places.Autocomplete(input);
+   autocomplete.setComponentRestrictions({'country': ['es']});
+
+    autocomplete.addListener('place_changed', function() {
+    //  infowindow.close();
+    //  marker.setVisible(false);
+      var place = autocomplete.getPlace();
+      if (!place.geometry) {
+        // User entered the name of a Place that was not suggested and
+        // pressed the Enter key, or the Place Details request failed.
+        window.alert("No details available for input: '" + place.name + "'");
+        return;
+      }
+      document.getElementById('coordenadas').value = place.geometry.location;
+    });
+
+  }
+
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6w5d4eMIJxqEr0mM6-wBKKLz7DyEf54M&libraries=places&callback=initMap" async defer></script>
+    {% endblock %}

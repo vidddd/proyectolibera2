@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="css/unmetrocuadrado.css">
     <script src="js/jquery.validate.js"></script>
     <script src="js/participa.js"></script>
+    <script src="js/formulario.js"></script>
 {% endblock %}
 
 {% block content %}
@@ -67,7 +68,7 @@ por colaborar con LIBERA.</p></div>
                 </div>
             </div>
             <div class="entradilla">
-            	<p>Si no tienes el tiempo o la energía para liderar un grupo de limpieza pero estás concienciado con la naturaleza y deseas participar, busca en tu zona y únete a un grupo de limpieza ya creado.</p>
+            	<p>Si no tienes el tiempo o la energía para liderar un grupo de limpieza pero sigues concienciado con la naturaleza, busca y únete a un grupo de limpieza ya creado.</p>
             </div>
             <div class="boton" onClick="verFormulario('unete');" id="btn2">
             	APÚNTATE
@@ -80,7 +81,7 @@ por colaborar con LIBERA.</p></div>
                 </div>
             </div>
             <div class="entradilla">
-            	<p>Si por el contrario el día <strong>17 de junio</strong> estás ocupado pero quieres colaborar con la naturaleza en tu día a día, aquí te decimos cómo.</p>
+            	<p>Si por el contrario el día 17 de junio estás ocupado pero quieres colaborar con la naturaleza en tu día a día, aquí te decimos cómo.</p>
             </div>
             <div class="boton" onClick="verFormulario('portucuenta');" id="btn3">
             	+ INFO
@@ -124,62 +125,12 @@ por colaborar con LIBERA.</p></div>
         </article>
         <article class="columna derecha">
        		<label for="provincia" class="control-label">Provincia*</label>
-			<select class="desplegable form-control" name="provincia">
-                <option value="">Selecciona</option>
-                <option value="15">A coru&#241;a</option>
-                <option value="1">&#193;lava</option>
-                <option value="2">Albacete</option>
-                <option value="3">Alicante</option>
-                <option value="4">Almer&#237;a</option>
-                <option value="33">Asturias</option>
-                <option value="5">&#193;vila</option>
-                <option value="6">Badajoz</option>
-                <option value="7">Baleares</option>
-                <option value="8">Barcelona</option>
-                <option value="9">Burgos</option>
-                <option value="10">C&#225;ceres</option>
-                <option value="11">C&#225;diz</option>
-                <option value="39">Cantabria</option>
-                <option value="12">Castell&#243;n</option>
-                <option value="51">Ceuta</option>
-                <option value="13">Ciudad Real</option>
-                <option value="14">C&#243;rdoba</option>
-                <option value="16">Cuenca</option>
-                <option value="99">Extranjero</option>
-                <option value="17">Girona</option>
-                <option value="18">Granada</option>
-                <option value="19">Guadalajara</option>
-                <option value="20">Guip&#250;zcoa</option>
-                <option value="21">Huelva</option>
-                <option value="22">Huesca</option>
-                <option value="23">Ja&#233;n</option>
-                <option value="26">La rioja</option>
-                <option value="35">Las palmas</option>
-                <option value="24">Le&#243;n</option>
-                <option value="25">Lleida</option>
-                <option value="27">Lugo</option>
-                <option value="28">Madrid</option>
-                <option value="29">M&#225;laga</option>
-                <option value="52">Melilla</option>
-                <option value="30">Murcia</option>
-                <option value="31">Navarra</option>
-                <option value="32">Ourense</option>
-                <option value="34">Palencia</option>
-                <option value="36">Pontevedra</option>
-                <option value="37">Salamanca</option>
-                <option value="38">Santa cruz de tenerife</option>
-                <option value="40">Segovia</option>
-                <option value="41">Sevilla</option>
-                <option value="42">Soria</option>
-                <option value="43">Tarragona</option>
-                <option value="44">Teruel</option>
-                <option value="45">Toledo</option>
-                <option value="46">Valencia</option>
-                <option value="47">Valladolid</option>
-                <option value="48">Vizcaya</option>
-                <option value="49">Zamora</option>
-                <option value="50">Zaragoza</option>
-			</select>
+    			<select class="desplegable form-control" name="provincia" required>
+                    <option value="">Selecciona</option>
+                    {% for pro in provincias %}
+                    <option value="{{ pro.key }}">{{ pro.value }}</option>
+                    {% endfor %}
+    			</select>
 
             <label for="lugar" class="control-label">Lugar*</label>
             <p class="description">Indique el lugar (Ej: Parque Nacional de Doñana)<br> y señale el punto exacto de encuentro en el mapa<br> para facilitar la unión de más personas a su grupo el día del evento.</p>
@@ -191,20 +142,20 @@ por colaborar con LIBERA.</p></div>
             	<span id="place-address"></span>
             </div>
 
-            <input type="test" value="" name="location" id="location" />
+            <input type="hidden" value="" name="location" id="location" />
 
             <label for="hora" class="control-label">Hora*</label>
             <p class="description">Hora de comienzo de la actividad.</p>
             <select class="form-control desplegable" name="hora"  required>
             	<option value="">Selecciona</option>
                 <option value="09:00">09:00 h.</option>
-            	<option value="09:30">09:30 h.</option>
-            	<option value="10:00">10:00 h.</option>
-             	<option value="10:30">10:30 h.</option>
-             	<option value="11:00">11:00 h.</option>
-            	<option value="11:30">11:30 h.</option>
+            	  <option value="09:30">09:30 h.</option>
+            	  <option value="10:00">10:00 h.</option>
+             	  <option value="10:30">10:30 h.</option>
+             	  <option value="11:00">11:00 h.</option>
+            	  <option value="11:30">11:30 h.</option>
               	<option value="12:00">12:00 h.</option>
-            	<option value="12:30">12:30 h.</option>
+            	  <option value="12:30">12:30 h.</option>
               	<option value="13:00">13:00 h.</option>
               	<option value="13:30">13:30 h.</option>
               	<option value="14:00">14:00 h.</option>
@@ -250,87 +201,104 @@ por colaborar con LIBERA.</p></div>
     	<article class="arriba">
         	* Obligatorio
         </article>
-        <form id="form2" class="boxed-form" name="form2" method="post" role="form" action="{# URLHOME #}">
+        <form id="formunete" class="boxed-form" name="formunete" method="post" action="index.php?participa=2">
     	<article class="columna izquierda">
-
-        	<label for="persona" class="control-label">Persona de contacto*</label>
+        	<label for="persona2" class="control-label">Persona de contacto*</label>
             <p class="description">Nombre y apellidos: para uso interno<br> en las labores organizativas.</p>
-            <input class="form-control" value="" name="persona"  class="form-control" data-rule-required="true" >
+            <input class="form-control" value="" name="persona2" id="persona2" class="form-control" required >
 
-			<label for="email" class="control-label">Email de Contacto*</label>
+			<label for="email2" class="control-label">Email de Contacto*</label>
             <p class="description">A donde también puedan dirigirse las personas<br> interesadas en participar.</p>
-            <input class="form-control" value="" name="email" type="email"  data-rule-required="true" required>
-            <div class="help-block with-errors"></div>
+            <input class="form-control" value="" name="email2" id="email2" type="email" required>
 
-            <label for="telefono" class="control-label">Teléfono de contacto*</label>
+            <label for="telefono2" class="control-label">Teléfono de contacto*</label>
             <p class="description">Para uso interno en las labores organizativas.</p>
-            <input maxlength="10" class="form-control" value="" name="telefono" type="text" required>
-
+            <input maxlength="10" class="form-control" value="" name="telefono2" id="telefono2" type="text" required>
         </article>
         <article class="columna derecha">
-
-            <label for="lugar" class="control-label">Lugar*</label>
+            <label for="lugar2" class="control-label">Lugar*</label>
             <p class="description">Indique el lugar (Ej: Parque Nacional de Doñana)<br> y señale el punto exacto de encuentro en el mapa<br> para facilitar la unión de más personas a su grupo el día del evento.</p>
-            <input id="pac-input" type="text" name="lugar" placeholder="Busca un lugar" required class="anchototal">
-
+            <input id="pac-input" type="hidden" name="lugar2" id="lugar2" placeholder="Busca un lugar" required class="anchototal">
+            <div style="display:one;"><input id="lugarid" name="lugarid" type="text" value="" /></div>
             <div id="map2" class="mimapa"></div>
-            <div id="infomap">
+            <div id="infomap" style="display:none;">
             	<div class="info">
-                	<h3>Lorem ipsum dolor sit</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetuer adpisicing elit.</p>
-                    <p>16:00</p>
+                	<h3 class="tit">Lorem ipsum dolor sit</h3>
+                    <p class="desc">Lorem ipsum dolor sit amet, consectetuer adpisicing elit.</p>
+                    <p class="horah">16:00</p>
                 </div>
                 <img src="imagenes/1m2.jpg" class="logo">
             </div>
-            <div id="infowindow-content">
-            	<span id="place-name" class="title"></span><br>
-            	<span id="place-address"></span>
-            </div>
 
-            <input type="hidden" value="" name="location" id="location" />
-
-            <label for="numero" class="control-label">Número de personas</label>
+            <label for="numero2" class="control-label">Número de personas</label>
             <p class="description">El número de personas que le acompañarán al evento.</p>
-            <input class="form-control" value="" name="numero"  class="form-control" required >
+            <input class="form-control" value="" name="numero2" id="numero2"  class="form-control" required >
 
-            <label for="comentarios" class="control-label">Comentarios</label>
+            <label for="comentarios2" class="control-label">Comentarios</label>
             <p class="description">Algo que convenga especificar.<br> Por ejemplo, detalles acerca del lugar de encuentro.</p>
-            <textarea id="comentarios" class="form-control" rows="10" name="comentarios"></textarea>
+            <textarea id="comentarios2" class="form-control" rows="10" name="comentarios2"></textarea>
 
 			<div class="condiciones">
-            <input class="micheck" type="checkbox" onchange="this.setCustomValidity(validity.valueMissing ? 'Por favor, indica que aceptas las condiciones de participación' : '');"  required name="partip"/>
+            <input class="micheck" type="checkbox" onchange="this.setCustomValidity(validity.valueMissing ? 'Por favor, indica que aceptas las condiciones de participación' : '');"  required name="partip2"/>
             <p>Acepto participar en la celebración cumpliendo con las <a href="pdf/condiciones_participacion.pdf" target="_blank">condiciones de participación.</a></p>
 			</div>
             <div class="condiciones">
-            <input class="micheck" type="checkbox" onchange="this.setCustomValidity(validity.valueMissing ? 'Por favor, indica que aceptas las condiciones de participación' : '');"  required name="terms"/>
+            <input class="micheck" type="checkbox" onchange="this.setCustomValidity(validity.valueMissing ? 'Por favor, indica que aceptas las condiciones de participación' : '');"  required name="terms2"/>
             <p>Al aceptar me comprometo a organizar una recogida y devolver la info a la organización.</p>
 			</div>
             <div class="condiciones">
-            <input class="micheck" type="checkbox" onchange="this.setCustomValidity(validity.valueMissing ? 'Por favor, indica que aceptas las condiciones de participación' : '');"  required name="terms"/>
+            <input class="micheck" type="checkbox" onchange="this.setCustomValidity(validity.valueMissing ? 'Por favor, indica que aceptas las condiciones de participación' : '');"  required name="polit2"/>
             <p>He leido y acepto la <a href="http://www.seo.org/aviso-legal" target="_blank">política de privacidad.</a></p>
             </div>
-
-            <button class="btn" type="submit" id="submit" onclick="">ENVIAR</button>
+            <button class="btn" type="submit" id="submit2" onclick="">ENVIAR</button>
         </article>
         </form>
     </div>
 </section>
 <section id="portucuenta" class="formulario cerrado">
 	<article class="centrador">
-		<h1>Cada vez que vayas a la playa, al monte o<br> simplemente al parque más cercano a tu casa podrás<br> colaborar con la naturaleza. Descarga nuestro<br> manifiesto y descubre cómo.</h1>
+    	<h1>Cada vez que vayas a la playa, al campo, al monte o<br /> simplemente al área verde más cercana a tu casa<br /> podrás colaborar con la naturaleza. Descarga nuestro<br /> manifiesto y descubre cómo.</h1>
         <p><a href="#" target="_blank" class="boton">DESCARGA MANIFIESTO</a></p>
     </article>
 </section>
+<section id="portucuentaform" class="formulario cerrado">
+	<div class="centrador">
+    <article class="arriba">
+    		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et suscipit nibh, a dapibus ipsum. Ut mattis, dui fermentum egestas interdum, mi sem tempor justo, in iaculis tortor risus at sapien. Vivamus aliquet nunc elementum convallis aliquet. </p>
+        	* Obligatorio
+    </article>
+    <article class="columna izquierda">
+        	<label for="persona" class="control-label">Persona de contacto*</label>
+            <p class="description">Nombre y apellidos: para uso interno<br> en las labores organizativas.</p>
+            <input class="form-control" value="" name="persona"  class="form-control" required >
+
+
+    </article>
+    <article class="columna derecha">
+    		<label for="email" class="control-label">Email de Contacto*</label>
+            <p class="description">A donde también puedan dirigirse las personas<br> interesadas en participar.</p>
+            <input class="form-control" value="" name="email" type="email" required>
+            <div class="help-block with-errors"></div>
+			<div class="condiciones">
+            <input class="micheck" type="checkbox" onchange="this.setCustomValidity(validity.valueMissing ? 'Por favor, indica que aceptas las condiciones de participación' : '');"  required name="polit2"/>
+            <p>He leido y acepto la <a href="http://www.seo.org/aviso-legal" target="_blank">política de privacidad.</a></p>
+            </div>
+            <button class="btn" type="submit" id="submit2" onclick="">ENVIAR</button>
+    </article>
+    </div>
+</section>
 
 <script>
- $("#closee").click(function(){
-    $("#error").hide();
- });
   function initMap() {
     var map = new google.maps.Map(document.getElementById('map'), {
       center: {lat: 39.3781, lng: -3.6795366},
       zoom: 5
     });
+    var map2 = new google.maps.Map(document.getElementById('map2'), {
+      center: {lat: 39.3781, lng: -3.6795366},
+      zoom: 5
+    });
+    setPoints(map2);
     var card = document.getElementById('pac-card');
     var input = document.getElementById('pac-input');
     var autocomplete = new google.maps.places.Autocomplete(input);
@@ -342,9 +310,12 @@ por colaborar con LIBERA.</p></div>
     var infowindowContent = document.getElementById('infowindow-content');
 
     infowindow.setContent(infowindowContent);
-      var marker = new google.maps.Marker({
+    infowindow.close();
+    var marker = new google.maps.Marker({
         map: map,
-        anchorPoint: new google.maps.Point(0, -29)
+        anchorPoint: new google.maps.Point(0, -29),
+        draggable:true,
+         title:"Arrastrame!"
       });
 
     autocomplete.addListener('place_changed', function() {
@@ -357,8 +328,6 @@ por colaborar con LIBERA.</p></div>
         window.alert("No details available for input: '" + place.name + "'");
         return;
       }
-
-      // If the place has a geometry, then present it on a map.
       if (place.geometry.viewport) {
         map.fitBounds(place.geometry.viewport);
       } else {
@@ -376,34 +345,55 @@ por colaborar con LIBERA.</p></div>
           (place.address_components[2] && place.address_components[2].short_name || '')
         ].join(' ');
       }
-      //infowindowContent.children['place-icon'].src = place.icon;
       infowindowContent.children['place-name'].textContent = place.name;
       infowindowContent.children['place-address'].textContent = address;
       infowindow.open(map, marker);
       document.getElementById('location').value = place.geometry.location;
     });
+
     google.maps.event.addListener(marker, 'drag', function (event) {
       infowindow.close();
     });
     google.maps.event.addListener(marker, 'dragend', function (event) {
       document.getElementById("location").value = this.getPosition().lat()+","+ this.getPosition().lng();
-        //'Latitude: ' + event.latLng.lat() + '<br>Longitude: ' + event.latLng.lng()
-    /*  var infowindow = new google.maps.InfoWindow({
-    });*/
+     var infowindow = new google.maps.InfoWindow({});
       var latlng = {lat: parseFloat(event.latLng.lat()), lng: parseFloat(event.latLng.lng())};
 
       var geocoder = new google.maps.Geocoder();
-      geocoder.geocode({ 'location': latlng,'region':'es'}, function(results, status) {
-        if (status == google.maps.GeocoderStatus.OK) {
-            //  return results[0].formatted_address
-            document.getElementById("pac-input").value = results[0].formatted_address;
-            infowindow.setContent(results[0].formatted_address);
 
-        } else {
-          console.log("Geocode was not successful for the following reason: " + status);
-        }
+      geocoder.geocode({ 'location': latlng,'region':'es'}, function(results, status) {
+          if (status == google.maps.GeocoderStatus.OK) {
+              document.getElementById("pac-input").value = results[0].formatted_address;
+              infowindow.setContent(results[0].formatted_address);
+
+          } else {
+            console.log("Geocode was not successful for the following reason: " + status);
+          }
+        });
+        infowindow.open(map,marker);
+
       });
-      infowindow.open(map,marker);
+  }
+
+  function setPoints(map) {
+    {% for loca in locations %}
+        var marker{{ loop.index }} = new google.maps.Marker({
+            map: map,
+            position: new google.maps.LatLng({{ loca.latitud }}, {{ loca.longitud }}),
+            title: '{{ loca.lugar }}'
+          });
+
+       marker{{ loop.index }}.addListener('click', function() {
+         $("#infomap").show();
+         $("#infomap .tit").html('{{ loca.lugar }}');
+         $("#infomap .desc").html('');
+         $("#infomap .horah").html('{{ loca.hora }}');
+         $('#lugarid').val({{ loca.id }});
+       });
+      // marker.setMap(map);
+     {% endfor %}
+
+
   }
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6w5d4eMIJxqEr0mM6-wBKKLz7DyEf54M&libraries=places&callback=initMap" async defer></script>
