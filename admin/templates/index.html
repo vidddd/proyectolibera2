@@ -2,11 +2,11 @@
    {% block content %}
     	<article id="titulo"><h1>ORGANIZADORES/</h1>{% if es == 1 %}<h2>PENDIENTES</h2>
       {% endif %}
-      {% if es == 2 %}<h2>APROBADOS</h2>
+      {% if es == 2 %}<h2>APROBADOS</h2><a href="zeta.php?es=2" class="descargar">DESCARGAR .XLS <img src="imagenes/icono_descarga.png"></a>
       {% endif %}
       {% if es == 3 %}<h2>DENEGADOS</h2>
       {% endif %}
-        <a href="zeta.php?es={{ es }}" class="descargar">DESCARGAR .XLS <img src="imagenes/icono_descarga.png"></a></article>
+        </article>
         <article id="listado">
         	<div class="leyenda">
             	<div class="id">Identificador</div>
@@ -74,9 +74,14 @@
                      <h4>Provincia:</h4>
                      <span class="provincia">{{ provincias[pa.provincia] }}</span>
                  </div>
+               
                  <div class="comentarios">
                      <h4>Lugar:</h4>
                      <span class="lugar">{{ pa.lugar }}</span>
+                 </div>
+               <div class="comentarios">
+                     <h4>Coordenadas</h4>
+                     <span class="lugar">{{ pa.coordenadas }}</span>
                  </div>
                  <div class="comentarios">
                      <h4>Comentarios:</h4>

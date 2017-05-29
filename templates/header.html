@@ -1,11 +1,11 @@
 <header>
 	<div class="centrador">
-    	<a href="index.php?home" target="_self"><img src="imagenes/libera_logo.jpg" class="logolibera"></a>
+    	<a href="index.php?home" target="_self"><img src="imagenes/libera_logo.svg" class="logolibera" type="image/svg+xml"></a>
         <nav>
         	<ul>
             	<li><a href="index.php?quees=1" target="_self">¿QUÉ ES LIBERA?</a></li>
                 <li onMouseOver="mostrarSubmenu();" onMouseOut="cerrarSubmenu();"><a href="index.php?unmetro=1" class="desplegable">1m<sup>2</sup> POR LA NATURALEZA</a></li>
-                <li class="destacado rojo">17 &bull; JUNIO<br><span class="hastag">#Libera1m2</span></li>
+                <li class="destacado rojo"><a href="index.php?unmetro=1">17 &bull; JUNIO<br><span class="hastag">#Libera1m2</span></a></li>
             </ul>
         </nav>
     </div>
@@ -15,13 +15,13 @@
 <div id="menumobile" class="oculto">
 	<nav>
         	<ul>
-            	<li><a href="index.php?quees=1" target="_self">¿QUÉ ES LIBERA?</a></li>
-                <li>
-                    <a target="_self" class="desplegable" onclick="versub();">1m<sup>2</sup> POR LA NATURALEZA</a><img src="../imagenes/down_arrow_grande.png" id="flecha_desplegable" />
-                </li>
-                <li id="sub1" class="submenumobile novisible"><a href="index.php?unmetro=1" target="_self" class="desplegable">¿Qué es 1m<sup>2</sup> por la Naturaleza?</a></li>
-                <li id="sub2" class="submenumobile novisible"><a href="index.php?participa=1" target="_self">Participa</a></li>
-                <li id="sub3" class="submenumobile novisible"><a href="index.php?difunde=1" target="_self">Difunde</a></li>
+            	<a href="index.php?quees=1" target="_self"><li>¿QUÉ ES LIBERA?</li></a>
+               	<a target="_self" class="desplegable" onclick="versub();"><li>
+                    1m<sup>2</sup> POR LA NATURALEZA<img src="../imagenes/down_arrow_grande.png" id="flecha_desplegable" />
+                </li></a>
+                <a href="index.php?unmetro=1" target="_self" class="desplegable"><li id="sub1" class="submenumobile novisible">¿Qué es 1m<sup>2</sup> por la Naturaleza?</li></a>
+                <a href="index.php?participa=1" target="_self"><li id="sub2" class="submenumobile novisible">Participa</li></a>
+                <a href="index.php?difunde=1" target="_self"><li id="sub3" class="submenumobile novisible">Difunde</li></a>
                 <li class="submenumobile comparte"><span>Comparte esta web:</span> <a href="#"><img src="../imagenes/share_fb.png" /></a><a href="#"><img src="../imagenes/share_tw.png" /></a></li>
             </ul>
             
@@ -30,7 +30,7 @@
 <div class="submenu ocultarsubmenu" onMouseOver="mostrarSubmenu();" onMouseOut="cerrarSubmenu();">
 	<div class="centrador">
         <ul>
-        	<li><a href="index.php?unmetro=1" target="_self" class="desplegable">¿Qué es 1m<sup>2</sup> por la Naturaleza?</a></li>
+        	<li><a href="index.php?unmetro=1#quees" target="_self" class="desplegable">¿Qué es 1m<sup>2</sup> por la Naturaleza?</a></li>
             <li><a href="index.php?participa=1" target="_self">Participa</a></li>
             <li><a href="index.php?difunde=1" target="_self">Difunde</a></li>
         </ul>

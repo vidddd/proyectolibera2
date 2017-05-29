@@ -4,10 +4,23 @@
     {{ parent() }}
     <title>Libera</title>
     <link type="text/css" rel="stylesheet" href="css/libera.css">
+	<script type="text/javascript" src="js/carrusel.js"></script>
 {% endblock %}
 
 {% block content %}
-<section id="video" class="separacionHeader">
-    	<iframe src="https://www.youtube.com/embed/iKFIiho56qE" frameborder="0" allowfullscreen></iframe>
+<section id="video" class="carruselHome">
+		<article>
+        	<div class="izq" onclick="moverCarrusel('izq');"><img src="../imagenes/carrusel_flecha_izq.png" /></div>
+            <div class="dch" onclick="moverCarrusel('dch');"><img src="../imagenes/carrusel_flecha_dch.png" /></div>
+        	<div id="carrusel" class="posicion1">
+            <div class="item">
+            	<a href="index.php?unmetro=1" target="_self"><img src="../imagenes/carrusel_1m2.jpg" class="imagenCarruselHome" /><img src="../imagenes/carrusel_1m2_mobile.jpg" class="imagenCarruselMobile" /></a>
+            </div>
+            <div class="item">
+				<iframe id="videoyoutube" src="https://www.youtube.com/embed/iKFIiho56qE?enablejsapi=1&version=3&playerapiid=ytplayer&rel=0&amp&;showinfo=0?vq=hd1080" frameborder="0" allowfullscreen></iframe>
+            </div>
+            </div>
+       	</article>
 </section>
+
 {% endblock %}

@@ -17,18 +17,22 @@
 		width:100%;
 		overflow:hidden;
 }
+.seleccion2{
+		display:none;	
+	}
 /* MEDIA QUERYS ESCRITORIO -------------------------------*/
 
 @media only screen and (min-width: 400px) {
 	/*----- Cuadricula -------*/
 	.cuadricula{
-		background-image:url(../imagenes/bg_test.jpg);
+		background-image:url(../imagenes/unmetro_home.jpg);
 		background-size:100% auto;	
 	}	
 	.cuadricula table{
 		padding:0;
 		margin:-5.5vw 0;
-		border:none 0px;	
+		border:none 0px;
+		background-color:rgba(0,0,0,0.25);
 	}
 	.cuadricula td{
 		height:10.99999999vw;
@@ -91,6 +95,12 @@
 		width:100%;
 		height:auto;	
 	}
+	.mapa #map{
+		width:100% !important;
+		border:none 0px;
+		height:350px !important;
+	}
+	
 	.mapa .dch{
 		width:40%;
 		height:auto;
@@ -141,7 +151,7 @@
 	}
 	
 	.participa{
-		background-image:url(../imagenes/unmetro_participa_cover.jpg);
+		background-image:url(../imagenes/bg_participa.jpg);
 		background-size:auto auto;
 		background-repeat:no-repeat;
 		background-position:center top;
@@ -173,14 +183,14 @@
 		padding:0 0 90px;
 		float:left;
 	}
-	.participa .opcion{
+	.participa .opcion, .difunde .opcion{
 		width:260px;
 		height:auto;
 		color:#6E6E6E;
 		float:left;
 		background-color:transparent !important;
 	}
-	.participa .cuadro{
+	.participa .cuadro, .difunde .cuadro{
 		width:230px;
 		height:230px;
 		border:15px solid #6E6E6E;
@@ -193,7 +203,7 @@
 		transition: 0.5s;
 		background-color:#fff;
 	}
-	.participa .cuadro .txt{
+	.participa .cuadro .txt, .difunde .cuadro .txt{
 		width:200px;
 		height:200px;
 		padding:15px;
@@ -207,7 +217,7 @@
 		-moz-transition: 0.5s;
 		transition: 0.5s;
 	}
-	.participa .verde{
+	.participa .verde, .difunde .rosa{
 		margin:0 150px;
 	}
 	.participa .amarillo:hover .cuadro, .participa .marcado1 .cuadro{
@@ -242,23 +252,58 @@
 		color:#00d7e5;
 		border-color:#00d7e5;
 	}
-	.participa .azul .txt{
+	
+	.difunde .naranja:hover .cuadro, .difunde .marcado3 .cuadro{
+		border-color:#ff8022;
+	}
+	.difunde .naranja:hover .txt, .difunde .marcado3 .txt{
+		color:#ff8022;
+	}
+	.difunde .naranja:hover .boton{
+		color:#ff8022;
+		border-color:#ff8022;
+	}
+	
+	.difunde .rosa:hover .cuadro, .difunde .marcado2 .cuadro{
+		border-color:#fa55a6;
+	}
+	.difunde .rosa:hover .txt, .difunde .marcado2 .txt{
+		color:#fa55a6;
+	}
+	.difunde .rosa:hover .boton{
+		color:#fa55a6;
+		border-color:#fa55a6;
+	}
+	
+	.difunde .azul:hover .cuadro, .difunde .marcado1 .cuadro{
+		border-color:#00d7e5;
+	}
+	.difunde .azul:hover .txt, .difunde .marcado1 .txt{
+		color:#00d7e5;
+	}
+	.difunde .azul:hover .boton{
+		color:#00d7e5;
+		border-color:#00d7e5;
+	}
+	
+	
+	.participa .azul .txt, .difunde .azul .txt{
 		text-align:left;
 		width:160px;
 		height:160px;
 		padding:35px;
 	}
-	.participa  .entradilla{
+	.participa  .entradilla, .difunde .entradilla{
 		padding:30px 0;
 		float:left;
 		width:100%;
 		height:130px;
 		text-align:left;
 	}
-	.participa  .entradilla p{
+	.participa  .entradilla p, .difunde  .entradilla p{
 		margin:0;
 	}
-	.participa .boton{
+	.participa .boton, .difunde .boton{
 		font-size:20px;
 		border:solid 3px #6E6E6E;
 		color:#6E6E6E;
@@ -305,31 +350,30 @@
 		color:#fff;
 		background-color:#00d7e5;
 	}
-	
 	.cerrado{
-		height:0px;
+		height:0px !important;
 	}
 	
 	#form_organiza.abierto{
-		min-height:1550px;
-		height:auto;
+		height:1650px;
+		max-height:2000px;
 			
 	}
 	
 	#form_unete.abierto{
-		min-height:1250px;
-		height:auto;
+		height:1250px;
+		max-height:2000px;
 	}
 	
 	
 	#portucuenta.abierto{
-		min-height:450px;
-		height:auto;
+		height:450px;
+		max-height:2000px;
 	}
 	
 	#portucuentaform.abierto{
-		min-height:550px;
-		height:auto;
+		height:550px;
+		max-height:2000px;
 	}
 	
 	.formulario .centrador{
@@ -410,24 +454,24 @@
 		background-color:rgba(255,255,255,0.25);
 	}
 	.mimapa{
+		margin:10px 0 25px;
 		width:480px;
 		height:360px;
 		background-color:rgba(0,0,0,0.1);
-		border-right:solid 1px #222221;
-		border-left:solid 1px #222221;
-		border-bottom:solid 1px #222221;
+		border:solid 1px #222221;
 	}
 	
 	
 	#form_unete .mimapa{
-		height:170px;	
+		height:250px;
+		margin:0 0 15px;
 	}
 	#infomap{
 		background-color: #fff;
 		border: 1px solid #f2314c;
 		float: left;
 		height: auto;
-		margin: -1px 0 40px;
+		margin: -16px 0 40px;
 		padding: 20px;
 		width: 440px;
 	}
@@ -444,6 +488,7 @@
 	#infomap .logo{
 		float: left;
 		margin: -40px 0 0;
+		position:relative;
 	}
 	.anchototal{
 		width:460px !important;
@@ -539,6 +584,168 @@
 		background-color:#fff !important;
 		color:#6e6e6e;
 	}
+	
+	.difunde .centrador{
+		margin:0 auto;
+		width:1080px;
+		height:auto;	
+	}
+	
+	.difunde article {
+		width:100%;
+	}
+	
+	.difunde .titular{
+		background-image: url("../imagenes/bg_difunde.jpg");
+		background-position: left bottom;
+		background-repeat: no-repeat;
+		background-size: auto 100%;
+		float: left;
+		padding: 155px 0 175px;
+	}
+	
+	.difunde .titular h1{
+		font-size:39px;
+		color:#fff;	
+		font-weight:900;
+		line-height:45px;
+	}
+	.difunde .titular .txt_verde{
+		color:#2ad566;
+	}
+	
+	.difunde .seleccion{
+		padding:110px 0;
+		float:left;
+	}
+	.difunde .explicacion {
+		padding:90px 0;
+		float:left;
+		padding:100px 0 120px;
+		background-color:#2ad566;
+	}
+	.difunde .explicacion h2{
+		color: #fff;
+	}
+	
+	.difunde .cuadro{
+		margin-bottom:40px;	
+	}
+	
+	.solapas{
+		background-size: 100% auto;
+		height: auto;
+		padding-bottom: 40px;
+		float: left;
+		width: 100%;
+	}
+	#banners .contenido, #redes .contenido{
+		width:100%;
+		height:auto;
+		float:left;	
+	}
+	
+	#banners .contenido p, #redes .contenido p{
+		margin: 0 0 35px;
+		padding: 0;
+		width: 100%;
+		float: left;
+	}
+	
+	#banners .contenido .sep, #redes .contenido .sep{
+		margin: 0 0 15px;
+	}
+	.solapa_azul {
+		background:url(../imagenes/linea_azul.png) top center no-repeat;
+		text-align:left;		
+	}
+	
+	.solapa_rosa {
+		background:url(../imagenes/linea_rosa.png) top center no-repeat;
+		text-align:center;		
+	}
+
+	
+	#redes .centrador, #banners .centrador{
+		margin:0 auto;
+		width:1080px;
+		height:auto;
+	}
+	
+	.difunde_btn {
+		background-color: transparent;
+		border: 3px solid #6e6e6e;
+		color: #6e6e6e;
+		cursor: pointer;
+		float: left;
+		font-size: 20px;
+		font-weight: 900;
+		padding: 13px 0;
+		text-align: center;
+		-webkit-transition: 0.5s;
+		-moz-transition: 0.5s;
+		transition: 0.5s;
+		width: 253px;
+	}
+	
+	.difunde_btn:hover{
+		background-color: #6e6e6e;
+		color:#fff;
+	}
+	#manifiesto{
+		color:#fff;
+		background-color:#ff8022;
+	}
+	
+	#manifiesto article{
+		background-position:right top;
+		background-image:url(../imagenes/flecha_blanca_grande.png);
+		background-repeat:no-repeat;	
+		padding:130px 0 130px;
+		text-align:center;
+		color:#fff;
+	}
+	#manifiesto h1{
+		margin:0 auto 50px;
+		color:#fff;	
+	}
+	#manifiesto .boton{
+		font-size:18px;
+		border:solid 2px #fff;
+		color:#fff;
+		padding:10px 20px;
+		background-color:transparent;
+		font-weight:900;
+	}
+	#manifiesto .boton:hover{
+		color:#ff8022;
+		background-color:#fff;
+	
+	}
+	#redes.abierto{
+		height:auto;
+		min-height:500px;
+			
+	}
+	
+	#banners.abierto{
+		height:auto;
+		min-height:500px;
+	}
+	
+	
+	#manifiesto.abierto{
+		height:auto;
+		min-height:500px;
+	}
+	
+	.difundedesplegable{
+		overflow:hidden;
+		-webkit-transition: 1s ease-in-out;
+		-moz-transition: 1s ease-in-out;
+		transition: 1s ease-in-out;
+	}
+	
 }
 
 /* DIFERENTES MEDIDAS DESKTOP -------------------------*/
@@ -546,6 +753,9 @@
 @media only screen and (min-width: 1280px) {
 	.participa{
 		background-repeat:repeat-x;
+	}
+	.seleccion2{
+		display:none;	
 	}
 }
 
@@ -565,8 +775,15 @@
 		border:none 0px;
 		height:20vw;	
 	}
+	.mapa #map{
+		width:100% !important;
+		border:none 0px;
+		height:32vw !important;	
+	}
 	
-
+	.seleccion2{
+		display:none;	
+	}
 }
 
 @media only screen and (max-width: 1079px) and (min-width: 800px) {
@@ -585,6 +802,13 @@
 		border:none 0px;
 		height:20vw;	
 	}
+	
+	.mapa #map{
+		width:100% !important;
+		border:none 0px;
+		height:32vw !important;	
+	}
+	
 	.mapa{
 		padding:50px 5%;
 		width:90%;	
@@ -596,6 +820,9 @@
 	.participa .centrador{
 		width:90%;
 		padding:0 5%;
+	}
+	.seleccion2{
+		display:none;	
 	}
 	.participa .titular h1{
 		font-size:39px;
@@ -720,6 +947,12 @@
 		border:none 0px;
 		height:49vw;	
 	}
+	
+	.mapa #map{
+		width:100% !important;
+		border:none 0px;
+		height:49vw !important;	
+	}
 	.mapa{
 		padding:50px 0;
 	}
@@ -737,6 +970,11 @@
 		width:90%;
 		margin:30px auto;	
 	}
+	
+	.participa .seleccion{
+		display:none;	
+	}
+	
 	.participa .centrador{
 		width:90%;
 		padding:0 5%;	
@@ -860,14 +1098,19 @@
 	#portucuenta article{
 		background-size:30% auto;
 	}
-	
+	.cuadricula{
+		margin-bottom:50px;	
+	}
+	#portucuenta br{
+		display:none;	
+	}
 }
 
 
 @media only screen and (max-width: 700px) and (orientation:portrait) {
 	
 	.cuadricula2{
-		background-image:url(../imagenes/bg_test.jpg) !important;
+		background-image:url(../imagenes/unmetro_home_mobile.jpg) !important;
 		background-size:100% 100% !important;
 		background-repeat:no-repeat !important;
 		background-position:center top !important;
@@ -884,7 +1127,8 @@
 	.cuadricula2 table{
 		padding:0 !important;
 		margin:0 !important;
-		border:none 0px !important;	
+		border:none 0px !important;
+		background-color:rgba(0,0,0,0.25);
 	}
 	.cuadricula2 td{
 		height:33.333333333vw !important;
@@ -1007,6 +1251,9 @@
 		height:auto;
 	}
 	
+	#portucuenta br{
+		display:none;	
+	}
 	
 	#portucuenta.abierto{
 		min-height:450px;
@@ -1054,7 +1301,7 @@
 	}	
 	
 	#form_unete .mimapa{
-		height:25vw;	
+		height:45vw;	
 	}
 	#infomap{
 		padding: 20px 5%;
@@ -1075,11 +1322,175 @@
 	#portucuenta article{
 		background-size:30% auto;
 	}
+	/*--------- nuevo  ----------------*/
+	.seleccion2{
+		display:block !important;	
+	}
+	.seleccion2 .opcion{
+		    background-color: transparent !important;
+			color: #6e6e6e;
+			float: left;
+			height: auto;
+			padding: 5vw;
+			width: 90vw;
+	}
+	.seleccion2 .cuadro{
+		background-color: #fff;
+		border: 2vw solid #6e6e6e;
+		color: #6e6e6e;
+		cursor: pointer;
+		display: table;
+		float: left;
+		height: 34vw;
+		width: 34vw;
+	}
+	.seleccion2 .cuadro .txt{
+		width: 34vw;
+		height: 32vw;
+		padding: 1vw;
+		display: table-cell;
+		text-align: center;
+		vertical-align: middle;
+		font-size: 24px;
+		font-weight: 800;
+		line-height: 33px;
+		-webkit-transition: 0.5s;
+		-moz-transition: 0.5s;
+		transition: 0.5s;
+	}
+
+	.seleccion2 .amarillo:hover .cuadro, .participa .marcado1 .cuadro{
+		border-color:#fbdb0d;
+	}
+	.seleccion2 .amarillo:hover .txt, .participa .marcado1 .txt{
+		color:#fbdb0d;
+	}
+	.seleccion2 .amarillo:hover .boton{
+		color:#fbdb0d;
+		border-color:#fbdb0d;
+	}
 	
+	.seleccion2 .verde:hover .cuadro, .participa .marcado2 .cuadro{
+		border-color:#2ad566;
+	}
+	.seleccion2 .verde:hover .txt, .participa .marcado2 .txt{
+		color:#2ad566;
+	}
+	.seleccion2 .verde:hover .boton{
+		color:#2ad566;
+		border-color:#2ad566;
+	}
+	
+	.seleccion2 .azul:hover .cuadro, .participa .marcado3 .cuadro{
+		border-color:#00d7e5;
+	}
+	.seleccion2 .azul:hover .txt, .participa .marcado3 .txt{
+		color:#00d7e5;
+	}
+	.seleccion2 .azul:hover .boton{
+		color:#00d7e5;
+		border-color:#00d7e5;
+	}
+	.seleccion2 .azul .txt{
+		text-align: left;
+		height: 34vw;
+		padding: 0 6vw;
+	}
+	.seleccion2  .entradilla{
+		float: left;
+		height: 28vw;
+		padding: 0 0 0 4vw;
+		text-align: left;
+		width: 48vw;
+	}
+	.seleccion2  .entradilla p{
+		font-size: 20px;
+		line-height: 25px;
+		margin: 0;
+	}
+	.seleccion2 .boton{
+		font-size: 17px;
+		border: solid 0.5vw #6E6E6E;
+		color: #6E6E6E;
+		padding: 3vw 0;
+		background-color: transparent;
+		font-weight: 900;
+		width: 31vw;
+		float: left;
+		text-align: center;
+		-webkit-transition: 0.5s;
+		-moz-transition: 0.5s;
+		transition: 0.5s;
+		cursor: pointer;
+		margin: 0 0 0 4vw;
+	}
+	#form_organiza .arriba, #form_unete .arriba, #portucuenta article{
+		background-position:center top !important;
+	}
+	.condiciones p {
+		margin: -4px 0 19px !important;
+		font-size: 17px !important;
+		line-height: 26px !important;
+	}
+}
+
+.condiciones .error{
+	display: block;
+    float: left;
+    margin: -5px 0 5px 2% !important;
+    width: 80%;	
 }
 
 
+#error{
+	width:100%;
+	height:100vh;
+	position:fixed;
+	top:0;
+	left:0;
+	background-color:rgba(0,0,0,0.5);
+	z-index:5000000000;
+}
 
+#error .ventana{
+	width:480px;
+	border:solid 3px #666;
+	background-color:#fff;
+	padding:20px;
+	height:auto;
+	min-height:200px;
+	position:fixed;
+	top:50%;
+	left:50%;
+	margin:-120px 0 0 -250px;
+	z-index:5500000000;	
+}
+#error #cierre{
+	width:100%;
+	height:auto;
+	padding:0 0 10px 0;
+	float:left;
+	text-align:right;
+	margin:0;
+}
+
+#error .alerta{
+	width:90%;
+	padding:0 5%;
+	margin:0;
+	float:left;
+	text-align:center;
+	font-size:22px;	
+	line-height:28px;
+}
+
+#error .alerta p{
+	margin:0 auto 20px;	
+}
+
+#error #closee{
+	cursor:pointer;	
+}
 
 
 

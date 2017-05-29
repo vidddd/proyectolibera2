@@ -27,7 +27,6 @@ function vermenu(){
 			controlMenu=0;
 			menu.addClass('oculto');
 			menu.removeClass('visible');
-
 		}
 
 }

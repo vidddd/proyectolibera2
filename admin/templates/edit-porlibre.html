@@ -1,0 +1,25 @@
+{% extends "base.html" %} {% block content %}
+<form name="editf" id="editf" method="post" action="index.php?edit=1&guarda=3">
+<article id="titulo">
+  <h1>Editar Por libre</h1>
+  <div style="clear:both"></div>
+  <div class="forme">
+    <div class="column">
+        <div>
+          <h4>Persona de contacto:</h4>
+          <span class="persona"><input type="text" name="persona" value="{{ participacion.persona }}" /></span>
+       </div>
+       <div>
+          <h4>Email de contacto:</h4>
+          <span class="email"><input type="text" name="email" value="{{ participacion.email }}" /></span>
+       </div>
+    </div>
+  </div>
+ <div class="forme">
+     <input type="submit" value="Guardar" />
+ </div>
+        <input type="hidden" id="par" name="par" value="5" />
+        <input type="hidden" name="id" value="{{ participacion.id }}"/>
+  <article>
+</form>
+    {% endblock %}

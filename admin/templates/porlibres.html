@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+   {% block content %}
+   <article id="titulo"><h1>POR LIBRE</h1>
+     <a href="zeta.php?es={{ es }}" class="descargar">DESCARGAR .XLS <img src="imagenes/icono_descarga.png"></a></article>
+     <article id="listado">
+       <div class="leyenda">
+           <div class="id">Identificador</div>
+             <div class="nombre">Nombre</div>
+             <div class="personas">Email</div>
+        </div>
+        {% for pa in parti %}
+        <div class="item">
+          <div class="id"><a href="index.php?edit=3&id={{ pa.id }}&par={{ es }}">#0{{ pa.id }}</div>
+          <div class="nombre">{{ pa.persona }}</div>
+          <div class="personas">{{ pa.email }}</div>
+       </div>
+      {% endfor %}
+      </article>
+   {% endblock %}

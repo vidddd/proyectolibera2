@@ -4,9 +4,9 @@ require_once  '../vendor/autoload.php';
 require_once  '../inc/config.php';
 require_once  '../inc/db.class.php';
 $db = new Database();
-$parti = $db->getParticipaciones($_GET['es']);
-
-
+$es = $_GET['es'];
+if($es == '2') {
+$parti = $db->getParticipaciones(2);
 
 	header( "Content-Type: application/vnd.ms-excel" );
 	header( "Content-disposition: attachment; filename=Organizadores.xls" );
@@ -18,4 +18,25 @@ $parti = $db->getParticipaciones($_GET['es']);
   foreach($parti as $pp) {
 	   echo utf8_decode($pp["persona"]) . "\t" . $pp["email"]. "\t" . $pp["telefono"]. "\t" . utf8_decode($pp["direccion"]). "\t" . utf8_decode($pp["organiza"]). "\t" .$pp["masinfo"]. "\t" . $provincias[$pp["provincia"]] . "\t" . utf8_decode($pp["lugar"]). "\t". $pp["coordenadas"]. "\t" .     $pp["hora"]. "\t" . $pp["numerop"]. "\t" . preg_replace("/\r\n+|\r+|\n+|\t+/i", " ",utf8_decode($pp["comentarios"])). "\n";
   }
+} else if ($es == '3') {
+    $personas = $db->getPersonas();
+    
+	header( "Content-Type: application/vnd.ms-excel" ); 
+	header( "Content-disposition: attachment; filename=Participantes.xls" );
+
+  echo 'Persona' . "\t" . 'Email' . "\t" . 'Telefono' . "\t" . 'Lugar' . "\t" . 'Personas' . "\t" . 'comentarios' . "\n";
+  foreach($personas as $pp) {
+	   echo utf8_decode($pp["persona"]) . "\t" . $pp["email"]. "\t" . $pp["telefono"]. "\t" . utf8_decode($pp["lugar"]). "\t"  . $pp["personas"]. "\t" . preg_replace("/\r\n+|\r+|\n+|\t+/i", " ",utf8_decode($pp["comentarios"])). "\n";
+    }
+  } else if ($es == '5') {
+    $por = $db->getPorlibres();
+    
+	header( "Content-Type: application/vnd.ms-excel" ); 
+	header( "Content-disposition: attachment; filename=Porlibre.xls" );
+
+  echo 'Persona' . "\t" . 'Email' . "\n";
+  foreach($por as $pp) {
+	   echo utf8_decode($pp["persona"]) . "\t" . $pp["email"]. "\n";
+    }
+}
 ?>

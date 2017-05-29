@@ -52,7 +52,7 @@ class Database{
          }
          return $ok;
      }
-
+             
      public function updateParticipacion($id, $persona, $email, $telefono, $direccion, $organiza, $masinfo, $provincia, $lugar, $location, $hora, $numerop, $comentarios){
         $ok = false;
 
@@ -99,6 +99,26 @@ class Database{
           } else {
               echo 'insert failed: ' . $this->db->getLastError(); die;
           }
+      }  
+      
+       public function updatePersona($id, $persona, $email, $telefono, $personas, $comentarios){
+        $ok = false;
+        $data = Array ("persona" => $persona,
+                 "email" => $email,
+                 "telefono" => $telefono,
+                 "personas" => $personas,
+                 "comentarios" => $comentarios
+                 );
+         
+          $this->db->where('id', $id);
+          $id = $this->db->update('personas', $data);
+          if($id){
+               $ok = true;
+
+          } else {
+              echo 'update failed: ' . $this->db->getLastError(); die;
+          }
+          return $ok;
       }
     /** Get Active locations */
     public function getLocations(){
@@ -141,11 +161,20 @@ class Database{
             return false;
         }
  }
+  public function existeEmailPorlibre($email) {
+        $ents = $this->db->rawQueryOne('select * from porlibre where email=?', Array($email));
+        if(!empty($ents)){
+            return true;
+        } else {
+            return false;
+        }
+ }
  /** Get Active locations */
  public function getPersona($id){
-     $this->db->where("id", $id);
-     $personas = $this->db->get('personas');
-
+     $this->db->join("participaciones pa", "p.lugarid=pa.id", "LEFT");
+     $this->db->where("p.id", $id);
+     $personas = $this->db->get('personas p', null, 'p.*, pa.lugar');
+     
      return $personas;
   }
   public function getPersonas(){
@@ -156,6 +185,7 @@ class Database{
 
       return $personas;
    }
+   
    public function getPersonasCount(){
              $ciudades = $this->db->get('personas');
              return $this->db->count;
@@ -172,4 +202,50 @@ class Database{
        else
          echo 'update failed: ' . $this->db->getLastError();*/
    }
+  public function getPorlibre($id){
+             $this->db->where("id", $id);
+             $ciudades = $this->db->get('porlibre');
+
+             return $ciudades;
+          }
+          
+    public function getPorlibres(){
+      $personas = $this->db->get('porlibre');
+
+      return $personas;
+   }
+    public function getPorlibreCount(){
+          $ciudades = $this->db->get('porlibre');
+             return $this->db->count;
+      }
+    public function insertaPorlibre($persona, $email){
+        $ok = false;
+
+        $data = Array ("persona" => $persona,
+                 "email" => $email,
+                 );
+
+          $id = $this->db->insert ('porlibre', $data);
+          if($id){
+               return $id;
+          } else {
+              echo 'insert failed: ' . $this->db->getLastError(); die;
+          }
+      }
+     public function updatePorlibre($id, $persona, $email){
+        $ok = false;
+        $data = Array ("persona" => $persona,
+                 "email" => $email
+                 );
+         
+          $this->db->where('id', $id);
+          $id = $this->db->update('porlibre', $data);
+          if($id){
+               $ok = true;
+
+          } else {
+              echo 'update failed: ' . $this->db->getLastError(); die;
+          }
+          return $ok;
+      }
 }

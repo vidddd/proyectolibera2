@@ -14,31 +14,69 @@ if($_GET['par']) $es = $_GET['par']; else $es = 1;
 $parti = null;
 
 if($_POST){
-  $persona = $_POST['persona'];
-  $email = $_POST['email'];
-  $telefono = $_POST['telefono'];
-  $direccion = $_POST['direccion'];
-  $organiza = $_POST['organiza'];
-  $masinfo = $_POST['masinfo'];
-  $provincia = $_POST['provincia'];
-  $lugar = $_POST['lugar'];
-  $location = $_POST['coordenadas'];
-  $hora = $_POST['hora'];
-  $numerop = $_POST['numerop'];
-  $comentarios = $_POST['comentarios'];
-  $id = $_POST['id'];
-  $es = $_POST['par'];
-  $db->updateParticipacion($id, $persona, $email, $telefono, $direccion, $organiza, $masinfo, $provincia, $lugar, $location, $hora, $numerop, $comentarios);
-  header("Location: index.php?par=".$es);
-} else if($_GET['edit'] == 1) {
+    if($_GET['guarda'] == '1') {
+        $persona = $_POST['persona'];
+        $email = $_POST['email'];
+        $telefono = $_POST['telefono'];
+        $direccion = $_POST['direccion'];
+        $organiza = $_POST['organiza'];
+        $masinfo = $_POST['masinfo'];
+        $provincia = $_POST['provincia'];
+        $lugar = $_POST['lugar'];
+        $location = $_POST['coordenadas'];
+        $hora = $_POST['hora'];
+        $numerop = $_POST['numerop'];
+        $comentarios = $_POST['comentarios'];
+        $id = $_POST['id'];
+        $es = $_POST['par'];
+        $db->updateParticipacion($id, $persona, $email, $telefono, $direccion, $organiza, $masinfo, $provincia, $lugar, $location, $hora, $numerop, $comentarios);
+        header("Location: index.php?par=".$es);
+    } else if ($_GET['guarda'] == '2') {
+        
+        $persona = $_POST['persona'];
+        $email = $_POST['email'];
+        $telefono = $_POST['telefono'];
+        $personas = $_POST['personas'];
+        $comentarios = $_POST['comentarios'];
+        $id = $_POST['id'];
+        $es = $_POST['par'];
+        $db->updatePersona($id, $persona, $email, $telefono, $personas, $comentarios);
+                header("Location: index.php?par=".$es);
+    }
+    else if ($_GET['guarda'] == '3') {
+        
+        $persona = $_POST['persona'];
+        $email = $_POST['email'];
+        $id = $_POST['id'];
+        $es = $_POST['par'];
+        $db->updatePorlibre($id, $persona, $email);
+                header("Location: index.php?par=".$es);
+    }
+ 
+} // EDICION DE ORGANIZADORES
+else if($_GET['edit'] == 1) {
 
   $id = $_GET['id'];
   $paticipacion = $db->getParticipacion($id);
   echo $twig->render('edit.html', array( "provincias" => $provincias, "participacion" => $paticipacion[0], "es" => $es));
 
-} else {
+ } // EDICION DE PARTICIPANTES
+else if($_GET['edit'] == 2) {
+    
+  $id = $_GET['id'];
+  $paticipacion = $db->getPersona($id);
+  echo $twig->render('edit-personas.html', array( "provincias" => $provincias, "participacion" => $paticipacion[0], "es" => $es));
 
-      if($_GET['change'] == 2 && $_GET['id']) {
+} // EDICION POR LIBRE
+else if($_GET['edit'] == 3) {
+    
+  $id = $_GET['id'];
+  $paticipacion = $db->getPorlibre($id);
+  echo $twig->render('edit-porlibre.html', array( "provincias" => $provincias, "participacion" => $paticipacion[0], "es" => $es));
+
+} else {
+    
+     if($_GET['change'] == 2 && $_GET['id']) {
           $db->updateEstado($_GET['id'],2);
       }
       if($_GET['change'] == 3 && $_GET['id']) {
@@ -48,7 +86,8 @@ if($_POST){
     $total1 = $db->getParticipacionesCount(1);
     $total2 = $db->getParticipacionesCount(2);
     $total3 = $db->getParticipacionesCount(3);
-    $totalp = $db->getPersonas();
+    $totalp = $db->getPersonasCount();
+    $totalpl = $db->getPorlibreCount();
     $parti = array(); $paticipantes = array();
     if($_GET['par'] == 2) {
       $parti = $db->getParticipaciones(2); $es = 2;
@@ -56,13 +95,17 @@ if($_POST){
       $parti = $db->getParticipaciones(3); $es = 3;
     } else if($_GET['par'] == 4) {
       $parti = $db->getPersonas(); $es = 4;
+    } else if($_GET['par'] == 5) {
+      $parti = $db->getPorlibres(); $es = 5;
     } else {
-      $participantes = $db->getParticipaciones(1);
+      $parti = $db->getParticipaciones(1);
     }
-
-    if($_GET['par'] == 4) {
-    echo $twig->render('personas.html', array( "URLHOME" => URL_HOME, "total1" => $total1, "total2" => $total2, "total3" => $total3, "totalp" => $totalp, "es" => $es, "parti" => $parti));
+    
+    if($_GET['par'] == 5) {
+    echo $twig->render('porlibres.html', array( "URLHOME" => URL_HOME, "total1" => $total1, "total2" => $total2, "total3" => $total3, "totalp" => $totalp, "totalpl" => $totalpl, "es" => $es, "parti" => $parti));
+    } else if($_GET['par'] == 4) {
+    echo $twig->render('personas.html', array( "URLHOME" => URL_HOME, "total1" => $total1, "total2" => $total2, "total3" => $total3, "totalp" => $totalp, "totalpl" => $totalpl, "es" => $es, "parti" => $parti));
     } else {
-    echo $twig->render('index.html', array( "URLHOME" => URL_HOME, "total1" => $total1, "total2" => $total2, "total3" => $total3, "totalp" => $totalp, "provincias" => $provincias, "es" => $es, "parti" => $parti));
+    echo $twig->render('index.html', array( "URLHOME" => URL_HOME, "total1" => $total1, "total2" => $total2, "total3" => $total3, "totalp" => $totalp, "totalpl" => $totalpl, "provincias" => $provincias, "es" => $es, "parti" => $parti));
   }
 }

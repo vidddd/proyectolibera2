@@ -1,7 +1,7 @@
 {% extends "base.html" %}
    {% block content %}
    <article id="titulo"><h1>PARTICIPANTES</h1>
-     <a href="zeta.php?es={{ es }}" class="descargar">DESCARGAR .XLS <img src="imagenes/icono_descarga.png"></a></article>
+     <a href="zeta.php?es=3" class="descargar">DESCARGAR .XLS <img src="imagenes/icono_descarga.png"></a></article>
      <article id="listado">
        <div class="leyenda">
            <div class="id">Identificador</div>
@@ -21,8 +21,6 @@
           <div class="provincia">{{ pa.lugar }}</div>
           <div class="localizacion">{{ pa.personas }}</div>
           <div class="localizacion">{{ pa.comentarios }}</div>
-          <div class="mapa"><a href="https://www.google.es/maps/place/{{ pa.lugar|url_encode }}" target="_blank"><span class="mensaje">Ver en mapa</span> <img src="imagenes/icono_map.png"></a></div>
-
        </div>
       {% endfor %}
       </article>

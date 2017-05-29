@@ -42,6 +42,7 @@ body{
 }
 
 
+
 a{
 	text-decoration:none;
 	color:#1d1d1b;
@@ -356,6 +357,8 @@ input.error, textarea.error, select.error{
 	footer .partners .sep{
 		margin-right:120px;	
 	}
+	
+	
 }
 
 
@@ -752,10 +755,11 @@ input.error, textarea.error, select.error{
 		font-size: 20px !important;
 		font-weight: 500;
 		list-style: outside none none;
+		overflow: hidden;
 		-webkit-transition: 0.5s ease-in-out;
 		-moz-transition: 0.5s ease-in-out;
 		transition: 0.5s ease-in-out;
-		overflow:hidden;	
+	
 	}
 	
 	.novisible{
@@ -794,19 +798,28 @@ input.error, textarea.error, select.error{
 		transition: 0.5s;	
 	}
 	.comparte{
+		color: #666 !important;
+		font-size: 28px !important;
+		font-weight: 500;
 		height: 50px !important;
-		padding: 25px 0 !important;	
+		overflow: hidden;
+		padding: 40px 15% !important;
+		width: 70% !important;
+		border-bottom: 1px dashed #cecece;
 	}
 	.comparte span{
-		margin:-10px 0 0 0;	
+		 float: left;
+    	padding: 16px 0 0 19px;
 	}
 	.comparte a{
-		float:right;	
+		float: left !important;
+		height: 50px;
+		margin: 0 0 0 10px;	
 	}
 	.comparte img{
 		height:100%;
 		width:auto;
-		margin:0 5px !important;	
+		margin:0 !important;	
 	}
 }
 

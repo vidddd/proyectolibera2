@@ -66,13 +66,32 @@ class Mails extends PHPMailer {
     public function envioUnete($id){
       $this->isHTML(true);
       $persona = $this->db->getPersona($id);
+
       $this->Subject = 'Formulario de Unete';
       $this->Body    = 'Hola !! Gracias por uniter a un grupo de limpieza <br>
                         Persona: '. $persona[0]['persona'] .'<br>
                         Email: '. $persona[0]['email'] .' <br>
-                        Lugar: '. $persona[0]['lugarid'] . '<br>
+                        Lugar: '. $persona[0]['lugar'] . '<br>
                         personas: '. $persona[0]['personas'] . '<br>
                         Comentarios: '. $persona[0]['comentarios'] . '<br>
+                        ';
+      $this->AltBody = 'This is the body in plain text for non-HTML mail clients';
+          if(!$this->send()) {
+              echo 'Message could not be sent.';
+              echo 'Mailer Error: ' . $this->ErrorInfo;
+          } else {
+              echo 'Message has been sent';
+          }
+    }
+    
+    public function envioPorlibre($id){
+      $this->isHTML(true);
+      $persona = $this->db->getPorlibre($id);
+     // print_r($persona); die;
+      $this->Subject = 'Formulario de Por tu cuenta';
+      $this->Body    = 'Hola !!  <br>
+                        Persona: '. $persona[0]['persona'] .'<br>
+                        Email: '. $persona[0]['email'] .' <br>
                         ';
       $this->AltBody = 'This is the body in plain text for non-HTML mail clients';
           if(!$this->send()) {
