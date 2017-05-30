@@ -1,280 +1,133 @@
 {% extends "base.html" %}
-
-
-
 {% block head %}
-
     {{ parent() }}
-
     <title>Libera | Un metro cuadrado por la naturaleza</title>
-
     <link rel="stylesheet" type="text/css" href="css/unmetrocuadrado.css">
-
     <script src="js/minified/plugins/CSSPlugin.min.js"></script>
-
     <script src="js/minified/easing/EasePack.min.js"></script>
-
     <script src="js/minified/TweenLite.min.js"></script>
-
     <script src="js/unmetro.js"></script>
-
 {% endblock %}
-
-
-
-
-
-
-
 {% block content %}
-
 <section class="cuadricula separacionHeader" id="tabla">
-
 	<article>
-
     	<table width="100%" cellpadding="0" cellspacing="0" border="0" >
-
         	<tr>
-
             	<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-
             </tr>
-
             <tr>
-
             	<td></td><td><img src="imagenes/box_verde.jpg" id="boxverde"></td><td></td><td><img src="imagenes/box_transparente.png" id="boxtransparente"></td><td></td><td></td><td></td><td></td><td></td>
-
             </tr>
-
             <tr>
-
             	<td></td>
-
                 <td><img src="imagenes/box_azul.jpg" id="boxazul"></td>
-
                 <td></td>
-
                 <td></td>
-
                 <td><img src="imagenes/1m2_logo.png" id="1m2logo"></td>
-
                 <td></td>
-
                 <td><img src="imagenes/box_amarillo.jpg" id="boxamarillo"></td>
-
                 <td></td>
-
                 <td></td>
-
             </tr>
-
             <tr>
-
             	<td></td><td></td><td></td><td></td><td></td><td><a href="index.php?participa=1" target="_self"><img src="imagenes/unete.png" id="unete"></a></td><td></td><td></td><td></td>
-
             </tr>
-
             <tr>
-
             	<td></td><td></td><td></td><td></td><td><img src="imagenes/scrolldown-1.gif" class="mousedown"></td><td></td><td></td><td></td><td></td>
-
             </tr>
-
         </table>
-
         </article>
-
 </section>
-
 <section class="cuadricula2 separacionHeader" id="tablamobile" style="display:none">
-
 	<article>
-
         <table width="100%" cellpadding="0" cellspacing="0" border="0">
-
         	<tr>
-
             	<td></td>
-
                 <td></td>
-
                 <td></td>
-
             </tr>
-
             <tr>
-
             	<td><img src="imagenes/box_transparente.png" id="boxtransparente2"></td>
-
                 <td></td>
-
                 <td><img src="imagenes/box_verde.jpg" id="boxverde2"><img src="imagenes/box_amarillo.jpg" id="boxamarillo2"></td>
-
             </tr>
-
             <tr>
-
             	<td></td>
-
                 <td><img src="imagenes/1m2_logo.png" id="1m2logo2"></td>
-
                 <td></td>
-
             </tr>
-
             <tr>
-
             	<td><img src="imagenes/box_azul.jpg" id="boxazul2"></td>
-
                 <td></td>
-
                 <td><a href="index.php?participa=1" target="_self"><img src="imagenes/unete.png" id="unete2"></a></td>
-
             </tr>
-
         </table>
-
 	</article>
-
 </section>
-
 <section class="quees" id="quees">
-
 	<article>
-
-    	<div id="dchmobile" class="dch" style="display:none"><iframe  src="https://www.youtube.com/embed/alJC6eHPgO4?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div>
-
+    	<div id="dchmobile" class="dch" style="display:none"><img src="../imagenes/preview_videolibera.jpg" class="previewvideolibera2" onClick="playvideo2();" /><iframe id="videolibera2" src="https://www.youtube.com/embed/lcZ6MlbRV_s?enablejsapi=1&version=3&playerapiid=ytplayer2&rel=0&amp;showinfo=0?vq=hd1080" frameborder="0" allowfullscreen style="display:none"></iframe></div>
     	<div class="izq">
-
-        	<h1>¿QUÉ ES 1M<sup>2</sup> POR LA NATURALEZA?</h1>
-
+        	<h1>¿QUÉ ES 1m<sup>2</sup> POR LA NATURALEZA?</h1>
             <p>1m<sup>2</sup> por la Naturaleza es el primer encuentro ciudadano nacional que promueve LIBERA. Un día, solo un día, para limpiar de basura los espacios naturales de nuestro país. El 17 de junio saldremos todos al campo, al monte, a la playa, a nuestro bosque o río más cercano o a cualquier zona verde que queramos para conservar estos espacios y liberarlos de la basura que un día se tiró y que sigue ahí, abandonada. Estos residuos no solo afean el paisaje sino que generan un impacto negativo en la naturaleza.</p>
-
             <p>El 17 de junio recogeremos basura. Pero, sobre todo, queremos conciencia. Porque la mejor basura es al que no existe. No podemos seguir ensuciando la naturaleza.</p>
-
             <h2>¿Por qué 1m<sup>2</sup> por la Naturaleza?</h2>
-
             <p>Si todos los españoles saliéramos el día 17 de junio a limpiar 1m<sup>2</sup> de nuestros espacios naturales más cercanos, conseguiríamos liberar de basura más de lo que miden algunos de los parques nacionales del país. Con un pequeño gesto podemos hacer entre todos algo muy grande por la naturaleza, por nosotros.</p>
-
         </div>
-
         <div id="dchdesktop" class="dch">
-
-        	<iframe  src="https://www.youtube.com/embed/alJC6eHPgO4?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
-
+        	<img src="../imagenes/preview_videolibera.jpg" class="previewvideolibera" onClick="playvideo();" />
+        	<iframe id="videolibera" src="https://www.youtube.com/embed/lcZ6MlbRV_s?enablejsapi=1&version=3&playerapiid=ytplayer&rel=0&amp;showinfo=0?vq=hd1080" frameborder="0" allowfullscreen style="display:none"></iframe>
         </div>
-
     </article>
-
 </section>
-
 <section class="mapa">
-
 	<article>
-
     	<div class="izq">
-
             <div id="map" style="width:561px;height:332px"></div>
-
         </div>
-
         <div class="dch">
-
         	<p>1m<sup>2</sup> por la Naturaleza no es solo un día para salir con nuestra familia y amigos a colaborar y ayudar a conseguir una naturaleza sin basura. También es una oportunidad para concienciar, reeducar y mostrar al mundo que es necesario hacer las cosas de otra manera. Que tenemos que empezar a querer a la naturaleza y a cuidarla.</p>
-
             <p>Participa en el evento como organizador, uniéndote a un grupo de limpieza ya creado o por tu cuenta.</p>
-
             <p class="separacion"><a href="index.php?participa=1" target="_self" class="boton">PARTICIPA</a></p>
-
-
-
         </div>
-
     </article>
-
 </section>
-
 <section class="otras">
-
 	<article>
-
     	<h1>OTRAS FORMAS DE COLABORAR</h2>
-
         <p>Además de participar el día 17 de junio saliendo a limpiar, puedes colaborar con nosotros difundiendo el evento en tus webs, blogs o redes sociales.</p>
-
         <p><a href="index.php?difunde=1" target="_self" class="boton">DIFUNDE</a></p>
-
     </article>
-
 </section>
-
 <script>
-
   function initMap() {
-
     var map = new google.maps.Map(document.getElementById('map'), {
-
       center: {lat: 39.3781, lng: -3.6795366},
-
                   scrollwheel: false,
-
                   disableDefaultUI: true,
-
       zoom: 5
-
     });
-
-
-
     setPoints(map);
-
   }
-
-
-
   function setPoints(map) {
-     
     {% for loca in locations %}
         var num = Math.floor((Math.random() * 6) + 1);
         var marker{{ loop.index }} = new google.maps.Marker({
-
             map: map,
-
             icon: 'imagenes/pin'+num+'.png',
-
             position: new google.maps.LatLng({{ loca.latitud }}, {{ loca.longitud }}),
-
             title: '{{ loca.lugar }}'
-
           });
-
-
-
        marker{{ loop.index }}.addListener('click', function() {
-
          $("#infomap").show();
-
          $("#infomap .tit").html('{{ loca.lugar }}');
-
          $("#infomap .desc").html('');
-
          $("#infomap .horah").html('{{ loca.hora }}');
-
          $('#lugarid').val({{ loca.id }});
-
        });
-
       // marker.setMap(map);
-
      {% endfor %}
-
   }
-
-
-
 </script>
-
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6w5d4eMIJxqEr0mM6-wBKKLz7DyEf54M&libraries=places&callback=initMap" async defer></script>
-
 {% endblock %}
-

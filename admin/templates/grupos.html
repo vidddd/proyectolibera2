@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+   {% block content %}
+    	<article id="titulo"><h1>GRUPO/</h1><h2>{{ lugar }}</h2><a href="zeta.php?es=6&id={{ parti[0].lugarid }}" class="descargar">DESCARGAR .XLS <img src="imagenes/icono_descarga.png"></a>
+        </article>
+        <article id="listado">
+        	<div class="leyenda">
+            	<div class="id">Identificador</div>
+                <div class="nombre">Nombre y Apellidos</div>
+                <div class="hora">Email</div>
+                <div class="provincia">Telefono</div>
+                <div class="localizacion">Personas</div>
+                <div class="localizacion">Comentarios</div>
+           </div>
+          {% for pa in parti %}
+          <div class="item grupos">
+              <div class="id"><a href="">#0{{ pa.id }}</a></div>
+            <div class="nombre">{{ pa.persona }}</div>
+            <div class="hora">{{ pa.email }}</div>
+            <div class="provincia">{{ pa.telefono }}</div>
+            <div class="localizacion">{{ pa.personas }}</div>
+        <div class="localizacion">{{ pa.comentarios }}</div>
+         </div>
+        {% endfor %}
+        </article>
+    {% endblock %}

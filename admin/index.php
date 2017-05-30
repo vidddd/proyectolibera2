@@ -69,13 +69,10 @@ else if($_GET['edit'] == 2) {
 
 } // EDICION POR LIBRE
 else if($_GET['edit'] == 3) {
-    
   $id = $_GET['id'];
   $paticipacion = $db->getPorlibre($id);
   echo $twig->render('edit-porlibre.html', array( "provincias" => $provincias, "participacion" => $paticipacion[0], "es" => $es));
-
 } else {
-    
      if($_GET['change'] == 2 && $_GET['id']) {
           $db->updateEstado($_GET['id'],2);
       }
@@ -94,16 +91,24 @@ else if($_GET['edit'] == 3) {
     } else if($_GET['par'] == 3) {
       $parti = $db->getParticipaciones(3); $es = 3;
     } else if($_GET['par'] == 4) {
-      $parti = $db->getPersonas(); $es = 4;
+      $parti = $db->getParticipaciones(2); $es = 4;
     } else if($_GET['par'] == 5) {
       $parti = $db->getPorlibres(); $es = 5;
+    } else if($_GET['par'] == 6) {
+      $parti = $db->getPersona($_GET['id']); $es = 6;
+      $pa = $db->getNombrelugar($_GET['id']);
     } else {
       $parti = $db->getParticipaciones(1);
     }
     
+
+    
     if($_GET['par'] == 5) {
     echo $twig->render('porlibres.html', array( "URLHOME" => URL_HOME, "total1" => $total1, "total2" => $total2, "total3" => $total3, "totalp" => $totalp, "totalpl" => $totalpl, "es" => $es, "parti" => $parti));
-    } else if($_GET['par'] == 4) {
+    } else if($_GET['par'] == 6) {
+    echo $twig->render('grupos.html', array( "URLHOME" => URL_HOME, "total1" => $total1, "total2" => $total2, "total3" => $total3, "totalp" => $totalp, "totalpl" => $totalpl,"lugar" => $pa['lugar'], "es" => $es, "parti" => $parti));
+    } 
+    else if($_GET['par'] == 4) {
     echo $twig->render('personas.html', array( "URLHOME" => URL_HOME, "total1" => $total1, "total2" => $total2, "total3" => $total3, "totalp" => $totalp, "totalpl" => $totalpl, "es" => $es, "parti" => $parti));
     } else {
     echo $twig->render('index.html', array( "URLHOME" => URL_HOME, "total1" => $total1, "total2" => $total2, "total3" => $total3, "totalp" => $totalp, "totalpl" => $totalpl, "provincias" => $provincias, "es" => $es, "parti" => $parti));

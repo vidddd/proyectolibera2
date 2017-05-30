@@ -19,7 +19,65 @@
 }
 .seleccion2{
 		display:none;	
-	}
+}
+#redes .cierre{
+	width: 100%;
+    z-index: 500;
+    text-align: right;
+    float: left;
+    margin-top: -40px !important;
+    padding: 0 0 20px;
+}
+
+#manifiesto .cierre{
+	width: 95%;
+    z-index: 500;
+    text-align: right;
+    float: left;
+    margin-top: 30px;
+    padding: 0;
+    filter: invert();
+    -webkit-filter: invert();
+}
+
+#form_unete .cierre{
+	width: 100%;
+    z-index: 500;
+    text-align: right;
+    float: left;
+    margin-top: -90px;
+    padding: 0;
+    filter: invert();
+    -webkit-filter: invert();
+}
+
+#form_organiza .cierre{
+	width: 100%;
+    z-index: 500;
+    text-align: right;
+    float: left;
+    margin-top: -90px;
+    padding: 0;
+    filter: invert();
+    -webkit-filter: invert();
+}
+
+#portucuenta .cierre{
+	width: 95%;
+    z-index: 500;
+    text-align: right;
+    float: left;
+    margin-top: -430px;
+    padding: 0;
+    filter: invert();
+    -webkit-filter: invert();
+}
+
+.previewvideolibera2, .previewvideolibera{
+	cursor:pointer;
+	width:100%;
+	height:auto;	
+}
 /* MEDIA QUERYS ESCRITORIO -------------------------------*/
 
 @media only screen and (min-width: 400px) {
@@ -176,6 +234,12 @@
 	.participa .titular .txt_amarillo{
 		color:#fbdb0d;
 	}
+	.participa .titular .txt_azul{
+		color:#00d7e5;
+	}
+	.participa .titular .txt_verde{
+		color:#2ad566;
+	}
 	.participa .titular sup{
 		font-size:19px;
 	}
@@ -220,59 +284,59 @@
 	.participa .verde, .difunde .rosa{
 		margin:0 150px;
 	}
-	.participa .amarillo:hover .cuadro, .participa .marcado1 .cuadro{
-		border-color:#fbdb0d;
+	.participa .amarillo:hover .cuadro, .participa .marcado1 .cuadro, .amarillomobile .cuadro{
+		border-color:#fbdb0d !important;
 	}
-	.participa .amarillo:hover .txt, .participa .marcado1 .txt{
-		color:#fbdb0d;
+	.participa .amarillo:hover .txt, .participa .marcado1 .txt, .amarillomobile .txt{
+		color:#fbdb0d !important;
 	}
-	.participa .amarillo:hover .boton{
-		color:#fbdb0d;
-		border-color:#fbdb0d;
-	}
-	
-	.participa .verde:hover .cuadro, .participa .marcado2 .cuadro{
-		border-color:#2ad566;
-	}
-	.participa .verde:hover .txt, .participa .marcado2 .txt{
-		color:#2ad566;
-	}
-	.participa .verde:hover .boton{
-		color:#2ad566;
-		border-color:#2ad566;
+	.participa .amarillo:hover .boton, .amarillomobile .boton{
+		color:#fbdb0d !important;
+		border-color:#fbdb0d !important;
 	}
 	
-	.participa .azul:hover .cuadro, .participa .marcado3 .cuadro{
-		border-color:#00d7e5;
+	.participa .verde:hover .cuadro, .participa .marcado2 .cuadro, .verdemobile .cuadro{
+		border-color:#2ad566 !important;
 	}
-	.participa .azul:hover .txt, .participa .marcado3 .txt{
-		color:#00d7e5;
+	.participa .verde:hover .txt, .participa .marcado2 .txt, .verdemobile .txt{
+		color:#2ad566 !important;
 	}
-	.participa .azul:hover .boton{
-		color:#00d7e5;
-		border-color:#00d7e5;
-	}
-	
-	.difunde .naranja:hover .cuadro, .difunde .marcado3 .cuadro{
-		border-color:#ff8022;
-	}
-	.difunde .naranja:hover .txt, .difunde .marcado3 .txt{
-		color:#ff8022;
-	}
-	.difunde .naranja:hover .boton{
-		color:#ff8022;
-		border-color:#ff8022;
+	.participa .verde:hover .boton, .verdemobile .boton{
+		color:#2ad566 !important;
+		border-color:#2ad566 !important;
 	}
 	
-	.difunde .rosa:hover .cuadro, .difunde .marcado2 .cuadro{
-		border-color:#fa55a6;
+	.participa .azul:hover .cuadro, .participa .marcado3 .cuadro, .azulmobile .cuadro{
+		border-color:#00d7e5 !important;
 	}
-	.difunde .rosa:hover .txt, .difunde .marcado2 .txt{
-		color:#fa55a6;
+	.participa .azul:hover .txt, .participa .marcado3 .txt, .azulmobile .txt{
+		color:#00d7e5 !important;
 	}
-	.difunde .rosa:hover .boton{
-		color:#fa55a6;
-		border-color:#fa55a6;
+	.participa .azul:hover .boton, .azulmobile .boton{
+		color:#00d7e5 !important;
+		border-color:#00d7e5 !important;
+	}
+	
+	.difunde .naranja:hover .cuadro, .difunde .marcado3 .cuadro, .naranjamobile .cuadro{
+		border-color:#ff8022 !important;
+	}
+	.difunde .naranja:hover .txt, .difunde .marcado3 .txt, .naranjamobile .txt{
+		color:#ff8022 !important;
+	}
+	.difunde .naranja:hover .boton, .naranjamobile .boton{
+		color:#ff8022 !important;
+		border-color:#ff8022 !important;
+	}
+	
+	.difunde .rosa:hover .cuadro, .difunde .marcado2 .cuadro, .rosamobile .cuadro{
+		border-color:#fa55a6 !important;
+	}
+	.difunde .rosa:hover .txt, .difunde .marcado2 .txt, .rosamobile .txt{
+		color:#fa55a6 !important;
+	}
+	.difunde .rosa:hover .boton, .rosamobile .boton{
+		color:#fa55a6 !important;
+		border-color:#fa55a6 !important;
 	}
 	
 	.difunde .azul:hover .cuadro, .difunde .marcado1 .cuadro{
@@ -355,25 +419,25 @@
 	}
 	
 	#form_organiza.abierto{
-		height:1650px;
-		max-height:2000px;
+		height:1700px;
+		max-height:7000px;
 			
 	}
 	
 	#form_unete.abierto{
-		height:1250px;
-		max-height:2000px;
+		height:1350px;
+		max-height:7000px;
 	}
 	
 	
 	#portucuenta.abierto{
 		height:450px;
-		max-height:2000px;
+		max-height:7000px;
 	}
 	
 	#portucuentaform.abierto{
 		height:550px;
-		max-height:2000px;
+		max-height:7000px;
 	}
 	
 	.formulario .centrador{
@@ -530,7 +594,7 @@
 		margin: -4px 0 10px !important;
 		width: 90% !important;
 		font-weight:400;
-		font-size:11px !important;
+
 	}
 	.condiciones p a{
 		font-weight:600;
@@ -540,7 +604,7 @@
 		font-family: 'Fira Sans', sans-serif;
 		font-size:16px;
 		color:#1d1d1b;
-		padding:10px 40px;
+		padding:10px 40px !important;
 		background-color:transparent;
 		font-weight:700;
 		float:left;
@@ -723,20 +787,19 @@
 	
 	}
 	#redes.abierto{
-		height:auto;
-		min-height:500px;
+		height: 850px;
+   		max-height: 7500px;
 			
 	}
 	
 	#banners.abierto{
-		height:auto;
-		min-height:500px;
+		height: 1050px;
+    	max-height: 7500px;
 	}
 	
 	
 	#manifiesto.abierto{
-		height:auto;
-		min-height:500px;
+		height:500px;
 	}
 	
 	.difundedesplegable{
@@ -745,7 +808,64 @@
 		-moz-transition: 1s ease-in-out;
 		transition: 1s ease-in-out;
 	}
+	.condiciones .error{
+		display: block;
+		float: left;
+		margin: -5px 0 5px 2% !important;
+		width: 80%;	
+	}	
 	
+	#error{
+		width:100%;
+		height:100vh;
+		position:fixed;
+		top:0;
+		left:0;
+		background-color:rgba(0,0,0,0.5);
+		z-index:5000000000;
+	}
+	
+	#error .ventana{
+		width:480px;
+		border:solid 3px #666;
+		background-color:#fff;
+		padding:20px;
+		height:auto;
+		min-height:200px;
+		position:fixed;
+		top:50%;
+		left:50%;
+		margin:-120px 0 0 -250px;
+		z-index:5500000000;	
+	}
+	#error #cierre{
+		width:100%;
+		height:auto;
+		padding:0 0 10px 0;
+		float:left;
+		text-align:right;
+		margin:0;
+	}
+	
+	#error .alerta{
+		width:90%;
+		padding:0 5%;
+		margin:0;
+		float:left;
+		text-align:center;
+		font-size:22px;	
+		line-height:28px;
+	}
+	
+	#error .alerta p{
+		margin:0 auto 20px;	
+	}
+	
+	#error #closee{
+		cursor:pointer;	
+	}
+
+
 }
 
 /* DIFERENTES MEDIDAS DESKTOP -------------------------*/
@@ -817,39 +937,39 @@
 		margin:0 0 27px;	
 	}
 	
-	.participa .centrador{
+	.participa .centrador, .difunde .centrador{
 		width:90%;
 		padding:0 5%;
 	}
 	.seleccion2{
 		display:none;	
 	}
-	.participa .titular h1{
+	.participa .titular h1, .difunde .titular h1{
 		font-size:39px;
 		color:#fff;	
 		font-weight:900;
 		line-height:45px;
 	}
-	.participa .opcion{
+	.participa .opcion, .difunde .opcion{
 		width:26%;
 	}
-	.participa .cuadro{
+	.participa .cuadro, .difunde .cuadro{
 		width:90%;
 		height:21.5vw;
 		border:1.3vw solid #6E6E6E;
 		background-color:#fff;
 	}
-	.participa .cuadro .txt{
+	.participa .cuadro .txt, .difunde .cuadro .txt{
 		width:90%;
 		height:90%;
 		padding:5%;
 		font-size:23px;
 		line-height:26px;
 	}
-	.participa .verde{
+	.participa .verde, .difunde .rosa{
 		margin:0 10%;
 	}
-	.participa .azul .txt{
+	.participa .azul .txt, .difunde .azul .txt{
 		width:70%;
 		height:70%;
 		padding:15%;
@@ -857,26 +977,47 @@
 	.participa  .entradilla{
 		height:100px;
 	}
-	.participa .boton{
+	.participa .boton, .difunde .boton{
 		border:solid 3px #6E6E6E;
 		width:98%;
 	}
 	
 	#form_organiza.abierto{
-		min-height:1550px;
-		height:auto;
+		height:1650px;
+		max-height:2000px;
 			
 	}
 	
 	#form_unete.abierto{
-		min-height:1250px;
-		height:auto;
+		height:1250px;
+		max-height:2000px;
 	}
 	
 	
 	#portucuenta.abierto{
-		min-height:450px;
-		height:auto;
+		height:450px;
+		max-height:2000px;
+	}
+	
+	#portucuentaform.abierto{
+		height:550px;
+		max-height:2000px;
+	}
+
+	#redes.abierto{
+		height: 850px;
+   		max-height: 1500px;
+			
+	}
+	
+	#banners.abierto{
+		height: 850px;
+    	max-height: 1500px;
+	}
+	
+	
+	#manifiesto.abierto{
+		height:500px;
 	}
 	
 	.formulario .centrador{
@@ -928,6 +1069,11 @@
 	#portucuenta article{
 		background-size:30% auto;
 	}
+	.difunde article {
+		padding-left: 5% !important;
+		padding-right: 5% !important;
+		width: 90%;
+	}
 }
 @media only screen and (max-width: 799px) and (min-width: 400px) {
 	.mousedown{
@@ -971,41 +1117,41 @@
 		margin:30px auto;	
 	}
 	
-	.participa .seleccion{
+	.participa .seleccion, .difunde .seleccion{
 		display:none;	
 	}
 	
-	.participa .centrador{
+	.participa .centrador, .difunde .centrador{
 		width:90%;
 		padding:0 5%;	
 	}
-	.participa .titular h1{
+	.participa .titular h1, .difunde .titular h1{
 		font-size:35px;
 		line-height:42px;
 	}
 	.participa .titular sup{
 		font-size:17px;
 	}
-	.participa .opcion{
+	.participa .opcion, .difunde .opcion{
 		width:31%;
 	}
-	.participa .cuadro{
+	.participa .cuadro, .difunde .cuadro{
 		width:90%;
 		height:24.5vw;
 		border:1.4vw solid #6E6E6E;
 		background-color:#fff;
 	}
-	.participa .cuadro .txt{
+	.participa .cuadro .txt, .difunde .cuadro .txt{
 		width:90%;
 		height:90%;
 		padding:5%;
 		font-size:20px;
 		line-height:26px;
 	}
-	.participa .verde{
+	.participa .verde, .difunde .rosa{
 		margin:0 3%;
 	}
-	.participa .azul .txt{
+	.participa .azul .txt, .difunde .azul .txt{
 		width:80%;
 		height:80%;
 		padding:10%;
@@ -1013,26 +1159,32 @@
 	.participa  .entradilla{
 		height:160px;
 	}
-	.participa .boton{
+	.participa .boton, .difunde .boton{
 		font-size:16px;
 		border:solid 3px #6E6E6E;
 		width:97%;
 		float:left;
 	}
 	#form_organiza.abierto{
-		min-height:1550px;
-		height:auto;
-			
+		height:auto;			
 	}
 	
 	#form_unete.abierto{
-		min-height:1250px;
 		height:auto;
-	}
-	
+	}	
 	
 	#portucuenta.abierto{
-		min-height:450px;
+		height:auto;
+	}
+	#redes.abierto{
+		height: auto;			
+	}
+	
+	#banners.abierto{
+		height: auto;
+	}	
+	
+	#manifiesto.abierto{
 		height:auto;
 	}
 	.formulario .centrador{
@@ -1072,12 +1224,12 @@
 		font-size:14px;
 	}
 	.mimapa{
-		height: 45vw;
+		height: 50vw;
     	width: 98.5%;
 	}	
 	
 	#form_unete .mimapa{
-		height:25vw;	
+		height:50vw;	
 	}
 	#infomap{
 		padding: 20px 5%;
@@ -1103,6 +1255,18 @@
 	}
 	#portucuenta br{
 		display:none;	
+	}
+	/*.difunde article {
+		padding-left: 5% !important;
+		padding-right: 5% !important;
+		width: 90%;
+	}*/
+	.difunde article br{
+		display:none;	
+	}
+	#portucuentaform.abierto{
+		height:650px;
+		max-height:2000px;
 	}
 }
 
@@ -1195,11 +1359,11 @@
 		background-color:#fff;
 		padding:90px 0 50px;	
 	}
-	.participa .centrador{
+	.participa .centrador, .difunde .centrador{
 		width:90%;
 		padding:0 5%;	
 	}
-	.participa .titular h1{
+	.participa .titular h1, .difunde .titular h1{
 		font-size:35px;
 		line-height:42px;
 	}
@@ -1207,26 +1371,26 @@
 		font-size:17px;
 	}
 	
-	.participa .opcion{
+	.participa .opcion, .difunde .opcion{
 		width:31%;
 	}
-	.participa .cuadro{
+	.participa .cuadro, .difunde .cuadro{
 		width:90%;
 		height:24.5vw;
 		border:1.4vw solid #6E6E6E;
 		background-color:#fff;
 	}
-	.participa .cuadro .txt{
+	.participa .cuadro .txt, .difunde .cuadro .txt{
 		width:90%;
 		height:90%;
 		padding:5%;
 		font-size:20px;
 		line-height:26px;
 	}
-	.participa .verde{
+	.participa .verde, .difunde .rosa{
 		margin:0 3%;
 	}
-	.participa .azul .txt{
+	.participa .azul .txt, .difunde .azul .txt{
 		width:80%;
 		height:80%;
 		padding:10%;
@@ -1234,20 +1398,17 @@
 	.participa  .entradilla{
 		height:160px;
 	}
-	.participa .boton{
+	.participa .boton, .difunde .boton{
 		font-size:16px;
 		border:solid 3px #6E6E6E;
 		width:97%;
 		float:left;
 	}
 	#form_organiza.abierto{
-		min-height:1550px;
-		height:auto;
-			
+		height:auto;		
 	}
 	
 	#form_unete.abierto{
-		min-height:1250px;
 		height:auto;
 	}
 	
@@ -1256,7 +1417,17 @@
 	}
 	
 	#portucuenta.abierto{
-		min-height:450px;
+		height:auto;
+	}
+	#redes.abierto{
+		height: auto;			
+	}
+	
+	#banners.abierto{
+		height: auto;
+	}	
+	
+	#manifiesto.abierto{
 		height:auto;
 	}
 	.formulario .centrador{
@@ -1391,11 +1562,17 @@
 		color:#00d7e5;
 		border-color:#00d7e5;
 	}
+	
+	
+	
+	
+	
 	.seleccion2 .azul .txt{
 		text-align: left;
 		height: 34vw;
 		padding: 0 6vw;
 	}
+
 	.seleccion2  .entradilla{
 		float: left;
 		height: 28vw;
@@ -1432,64 +1609,139 @@
 		font-size: 17px !important;
 		line-height: 26px !important;
 	}
-}
-
-.condiciones .error{
-	display: block;
-    float: left;
-    margin: -5px 0 5px 2% !important;
-    width: 80%;	
-}
-
-
-#error{
-	width:100%;
-	height:100vh;
-	position:fixed;
-	top:0;
-	left:0;
-	background-color:rgba(0,0,0,0.5);
-	z-index:5000000000;
-}
-
-#error .ventana{
-	width:480px;
-	border:solid 3px #666;
-	background-color:#fff;
-	padding:20px;
-	height:auto;
-	min-height:200px;
-	position:fixed;
-	top:50%;
-	left:50%;
-	margin:-120px 0 0 -250px;
-	z-index:5500000000;	
-}
-#error #cierre{
-	width:100%;
-	height:auto;
-	padding:0 0 10px 0;
-	float:left;
-	text-align:right;
-	margin:0;
-}
-
-#error .alerta{
-	width:90%;
-	padding:0 5%;
-	margin:0;
-	float:left;
-	text-align:center;
-	font-size:22px;	
-	line-height:28px;
-}
-
-#error .alerta p{
-	margin:0 auto 20px;	
-}
-
-#error #closee{
-	cursor:pointer;	
+	.difunde article {
+		padding-left: 5% !important;
+		padding-right: 5% !important;
+		width: 90%;
+	}
+	
+	.difunde .titular {
+		background-image: url(../imagenes/bg_difunde.jpg);
+		background-position: -299px bottom;
+		padding: 64px 0 85px;
+	}
+	.difunde{
+		background-color:#2ad566;	
+	}
+	.difunde .explicacion {
+		padding-top: 50px !important;
+		padding-bottom: 70px !important;
+	}
+	.difunde .explicacion h2 {
+    	font-size: 17px;
+    	line-height: 31px;
+	}
+	
+	.seleccion2 .naranja:hover .cuadro, .seleccion2 .marcado3 .cuadro{
+		border-color:#ff8022;
+	}
+	.seleccion2 .naranja:hover .txt, .seleccion2 .marcado3 .txt{
+		color:#ff8022;
+	}
+	.seleccion2 .naranja:hover .boton{
+		color:#ff8022;
+		border-color:#ff8022;
+	}
+	
+	.seleccion2 .rosa:hover .cuadro, .seleccion2 .marcado2 .cuadro{
+		border-color:#fa55a6;
+	}
+	.seleccion2 .rosa:hover .txt, .seleccion2 .marcado2 .txt{
+		color:#fa55a6;
+	}
+	.seleccion2 .rosa:hover .boton{
+		color:#fa55a6;
+		border-color:#fa55a6;
+	}
+	
+	.seleccion2 .azul:hover .cuadro, .seleccion2 .marcado1 .cuadro{
+		border-color:#00d7e5;
+	}
+	.seleccion2 .azul:hover .txt, .seleccion2 .marcado1 .txt{
+		color:#00d7e5;
+	}
+	.seleccion2 .azul:hover .boton{
+		color:#00d7e5;
+		border-color:#00d7e5;
+	}
+	.formulario .centrador{
+		width:90%;
+		padding:0 5%;
+	}
+	#redes .centrador{
+		width:90%;
+		padding:0 5%;
+		text-align:center;
+	}
+	#banners{
+		display:none;	
+	}
+	#redes .contenido img{
+		width:100%;
+		height:auto;
+	}
+	#portucuentaform .arriba{
+		padding:30px 0 10px;
+	}
+	#manifiesto article br{
+		display:none;	
+	}
+	.condiciones .error{
+		display: block;
+		float: left;
+		margin: -5px 0 5px 2% !important;
+		width: 80%;	
+	}	
+	
+	#error{
+		width:100%;
+		height:100vh;
+		position:fixed;
+		top:0;
+		left:0;
+		background-color:rgba(0,0,0,0.5);
+		z-index:5000000000;
+	}
+	
+	#error .ventana{
+		width:90%;
+		border:solid 3px #666;
+		background-color:#fff;
+		padding:2%;
+		height:auto;
+		min-height:200px;
+		position:fixed;
+		top:50%;
+		left:2.5%;
+		margin:-120px 0 0 0;
+		z-index:5500000000;	
+	}
+	#error #cierre{
+		width:100%;
+		height:auto;
+		padding:0 0 10px 0;
+		float:left;
+		text-align:right;
+		margin:0;
+	}
+	
+	#error .alerta{
+		width:90%;
+		padding:0 5%;
+		margin:0;
+		float:left;
+		text-align:center;
+		font-size:22px;	
+		line-height:28px;
+	}
+	
+	#error .alerta p{
+		margin:0 auto 20px;	
+	}
+	
+	#error #closee{
+		cursor:pointer;	
+	}
 }
 
 

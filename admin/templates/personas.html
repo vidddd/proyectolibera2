@@ -1,27 +1,24 @@
 {% extends "base.html" %}
    {% block content %}
    <article id="titulo"><h1>PARTICIPANTES</h1>
-     <a href="zeta.php?es=3" class="descargar">DESCARGAR .XLS <img src="imagenes/icono_descarga.png"></a></article>
-     <article id="listado">
-       <div class="leyenda">
-           <div class="id">Identificador</div>
-             <div class="nombre">Nombre</div>
-             <div class="personas">Email</div>
-             <div class="hora">Telefono</div>
-             <div class="provincia">Lugar</div>
-             <div class="localizacion">Numero de personas</div>
-             <div class="comentarios">Comentarios</div>
-        </div>
-        {% for pa in parti %}
-        <div class="item">
-          <div class="id"><a href="index.php?edit=2&id={{ pa.id }}&par={{ es }}">#0{{ pa.id }}</div>
-          <div class="nombre">{{ pa.persona }}</div>
-          <div class="personas">{{ pa.email }}</div>
-          <div class="hora">{{ pa.telefono }}</div>
-          <div class="provincia">{{ pa.lugar }}</div>
-          <div class="localizacion">{{ pa.personas }}</div>
-          <div class="localizacion">{{ pa.comentarios }}</div>
-       </div>
-      {% endfor %}
+        <article id="listado">
+        	<div class="leyenda">
+            	<div class="id">Identificador</div>
+                <div class="nombre">Nombre y Apellidos</div>
+                <div class="personas">Número de Personas</div>
+                <div class="hora">Hora</div>
+                <div class="localizacion">Participantes</div>
+           </div>
+          {% for pa in parti %}
+          <div class="item">
+              <div class="id"><a href="index.php?edit=1&id={{ pa.id }}&par={{ es }}">#0{{ pa.id }}</a></div>
+            <div class="nombre">{{ pa.persona }}</div>
+            <div class="personas">{{ pa.cuantas }}</div>
+            <div class="hora">{{ pa.hora }}</div>
+            <div class="localizacion">{{ pa.lugar }}</div>
+             <div class="cuantas"><a href="index.php?par=6&id={{ pa.id }}">Participantes</a></div>
+          
+         </div>
+        {% endfor %}
       </article>
    {% endblock %}

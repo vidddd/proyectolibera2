@@ -28,6 +28,16 @@ $parti = $db->getParticipaciones(2);
   foreach($personas as $pp) {
 	   echo utf8_decode($pp["persona"]) . "\t" . $pp["email"]. "\t" . $pp["telefono"]. "\t" . utf8_decode($pp["lugar"]). "\t"  . $pp["personas"]. "\t" . preg_replace("/\r\n+|\r+|\n+|\t+/i", " ",utf8_decode($pp["comentarios"])). "\n";
     }
+  } else if ($es == '6') {
+    $personas = $db->getPersonas($_GET['id']);
+    
+	header( "Content-Type: application/vnd.ms-excel" ); 
+	header( "Content-disposition: attachment; filename=Participantes.xls" );
+
+  echo 'Persona' . "\t" . 'Email' . "\t" . 'Telefono' . "\t" . 'Lugar' . "\t" . 'Personas' . "\t" . 'comentarios' . "\n";
+  foreach($personas as $pp) {
+	   echo utf8_decode($pp["persona"]) . "\t" . $pp["email"]. "\t" . $pp["telefono"]. "\t" . utf8_decode($pp["lugar"]). "\t"  . $pp["personas"]. "\t" . preg_replace("/\r\n+|\r+|\n+|\t+/i", " ",utf8_decode($pp["comentarios"])). "\n";
+    }
   } else if ($es == '5') {
     $por = $db->getPorlibres();
     

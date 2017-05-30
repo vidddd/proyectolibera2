@@ -1,6 +1,22 @@
 var seccionActual="";
 var colorActual="rojo";
 
+function cerrarFormulario(){
+	$("#btn1").css("display","block");
+	$("#btn2").css("display","block");
+	$("#btn3").css("display","block");
+	$(".azul").removeClass("marcado1");
+	$(".rosa").removeClass("marcado2");
+	$(".naranja").removeClass("marcado3");
+	$("#"+seccionActual).removeClass("abierto").addClass("cerrado");
+	$(".destacado").removeClass(colorActual);
+	$(".destacadomobile").removeClass(colorActual);
+	seccionActual="";
+	colorActual="verde";
+	$(".destacado").addClass(colorActual);
+	$(".destacadomobile").addClass(colorActual);
+}
+
 function verFormulario(seccion){	
 	
 	if(seccionActual==""){
@@ -110,6 +126,8 @@ $(document).ready(function(e) {
 	if( isMobile.any() ) {
 		$(".rosa").addClass("rosamobile");
 		$(".naranja").addClass("naranjamobile");
-		$(".azul").addClass("azulmobile");	
+		$(".azul").addClass("azulmobile");				
 	}
+	$(".destacado").removeClass("rojo").addClass("verde");
+	$(".destacadomobile").removeClass("rojo").addClass("verde");
 });

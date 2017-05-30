@@ -23,6 +23,9 @@ var isMobile = {
 
 $('document').ready(function(){
 	
+	$(".desplegable").attr("href","javascript:Bajar();");
+	
+	
 	boxverde = $('#boxverde');
 	boxazul = $('#boxazul');
 	boxamarillo = $('#boxamarillo');
@@ -157,3 +160,21 @@ function animarUnMetro2(){
 	
 }
 
+
+function Bajar(){
+	$('html, body').animate({scrollTop:$('.quees').position().top + 2 + 'px'}, 500);	
+}
+
+function playvideo(){
+	$(".previewvideolibera").css("display","none");
+	$("#videolibera").css("display","block");
+	$("#videolibera")[0].contentWindow.postMessage('{"event":"command","func":"' + 'playVideo' + '","args":""}', '*');
+	ga('send', 'event', 'Botón', ' 1M_Naturaleza_Video ');
+}
+
+function playvideo2(){
+	$(".previewvideolibera2").css("display","none");
+	$("#videolibera2").css("display","block");
+	$("#videolibera2")[0].contentWindow.postMessage('{"event":"command","func":"' + 'playVideo' + '","args":""}', '*');
+	ga('send', 'event', 'Botón', ' 1M_Naturaleza_Video ');
+}

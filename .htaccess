@@ -1,6 +1,1 @@
-AuthGroupFile /dev/null
-AuthType Basic
-AuthUserFile /home/libera2/domains/2fase.proyectolibera.org/.htpasswd/public_html/.htpasswd
-AuthName "Admin"
-require valid-user
-ErrorDocument 401 "Unauthorized Access"
+#<IfModule mod_rewrite.c>#RewriteEngine on#RewriteBase /#RewriteCond %{SCRIPT_FILENAME} !-d  #RewriteCond %{SCRIPT_FILENAME} !-f  #Rewriterule ^1m2$ index.php?unmetro=1#Rewriterule ^que-es-libera$ index.php?quees=1#Rewriterule ^1m2-participa$ index.php?participa=1#Rewriterule ^1m2-difunde$ index.php?difunde=1#</IfModule>
