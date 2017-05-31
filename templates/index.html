@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Un metro cuadrado</title>
+
+    <meta name="keywords" content="">
+
+    <meta name="description" content="">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="js/jquery.js" type="text/javascript"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hyperform/0.8.15/hyperform.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hyperform/0.8.15/hyperform.min.css">
+
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
+
+    <link type="text/css" rel="stylesheet" href="css/style.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Droid+Sans|Lato" rel="stylesheet">
+
+	<script src="js/jquery.validate.js"></script>
+
+      <script>
+
+      $(document).ready(function() {
+
+        $("#form1").validate({
+
+              rules: {
+
+                provincia: {
+
+                  required: true,
+
+                },
+
+                hora: {
+
+                  required: true,
+
+                },
+
+               lugar: {
+
+                  required: true,
+
+                }
+
+              }
+
+
+
+          ,messages: {
+
+            persona: {
+
+              required: 'Por favor, introduce este campo'
+
+            },
+
+            email: {
+
+              required: 'Por favor, introduce este campo'
+
+            }
+
+          }
+
+        });
+
+      });
+
+  
+
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+
+
+  ga('create', 'UA-78273718-2', 'auto');
+
+  ga('send', 'pageview');
+
+
+
+	</script>
+
+    <script>
+
+        hyperform(window)
+
+    </script>
+
+       <style>
+
+      #map {
+
+        height: 450px;
+
+        width: 450px;
+
+		margin-bottom:20px;
+
+      }
+
+      #infowindow-content .title {
+
+        font-weight: bold;
+
+      }
+
+
+
+      #infowindow-content {
+
+        display: none;
+
+      }
+
+
+
+      #map #infowindow-content {
+
+        display: inline;
+
+      }
+
+
+
+      .pac-card {
+
+        margin: 20px 10px 0 0;
+
+        box-sizing: border-box;
+
+        -moz-box-sizing: border-box;
+
+        outline: none;
+
+      }
+
+
+
+      #pac-container {
+
+        padding-top: 12px;
+
+        margin-right: 12px;
+
+      }
+
+
+
+      #pac-input {
+
+        background-color: #fff;
+
+        font-size: 15px;
+
+        font-weight: 300;
+
+        padding: 10px 11px 10px 13px;
+
+        text-overflow: ellipsis;
+
+        width: 450px !important;
+
+      }
+
+
+
+      #pac-input:focus {
+
+        border-color: #4d90fe;
+
+      }
+
+
+
+      #title {
+
+        color: #fff;
+
+        background-color: #4d90fe;
+
+        font-size: 25px;
+
+        font-weight: 500;
+
+        padding: 6px 12px;
+
+      }
+
+
+
+@media only screen and (max-width: 340px) and (min-width: 5px){	  
+
+      #pac-input {
+
+      width: 270px !important;
+
+            }
+
+      #map {
+
+          height: 270px;
+
+        width: 270px;
+
+      }
+
+}
+
+    </style>
+
+  </head>
+
+  <body>
+
+    {% if mensaje == 3 %}
+
+      <section id="error">
+
+        <div id="ventana"><div id="cierre"><img id="closee" src="img/x.png"></div>
+
+        <div id="alerta"><p>¡ALGO NO VA BIEN!</p>
+
+        <p>Por favor, revise los campos del formulario.</p>
+
+        <p>Uno o alguno de ellos puede estar incompleto o rellenado de forma incorrecta.</p></div>
+
+        </div>
+
+        <script>ga('send', 'event', 'Botón', 'Enviar', 'Error');</script>
+
+      </section>
+
+    {% endif %}
+
+   {% if mensaje == 1 %}
+
+      <section id="error">
+
+        <div id="ventana"><div id="cierre"><img id="closee" src="img/x.png"></div>
+
+        <div id="alerta"><p>¡YA NOS CONOCEMOS!</p>
+
+        <p>Lamentablemente ya contamos con este mail en el registro.</p>
+
+        <p>Inténtelo de nuevo con otra
+
+dirección de correo para poder participar en el evento.</p></div>
+
+        </div>
+
+      </section>
+
+    {% endif %}
+
+      {% if mensaje == 2 %}
+
+      <section id="error">
+
+        <div id="ventana"><div id="cierre"><img id="closee" src="img/x.png"></div>
+
+        <div id="alerta"><p>¡GRACIAS POR PARTICIPAR!</p>
+
+        <p>Su formulario ha sido completado satisfactoriamente.</p>
+
+        <p>Muchas gracias
+
+por colaborar con LIBERA.</p></div>
+
+        </div>
+
+        <script>ga('send', 'event', 'Botón', 'Enviar', 'Ok');</script>
+
+      </section>
+
+    {% endif %}
+
+    <div class="page-content">
+
+       <header>
+
+          	<div id="logo"><img src="img/libera.png"></div>
+
+            <div id="tx_logo"><img src="img/tx_header.png"></div>
+
+          </header>
+
+
+
+          <section id="bosque">
+
+          </section>
+
+
+
+
+
+      <div class="container">
+
+
+
+        <section id="titulo">
+
+        <h1>FORMULARIO DE PARTICIPACIÓN</h1>
+
+        </section>
+
+
+
+        <section id="descripcion">
+
+        	<p>El fin de semana del <strong>13 de mayo</strong> se celebra es el día de <strong>1m2 por la Tierra</strong>, un día para liberar mucha más vida a favor de la biodiversidad. Mediante la retirada de residuos en zonas naturales, queremos concienciar en todos los rincones posibles del país, por eso necesitamos tu ayuda. Si estás interesado en participar en tu pueblo o ciudad, rellena este formulario (una ficha por cada lugar de celebración).</p>
+
+            <p>Para cualquier duda o sugerencia escribenos a <a href="mailto:@libera@seo.org">libera@seo.org</a></p>
+
+            <p><strong>¡Gracias por tu participación!</strong></p>
+
+        </section>
+
+
+
+        <div class="row">
+
+           <div id="datos">
+            <h1>DATOS DE LOS ORGANIZADORES</h1>
+            </div>
+
+          <div class="row clearfix" id="formulario">
+
+              <div class="col-sm-6 col-md-6 col-lg-6">
+
+                  <form id="form1" class="boxed-form" name="form1" method="post" role="form" action="{# URLHOME #}">
+
+                      <div id="success" style="display:none;">
+
+                          <p>Your message was sent successfully!</p>
+
+                      </div>
+
+                      <div id="error" style="display:none">
+
+                          <p>Something went wrong, try refreshing and submitting the form again.</p>
+
+                      </div>
+
+
+
+                      <div class="form-group">
+
+                          <label class="control-label">Persona de contacto*</label>
+
+                          <p class="description">Nombre y apellidos: Para uso interno en las labores organizativas.</p>
+
+                          <input class="form-control" value="" name="persona"  class="form-control" data-rule-required="true" >
+
+
+
+                      </div>
+
+
+
+                      <div class="form-group">
+
+                          <label class="control-label">Email de Contacto*</label>
+
+                          <p class="description">A donde también puedan dirigirse las personas interesadas en participar.</p>
+
+                          <input class="form-control" value="" name="email" type="email"  data-rule-required="true" required>
+
+                          <div class="help-block with-errors"></div>
+
+                     </div>
+
+
+
+                      <div class="form-group">
+
+                          <label class="control-label">Teléfono de contacto*</label>
+
+                          <p class="description">Para uso interno en las labores organizativas.</p>
+
+                          <input maxlength="10" class="form-control" value="" name="telefono" type="text" required>
+
+                          </div>
+
+
+
+                      <div class="form-group">
+
+                          <label class="control-label">Direcci&oacute;n*</label>
+
+                          <p class="description">Donde se recibirán los materiales facilitados para el evento.</p>
+
+                          <input class="form-control" value="" name="direccion" type="text" required>
+
+                          </div>
+
+
+
+                      <div class="form-group">
+
+                          <label class="control-label">Organiza</label>
+
+                          <p class="description">Nombre de la entidad. En caso de ser una persona física, indicar nombre y apellidos.</p>
+
+                          <input class="form-control" value="" name="organiza" type="text">
+
+                          </div>
+
+
+
+                      <div class="form-group">
+
+                          <label class="control-label">Más Información</label>
+
+                          <p class="description">Link directo a web, blog, Facebook u otra red social, donde ampliar información de vuestras actividades. Si hubiera varias opciones, elegir una. Y si no hubiera, es necesario especificarlo.</p>
+
+                          <input class="form-control" value="" name="masinfo" type="text">
+
+                          </div>
+
+              </div>
+
+              <div class="col-sm-4 col-md-5 col-lg-6" id="separador">
+
+              			<div class="form-group">
+
+                          <label class="control-label">Provincia*</label>
+
+                               <select class="desplegable" class="form-control" name="provincia" data-rule-required="true">
+
+                                          <option value="">- selecciona -</option>
+
+                                          <option value="15">A coru&#241;a</option>
+
+                                          <option value="1">&#193;lava</option>
+
+                                          <option value="2">Albacete</option>
+
+                                          <option value="3">Alicante</option>
+
+                                          <option value="4">Almer&#237;a</option>
+
+                                          <option value="33">Asturias</option>
+
+                                          <option value="5">&#193;vila</option>
+
+                                          <option value="6">Badajoz</option>
+
+                                          <option value="7">Baleares</option>
+
+                                          <option value="8">Barcelona</option>
+
+                                          <option value="9">Burgos</option>
+
+                                          <option value="10">C&#225;ceres</option>
+
+                                          <option value="11">C&#225;diz</option>
+
+                                          <option value="39">Cantabria</option>
+
+                                          <option value="12">Castell&#243;n</option>
+
+                                          <option value="51">Ceuta</option>
+
+                                          <option value="13">Ciudad Real</option>
+
+                                          <option value="14">C&#243;rdoba</option>
+
+                                          <option value="16">Cuenca</option>
+
+                                          <option value="99">Extranjero</option>
+
+                                          <option value="17">Girona</option>
+
+                                          <option value="18">Granada</option>
+
+                                          <option value="19">Guadalajara</option>
+
+                                          <option value="20">Guip&#250;zcoa</option>
+
+                                          <option value="21">Huelva</option>
+
+                                          <option value="22">Huesca</option>
+
+                                          <option value="23">Ja&#233;n</option>
+
+                                          <option value="26">La rioja</option>
+
+                                          <option value="35">Las palmas</option>
+
+                                          <option value="24">Le&#243;n</option>
+
+                                          <option value="25">Lleida</option>
+
+                                          <option value="27">Lugo</option>
+
+                                          <option value="28">Madrid</option>
+
+                                          <option value="29">M&#225;laga</option>
+
+                                          <option value="52">Melilla</option>
+
+                                          <option value="30">Murcia</option>
+
+                                          <option value="31">Navarra</option>
+
+                                          <option value="32">Ourense</option>
+
+                                          <option value="34">Palencia</option>
+
+                                          <option value="36">Pontevedra</option>
+
+                                          <option value="37">Salamanca</option>
+
+                                          <option value="38">Santa cruz de tenerife</option>
+
+                                          <option value="40">Segovia</option>
+
+                                          <option value="41">Sevilla</option>
+
+                                          <option value="42">Soria</option>
+
+                                          <option value="43">Tarragona</option>
+
+                                          <option value="44">Teruel</option>
+
+                                          <option value="45">Toledo</option>
+
+                                          <option value="46">Valencia</option>
+
+                                          <option value="47">Valladolid</option>
+
+                                          <option value="48">Vizcaya</option>
+
+                                          <option value="49">Zamora</option>
+
+                                          <option value="50">Zaragoza</option>
+
+								</select>
+
+						</div>
+
+
+
+                <!-- <div class="form-group">
+
+                          <label class="control-label">Localidad*</label>
+
+                          <select class="form-control" id="desplegable" name="select">
+
+                                  <option value="value1" selected>Madrid</option>
+
+                                  <option value="value2">Barcelona</option>
+
+                                  <option value="value3">Sevilla</option>
+
+								</select>
+
+                          </div> -->
+
+
+
+                       
+
+                      <div class="pac-card" id="pac-card">
+
+                      <label class="control-label">Lugar*</label>
+
+                          <p class="description">Para facilitar la unión de más personas a su grupo, indique el lugar (Ej.: Parque Nacional de Doñana)y señale el punto exacto de encuentro en el mapa.</p>
+
+                        <div id="pac-container">
+
+                          <input id="pac-input" type="text" name="lugar" placeholder="Busca un lugar" data-rule-required="true" required>
+
+                        </div>
+
+                      </div>
+
+                        <div id="map"></div>
+
+                        <div id="infowindow-content">
+
+                          <img src="" width="16" height="16" id="place-icon">
+
+                          <span id="place-name"  class="title"></span><br>
+
+                          <span id="place-address"></span>
+
+                          </div>
+
+                      <input type="hidden" value="" name="location" id="location" />
+
+                      <div class="form-group">
+
+                          <label class="control-label">Hora*</label>
+
+                          <p class="description">Hora de comienzo de la actividad.</p>
+
+                          <select class="form-control desplegable" name="hora"  data-rule-required="true" required>
+
+                                          <option value="">Selecciona</option>
+
+                                          <option value="00:00">00:00 h.</option>
+
+                                          <option value="00:15">00:15 h.</option>
+
+                                          <option value="00:30">00:30 h.</option>
+
+                                          <option value="00:45">00:45 h.</option>
+
+                                          <option value="01:00">01:00 h.</option>
+
+                                          <option value="01:15">01:15 h.</option>
+
+                                          <option value="01:30">01:30 h.</option>
+
+                                          <option value="01:45">01:45 h.</option>
+
+                                          <option value="02:00">02:00 h.</option>
+
+                                          <option value="02:15">02:15 h.</option>
+
+                                          <option value="02:30">02:30 h.</option>
+
+                                          <option value="02:45">02:45 h.</option>
+
+                                          <option value="03:00">03:00 h.</option>
+
+                                          <option value="03:15">03:15 h.</option>
+
+                                          <option value="03:30">03:30 h.</option>
+
+                                          <option value="03:45">03:45 h.</option>
+
+                                          <option value="04:00">04:00 h.</option>
+
+                                          <option value="04:15">04:15 h.</option>
+
+                                          <option value="04:30">04:30 h.</option>
+
+                                          <option value="04:45">04:45 h.</option>
+
+                                          <option value="05:00">05:00 h.</option>
+
+                                          <option value="05:15">05:15 h.</option>
+
+                                          <option value="05:30">05:30 h.</option>
+
+                                          <option value="05:45">05:45 h.</option>
+
+                                          <option value="06:00">06:00 h.</option>
+
+                                          <option value="06:15">06:15 h.</option>
+
+                                          <option value="06:30">06:30 h.</option>
+
+                                          <option value="06:45">06:45 h.</option>
+
+                                          <option value="07:00">07:00 h.</option>
+
+                                          <option value="07:15">07:15 h.</option>
+
+                                          <option value="07:30">07:30 h.</option>
+
+                                          <option value="07:45">07:45 h.</option>
+
+                                          <option value="08:00">08:00 h.</option>
+
+                                          <option value="08:15">08:15 h.</option>
+
+                                          <option value="08:30">08:30 h.</option>
+
+                                          <option value="08:45">08:45 h.</option>
+
+                                          <option value="09:00">09:00 h.</option>
+
+                                          <option value="09:15">09:15 h.</option>
+
+                                          <option value="09:30">09:30 h.</option>
+
+                                          <option value="09:45">09:45 h.</option>
+
+                                          <option value="10:00">10:00 h.</option>
+
+                                          <option value="10:15">10:15 h.</option>
+
+                                          <option value="10:30">10:30 h.</option>
+
+                                          <option value="10:45">10:45 h.</option>
+
+                                          <option value="11:00">11:00 h.</option>
+
+                                          <option value="11:15">11:15 h.</option>
+
+                                          <option value="11:30">11:30 h.</option>
+
+                                          <option value="11:45">11:45 h.</option>
+
+                                          <option value="12:00">12:00 h.</option>
+
+                                          <option value="12:15">12:15 h.</option>
+
+                                          <option value="12:30">12:30 h.</option>
+
+                                          <option value="12:45">12:45 h.</option>
+
+                                          <option value="13:00">13:00 h.</option>
+
+                                          <option value="13:15">13:15 h.</option>
+
+                                          <option value="13:30">13:30 h.</option>
+
+                                          <option value="13:45">13:45 h.</option>
+
+                                          <option value="14:00">14:00 h.</option>
+
+                                          <option value="14:15">14:15 h.</option>
+
+                                          <option value="14:30">14:30 h.</option>
+
+                                          <option value="14:45">14:45 h.</option>
+
+                                          <option value="15:00">15:00 h.</option>
+
+                                          <option value="15:15">15:15 h.</option>
+
+                                          <option value="15:30">15:30 h.</option>
+
+                                          <option value="15:45">15:45 h.</option>
+
+                                          <option value="16:00">16:00 h.</option>
+
+                                          <option value="16:15">16:15 h.</option>
+
+                                          <option value="16:30">16:30 h.</option>
+
+                                          <option value="16:45">16:45 h.</option>
+
+                                          <option value="17:00">17:00 h.</option>
+
+                                          <option value="17:15">17:15 h.</option>
+
+                                          <option value="17:30">17:30 h.</option>
+
+                                          <option value="17:45">17:45 h.</option>
+
+                                          <option value="18:00">18:00 h.</option>
+
+                                          <option value="18:15">18:15 h.</option>
+
+                                          <option value="18:30">18:30 h.</option>
+
+                                          <option value="18:45">18:45 h.</option>
+
+                                          <option value="19:00">19:00 h.</option>
+
+                                          <option value="19:15">19:15 h.</option>
+
+                                          <option value="19:30">19:30 h.</option>
+
+                                          <option value="19:45">19:45 h.</option>
+
+                                          <option value="20:00">20:00 h.</option>
+
+                                          <option value="20:15">20:15 h.</option>
+
+                                          <option value="20:30">20:30 h.</option>
+
+                                          <option value="20:45">20:45 h.</option>
+
+                                          <option value="21:00">21:00 h.</option>
+
+                                          <option value="21:15">21:15 h.</option>
+
+                                          <option value="21:30">21:30 h.</option>
+
+                                          <option value="21:45">21:45 h.</option>
+
+                                          <option value="22:00">22:00 h.</option>
+
+                                          <option value="22:15">22:15 h.</option>
+
+                                          <option value="22:30">22:30 h.</option>
+
+                                          <option value="22:45">22:45 h.</option>
+
+                                          <option value="23:00">23:00 h.</option>
+
+                                          <option value="23:15">23:15 h.</option>
+
+                                          <option value="23:30">23:30 h.</option>
+
+                                          <option value="23:45">23:45 h.</option>
+
+								</select>
+
+                          </div>
+
+
+
+                       <div class="form-group">
+
+                          <label class="control-label">Número de personas</label>
+
+                          <p class="description">El número de personas que le acompañarán al evento.</p>
+
+                          <select class="form-control desplegable" name="numero"  data-rule-required="true" required>
+
+                                  <option value="1" selected>1</option>
+
+                                  <option value="2">2</option>
+
+                                  <option value="3">3</option>
+
+                                  <option value="4">4</option>
+
+                                  <option value="5">5</option>
+
+                                  <option value="6">6</option>
+
+                                  <option value="7">7</option>
+
+                                  <option value="8">8</option>
+
+                                  <option value="9">9</option>
+
+                                  <option value="10">10</option>
+
+                                  <option value="11">11</option>
+
+                                  <option value="12">12</option>
+
+                                  <option value="13">13</option>
+
+                                  <option value="14">14</option>
+
+                                  <option value="15">15</option>
+
+                                  <option value="16">16</option>
+
+                                  <option value="17">17</option>
+
+								</select>
+
+                          </div>
+
+
+
+                      <div class="form-group">
+
+                          <label class="control-label">Comentarios</label>
+
+                          <p class="description">Algo que convenga especificar. Por ejemplo, detalles acerca del lugar de encuentro.</p>
+
+                          <textarea id="comentarios" class="form-control" rows="10" name="coºmentarios" data-rule-required="true" required></textarea>
+
+                        </div>
+
+
+
+                       <div class="form-group">
+
+                           <input style="width:20px; height:20px; display:inline; float:left; color: #222221; padding-right:5px;" type="checkbox" class="field_terms" onchange="this.setCustomValidity(validity.valueMissing ? 'Por favor, indica que aceptas las condiciones de participación' : '');"  required name="partip"/>Acepto participar en la celebración cumpliendo con las <strong><a href="pdf/condiciones_participacion.pdf">condiciones de participación.</a></strong>
+
+                         </div>
+
+                        <div class="form-group">
+
+                           <input style="width:20px; height:20px; display:inline; float:left; color: #222221; padding-right:5px;" type="checkbox" onchange="this.setCustomValidity(validity.valueMissing ? 'Por favor, indica que aceptas las condiciones de participación' : '');"  required name="terms"/>Al aceptar me comprometo a organizar una recogida y devolver la info a la organización.
+
+			</div>
+            
+            			<div class="form-group">
+
+                           <input style="width:20px; height:20px; display:inline; float:left; color: #222221; padding-right:5px;" type="checkbox" onchange="this.setCustomValidity(validity.valueMissing ? 'Por favor, indica que aceptas las condiciones de participación' : '');"  required name="terms"/>He leido y acepto la <strong><a href="*">política de privacidad.</a></strong>
+
+			</div>
+
+                             <script type="text/javascript">
+
+                           //   document.getElementById("field_terms").setCustomValidity("Por favor, indica que aceptas las condiciones de participación");
+
+                            </script>
+
+                    <div class="form-group">
+
+                      <button class="btn btn-default btn-top" type="submit" id="submit" onclick="">ENVIAR</button>
+
+                    </div>
+
+                  </form>
+
+                 </div>
+
+          </div>
+
+        </div>
+
+  </div><!-- container -->
+
+
+
+  <footer>
+
+  <div id="eco"><img src="img/logo_ecoembes.png"></div>
+
+  <div id="seo"><img src="img/logo_seo.png"></div>
+
+  </footer>
+
+</div> <!-- page-content -->
+
+    <script>
+
+     $("#closee").click(function(){
+
+        $("#error").hide();
+
+     });
+
+
+
+      function initMap() {
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+
+          center: {lat: 39.3781, lng: -3.6795366},
+
+          zoom: 5
+
+        });
+
+        var card = document.getElementById('pac-card');
+
+        var input = document.getElementById('pac-input');
+
+
+
+        var autocomplete = new google.maps.places.Autocomplete(input);
+
+
+
+        // Set initial restrict to the greater list of countries.
+
+        autocomplete.setComponentRestrictions(
+
+            {'country': ['es']});
+
+
+
+        var infowindow = new google.maps.InfoWindow();
+
+        var infowindowContent = document.getElementById('infowindow-content');
+
+        infowindow.setContent(infowindowContent);
+
+        var marker = new google.maps.Marker({
+
+          map: map,
+
+          anchorPoint: new google.maps.Point(0, -29)
+
+        });
+
+
+
+        autocomplete.addListener('place_changed', function() {
+
+          infowindow.close();
+
+          marker.setVisible(false);
+
+          var place = autocomplete.getPlace();
+
+          if (!place.geometry) {
+
+            // User entered the name of a Place that was not suggested and
+
+            // pressed the Enter key, or the Place Details request failed.
+
+            window.alert("No details available for input: '" + place.name + "'");
+
+            return;
+
+          }
+
+
+
+          // If the place has a geometry, then present it on a map.
+
+          if (place.geometry.viewport) {
+
+            map.fitBounds(place.geometry.viewport);
+
+          } else {
+
+            map.setCenter(place.geometry.location);
+
+            map.setZoom(17);  // Why 17? Because it looks good.
+
+          }
+
+          marker.setPosition(place.geometry.location);
+
+          marker.setVisible(true);
+
+
+
+          var address = '';
+
+          if (place.address_components) {
+
+            address = [
+
+              (place.address_components[0] && place.address_components[0].short_name || ''),
+
+              (place.address_components[1] && place.address_components[1].short_name || ''),
+
+              (place.address_components[2] && place.address_components[2].short_name || '')
+
+            ].join(' ');
+
+          }
+
+
+
+          infowindowContent.children['place-icon'].src = place.icon;
+
+          infowindowContent.children['place-name'].textContent = place.name;
+
+          infowindowContent.children['place-address'].textContent = address;
+
+          infowindow.open(map, marker);
+
+          document.getElementById('location').value = place.geometry.location;
+
+        });
+
+
+
+        // Sets a listener on a given radio button. The radio buttons specify
+
+        // the countries used to restrict the autocomplete search.
+
+
+
+      /*  function setupClickListener(id, countries) {
+
+          var radioButton = document.getElementById(id);
+
+          radioButton.addEventListener('click', function() {
+
+            autocomplete.setComponentRestrictions({'country': countries});
+
+          });
+
+        }
+
+
+
+        setupClickListener('changecountry-usa', 'us');
+
+        setupClickListener(
+
+            'changecountry-usa-and-uot', ['us', 'pr', 'vi', 'gu', 'mp']);*/
+
+      }
+
+    </script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6w5d4eMIJxqEr0mM6-wBKKLz7DyEf54M&libraries=places&callback=initMap" async defer></script>
+
+  </body>
+
+</html>
+

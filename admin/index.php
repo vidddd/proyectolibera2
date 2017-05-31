@@ -39,9 +39,9 @@ if($_POST){
         $personas = $_POST['personas'];
         $comentarios = $_POST['comentarios'];
         $id = $_POST['id'];
-        $es = $_POST['par'];
+        $lugarid = $_POST['lugarid'];
         $db->updatePersona($id, $persona, $email, $telefono, $personas, $comentarios);
-                header("Location: index.php?par=".$es);
+                header("Location: index.php?par=6&id=".$lugarid);
     }
     else if ($_GET['guarda'] == '3') {
         
@@ -64,7 +64,7 @@ else if($_GET['edit'] == 1) {
 else if($_GET['edit'] == 2) {
     
   $id = $_GET['id'];
-  $paticipacion = $db->getPersona($id);
+  $paticipacion = $db->getPersonaId($id);
   echo $twig->render('edit-personas.html', array( "provincias" => $provincias, "participacion" => $paticipacion[0], "es" => $es));
 
 } // EDICION POR LIBRE

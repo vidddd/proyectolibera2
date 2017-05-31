@@ -1,128 +1,128 @@
-{% extends "base.html" %}
-{% block head %}
-    {{ parent() }}
-    <title>Libera | Un metro cuadrado por la naturaleza | Difunde</title>
-    <link rel="stylesheet" type="text/css" href="css/unmetrocuadrado.css">
-    <script src="js/difunde.js"></script>
-{% endblock %}
-{% block content %}
-<section class="difunde separacionHeader">
-	<article class="titular">
-    	<div class="centrador">
-    	<h1>CUANTOS MÁS SEAMOS, MÁS RÁPIDO<br> ACABAREMOS CON TODA LA BASURA DE <br><span class="txt_verde">LAS ZONAS VERDES DEL PAÍS.</span></h1>
-        </div>
-    </article>
-    <article class="explicacion">
-    <div class="centrador">
-        <h2>Por eso, desde <strong>LIBERA</strong> vemos fundamental la difusión del evento <strong>1m<sup>2</sup> por la Naturaleza</strong>. Colabora con nosotros difundiendo el evento en tu web o blog con uno de nuestros banners o en tus redes sociales compartiendo la foto de portada y de perfil del evento.</h2>
-    </div>
-    </article>
-    <article class="seleccion">
-    <div class="centrador">
-    	<div class="opcion azul">
-        	<div class="cuadro" onClick="verFormulario('redes');ga('send', 'event', 'Botón', ' Difunde_Redes ');">
-            	<div class="txt">
-            	REDES<br> SOCIALES
-                </div>
-            </div>
-            <div class="boton" onClick="verFormulario('redes');ga('send', 'event', 'Botón', ' Difunde_Redes ');" id="btn1">
-            	VER
-            </div>
-        </div>
-        <div class="opcion rosa">
-        	<div class="cuadro" onClick="verFormulario('banners');ga('send', 'event', 'Botón', ' Difunde_Banners ');">
-            	<div class="txt">
-            	BANNERS
-                </div>
-            </div>
-            <div class="boton" onClick="verFormulario('banners');ga('send', 'event', 'Botón', ' Difunde_Banners ');" id="btn2">
-            	VER
-            </div>
-        </div>
-        <div class="opcion naranja">
-        	<div class="cuadro">
-            	<div class="txt" onClick="verFormulario('manifiesto');ga('send', 'event', 'Botón', ' Difunde_Manifiesto ');">
-            	MANIFIESTO
-                </div>
-            </div>
-            <div class="boton" onClick="verFormulario('manifiesto');ga('send', 'event', 'Botón', ' Difunde_Manifiesto ');" id="btn3">
-            	DESCARGAR
-            </div>
-        </div>
-        </div>
-    </article>
-</section>
-<section class="seleccion2">
-	<article>
-    	<div class="opcion azul">
-        	<div class="cuadro" onClick="verFormulario('redes');">
-            	<div class="txt">
-            	REDES<br> SOCIALES
-                </div>
-            </div>
-            <div class="boton" onClick="verFormulario('redes');" id="btn1">
-            	VER
-            </div>
-        </div>
-    </article>
-</section>
-<section id="redes" class="formulario cerrado difundedesplegable">
-	<article class="centrador">
-        <div class="solapa_azul solapas">
-        	<img src="imagenes/solapa_azul.png">
-        </div>
-        <div class="seleccion2 cierre"><img src="imagenes/x.png" onclick="cerrarFormulario();"></div>
-        <div class="contenido">
-            <p><img src="imagenes/headerfacebook_1m2.jpg" class="sep"><br><a href="imagenes/headerfacebook_1m2.jpg" target="_blank" onclick="ga('send', 'event', 'Botón', ' Difunde_Redes_Descargar_1 ');" class="difunde_btn">DESCARGAR</a></p>
-            <p><img src="imagenes/logo_perfil_1m2.jpg" class="sep"><br><a href="imagenes/logo_perfil_1m2.jpg" target="_blank" onclick="ga('send', 'event', 'Botón', ' Difunde_Redes_Descargar_2 ');" class="difunde_btn">DESCARGAR</a></p>
-        </div>
-        
-    </article>
-</section>
-<section class="seleccion2">
-	<article>
-    	<div class="opcion rosa">
-        	<div class="cuadro">
-            	<div class="txt">
-            	BANNERS
-                </div>
-            </div>
-            <div class="entradilla">
-            	<p>Esta opción solo está disponible desde tu ordenador</p>
-            </div>
-        </div>
-    </article>
-</section>
-<section id="banners" class="formulario cerrado difundedesplegable">
-	<article class="centrador">
-    <div class="solapa_rosa solapas"><img src="imagenes/solapa_rosa.png"></div>
-    <div class="contenido">
-	<p><img src="imagenes/990x250_1m2_final.gif" class="sep"><br><a href="imagenes/990x250_1m2_final.gif" target="_blank" onclick="ga('send', 'event', 'Botón', ' Difunde_Banners_Descargar_1 ');" class="difunde_btn">DESCARGAR</a></p>
-    <p><img src="imagenes/728x90_1m2_final.gif" class="sep"><br><a href="imagenes/728x90_1m2_final.gif" target="_blank" onclick="ga('send', 'event', 'Botón', ' Difunde_Banners_Descargar_2 ');" class="difunde_btn">DESCARGAR</a></p>
-    <p><img src="imagenes/300x250_1m2_final.gif" class="sep"><br><a href="imagenes/300x250_1m2_final.gif" target="_blank" onclick="ga('send', 'event', 'Botón', ' Difunde_Banners_Descargar_3 ');" class="difunde_btn">DESCARGAR</a></p>
-     </div>
-    </article>
-</section>
-<section class="seleccion2">
-	<article>
-    	<div class="opcion naranja">
-        	<div class="cuadro">
-            	<div class="txt" onClick="verFormulario('manifiesto'); ga('send', 'event', 'Botón', ' Difunde_Manifiesto_Descargar ');">
-            	MANIFIESTO
-                </div>
-            </div>
-            <div class="boton" onClick="verFormulario('manifiesto'); ga('send', 'event', 'Botón', ' Difunde_Manifiesto_Descargar ');" id="btn3">
-            	DESCARGAR
-            </div>
-        </div>
-        
-    </article>
-</section>
-<section id="manifiesto" class="formulario cerrado difundedesplegable">
-	<div class="seleccion2 cierre"><img src="imagenes/x.png" onclick="cerrarFormulario();"></div>
-	<article class="centrador">
-		<h1>Cada vez que vayas a la playa, al monte o<br> simplemente al parque más cercano a tu casa podrás<br> colaborar con la naturaleza. Descarga nuestro<br> manifiesto y descubre cómo.</h1>
-        <p><a href="#" target="_blank" class="boton">DESCARGA MANIFIESTO</a></p>
-    </article>
-</section>
-{% endblock %}
+{% extends "base.html" %}
+{% block head %}
+    {{ parent() }}
+    <title>Libera | Un metro cuadrado por la naturaleza | Difunde</title>
+    <link rel="stylesheet" type="text/css" href="css/unmetrocuadrado.css">
+    <script src="js/difunde.js"></script>
+{% endblock %}
+{% block content %}
+<section class="difunde separacionHeader">
+	<article class="titular">
+    	<div class="centrador">
+    	<h1>CUANTOS MÁS SEAMOS, MÁS RÁPIDO<br> ACABAREMOS CON TODA LA BASURA DE <br><span class="txt_verde">LAS ZONAS VERDES DEL PAÍS.</span></h1>
+        </div>
+    </article>
+    <article class="explicacion">
+    <div class="centrador">
+        <h2>Por eso, desde <strong>LIBERA</strong> vemos fundamental la difusión del evento <strong>1m<sup>2</sup> por la Naturaleza</strong>. Colabora con nosotros difundiendo el evento en tu web o blog con uno de nuestros banners o en tus redes sociales compartiendo la foto de portada y de perfil del evento.</h2>
+    </div>
+    </article>
+    <article class="seleccion">
+    <div class="centrador">
+    	<div class="opcion azul">
+        	<div class="cuadro" onClick="verFormulario('redes');ga('send', 'event', 'Botón', ' Difunde_Redes ');">
+            	<div class="txt">
+            	REDES<br> SOCIALES
+                </div>
+            </div>
+            <div class="boton" onClick="verFormulario('redes');ga('send', 'event', 'Botón', ' Difunde_Redes ');" id="btn1">
+            	VER
+            </div>
+        </div>
+        <div class="opcion rosa">
+        	<div class="cuadro" onClick="verFormulario('banners');ga('send', 'event', 'Botón', ' Difunde_Banners ');">
+            	<div class="txt">
+            	BANNERS
+                </div>
+            </div>
+            <div class="boton" onClick="verFormulario('banners');ga('send', 'event', 'Botón', ' Difunde_Banners ');" id="btn2">
+            	VER
+            </div>
+        </div>
+        <div class="opcion naranja">
+        	<div class="cuadro">
+            	<div class="txt" onClick="verFormulario('manifiesto');ga('send', 'event', 'Botón', ' Difunde_Manifiesto ');">
+            	MANIFIESTO
+                </div>
+            </div>
+            <div class="boton" onClick="verFormulario('manifiesto');ga('send', 'event', 'Botón', ' Difunde_Manifiesto ');" id="btn3">
+            	DESCARGAR
+            </div>
+        </div>
+        </div>
+    </article>
+</section>
+<section class="seleccion2">
+	<article>
+    	<div class="opcion azul">
+        	<div class="cuadro" onClick="verFormulario('redes');">
+            	<div class="txt">
+            	REDES<br> SOCIALES
+                </div>
+            </div>
+            <div class="boton" onClick="verFormulario('redes');" id="btn1">
+            	VER
+            </div>
+        </div>
+    </article>
+</section>
+<section id="redes" class="formulario cerrado difundedesplegable">
+	<article class="centrador">
+        <div class="solapa_azul solapas">
+        	<img src="imagenes/solapa_azul.png">
+        </div>
+        <div class="seleccion2 cierre"><img src="imagenes/x.png" onclick="cerrarFormulario();"></div>
+        <div class="contenido">
+            <p><img src="imagenes/headerfacebook_1m2.jpg" class="sep"><br><a href="imagenes/headerfacebook_1m2.jpg" target="_blank" onclick="ga('send', 'event', 'Botón', ' Difunde_Redes_Descargar_1 ');" class="difunde_btn">DESCARGAR</a></p>
+            <p><img src="imagenes/logo_perfil_1m2.jpg" class="sep"><br><a href="imagenes/logo_perfil_1m2.jpg" target="_blank" onclick="ga('send', 'event', 'Botón', ' Difunde_Redes_Descargar_2 ');" class="difunde_btn">DESCARGAR</a></p>
+        </div>
+        
+    </article>
+</section>
+<section class="seleccion2">
+	<article>
+    	<div class="opcion rosa">
+        	<div class="cuadro">
+            	<div class="txt">
+            	BANNERS
+                </div>
+            </div>
+            <div class="entradilla">
+            	<p>Esta opción solo está disponible desde tu ordenador</p>
+            </div>
+        </div>
+    </article>
+</section>
+<section id="banners" class="formulario cerrado difundedesplegable">
+	<article class="centrador">
+    <div class="solapa_rosa solapas"><img src="imagenes/solapa_rosa.png"></div>
+    <div class="contenido">
+	<p><img src="imagenes/990x250_1m2_final.gif" class="sep"><br><a href="imagenes/990x250_1m2_final.gif" target="_blank" onclick="ga('send', 'event', 'Botón', ' Difunde_Banners_Descargar_1 ');" class="difunde_btn">DESCARGAR</a></p>
+    <p><img src="imagenes/728x90_1m2_final.gif" class="sep"><br><a href="imagenes/728x90_1m2_final.gif" target="_blank" onclick="ga('send', 'event', 'Botón', ' Difunde_Banners_Descargar_2 ');" class="difunde_btn">DESCARGAR</a></p>
+    <p><img src="imagenes/300x250_1m2_final.gif" class="sep"><br><a href="imagenes/300x250_1m2_final.gif" target="_blank" onclick="ga('send', 'event', 'Botón', ' Difunde_Banners_Descargar_3 ');" class="difunde_btn">DESCARGAR</a></p>
+     </div>
+    </article>
+</section>
+<section class="seleccion2">
+	<article>
+    	<div class="opcion naranja">
+        	<div class="cuadro">
+            	<div class="txt" onClick="verFormulario('manifiesto'); ga('send', 'event', 'Botón', ' Difunde_Manifiesto_Descargar ');">
+            	MANIFIESTO
+                </div>
+            </div>
+            <div class="boton" onClick="verFormulario('manifiesto'); ga('send', 'event', 'Botón', ' Difunde_Manifiesto_Descargar ');" id="btn3">
+            	DESCARGAR
+            </div>
+        </div>
+        
+    </article>
+</section>
+<section id="manifiesto" class="formulario cerrado difundedesplegable">
+	<div class="seleccion2 cierre"><img src="imagenes/x.png" onclick="cerrarFormulario();"></div>
+	<article class="centrador">
+		<h1>Cada vez que vayas a la playa, al monte o<br> simplemente al parque más cercano a tu casa podrás<br> colaborar con la naturaleza. Descarga nuestro<br> manifiesto y descubre cómo.</h1>
+        <p><a href="pdf/manifiesto_1m2.pdf" target="_blank" class="boton">DESCARGA MANIFIESTO</a></p>
+    </article>
+</section>
+{% endblock %}
