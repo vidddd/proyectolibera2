@@ -11,13 +11,12 @@
            </div>
           {% for pa in parti %}
           <div class="item">
-              <div class="id"><a href="index.php?edit=1&id={{ pa.id }}&par={{ es }}">#0{{ pa.id }}</a></div>
+            <div class="id"><a href="index.php?edit=1&id={{ pa.id }}&par={{ es }}">#0{{ pa.id }}</a></div>
             <div class="nombre">{{ pa.persona }}</div>
             <div class="personas">{{ pa.cuantas }}</div>
             <div class="hora">{{ pa.hora }}</div>
             <div class="localizacion">{{ pa.lugar }}</div>
-             <div class="cuantas"><a href="index.php?par=6&id={{ pa.id }}">Participantes</a></div>
-          
+            <div class="cuantas"><a href="index.php?par=6&id={{ pa.id }}">Participantes</a></div>
          </div>
         {% endfor %}
       </article>

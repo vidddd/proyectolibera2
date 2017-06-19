@@ -196,7 +196,7 @@ input.error, textarea.error, select.error{
 	}
 	
 	.separacionHeader{
-		margin-top:109px !important;	
+		margin-top:109px !important;
 	}
 	
 	header{
@@ -294,7 +294,8 @@ input.error, textarea.error, select.error{
 		list-style: outside none none;
 		padding: 0;
 		width: auto;
-		margin: 0 190px 0 0;
+		/*margin: 0 190px 0 0;*/
+		margin:0;
 	}
 	.submenu li{
 		display: inline-block;
@@ -452,9 +453,9 @@ input.error, textarea.error, select.error{
 	.submenu .centrador{
 		width:100%;
 	}
-	.submenu ul{
+	/*.submenu ul{
 		margin: 0 136px 0 0;
-	}
+	}*/
 	.submenu li{
 		width: 200px;
 	}
@@ -800,7 +801,7 @@ input.error, textarea.error, select.error{
 	}
 	
 	.separacionHeader {
-		margin-top: 173px !important;
+		/*margin-top: 173px !important;*/
 	}
 	.girar{
 		-ms-transform: rotate(180deg); /* IE 9 */

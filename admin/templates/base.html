@@ -11,7 +11,7 @@
 
 <body>
     <header>
-        <a href="#salir">Desconectar</a>
+       <a href="zeta.php?es=9" class="descargar">DESCARGAR TODO .XLS <img src="imagenes/icono_descarga.png"></a> <a href="#salir">Desconectar</a>
     </header>
     <nav>
         <ul class="categoria">
@@ -21,12 +21,14 @@
                     <li class="{% if es == 1 %}activo{% endif %}"><a href="index.php">PENDIENTES</a> <span class="cantidad">{{ total1 }}</span></li>
                     <li class="{% if es == 2 %}activo{% endif %}"><a href="index.php?par=2">APROBADOS</a> <span class="cantidad">{{ total2 }}</span></li>
                     <li class="{% if es == 3 %}activo{% endif %}"><a href="index.php?par=3">DENEGADOS</a> <span class="cantidad">{{ total3 }}</span></li>
+                    <li class="{% if es == 7 %}activo{% endif %}"><a href="index.php?par=7">CERRADOS</a> <span class="cantidad">{{ total4 }}</span></li>
                 </ul>
             </li>
             <li>
               <h3>Participantes</h3>
               <ul class="subcategoria">
                 <li class=""><a href="index.php?par=4">Listado <span class="cantidad">{{ totalp }}</span></a></li>
+                 <li class=""><a href="index.php?par=8">Denegados <span class="cantidad"></span></a></li>
               </ul>
             </li>
              <li>

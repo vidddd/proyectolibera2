@@ -1,0 +1,460 @@
+{% extends "base.html" %}
+{% block head %}
+    {{ parent() }}
+    <title>Libera | Un metro cuadrado por la naturaleza | Participa</title>
+    <link rel="stylesheet" type="text/css" href="css/unmetrocuadrado.css">
+    <script src="js/jquery.validate.js"></script>
+    <script src="js/participa.js"></script>
+    <script src="js/formulario.js"></script>
+{% endblock %}
+{% block content %}
+{% if mensaje == 3 %}
+  <div id="error">
+    <div class="ventana"><div id="cierre"><img id="closee" src="imagenes/x.png"></div>
+    <div class="alerta"><p><strong>¡ALGO NO VA BIEN!</strong></p>
+    <p>Por favor, revise los campos del formulario.</p>
+    <p>Uno o alguno de ellos puede estar incompleto o rellenado de forma incorrecta.</p></div>
+    </div>
+  </div>
+{% endif %}
+{% if mensaje == 1 %}
+  <section id="error">
+    <div class="ventana"><div id="cierre"><img id="closee" src="imagenes/x.png"></div>
+    <div class="alerta"><p><strong>¡YA NOS CONOCEMOS!</strong></p>
+    <p>Lamentablemente ya contamos con este mail en el registro.</p>
+    <p>Inténtelo de nuevo con otra
+dirección de correo para poder participar en el evento.</p></div>
+    </div>
+  </section>
+{% endif %}
+{% if mensaje == 2 %}
+  <section id="error">
+    <div class="ventana"><div id="cierre"><img id="closee" src="imagenes/x.png"></div>
+    <div class="alerta"><p><strong>¡GRACIAS POR PARTICIPAR!</strong></p>
+    <p>Su formulario ha sido completado satisfactoriamente.</p>
+    <p>Muchas gracias
+por colaborar con LIBERA.</p></div>
+    </div>
+      <!-- Facebook Pixel Code COMPLETE REGISTRATION -->
+        <script>
+        !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+        n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+        document,'script','https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1550276978316959'); // Insert your pixel ID here.
+        fbq('track', 'PageView');
+        fbq('track', 'CompleteRegistration');
+        </script>
+        <noscript><img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=1550276978316959&ev=PageView&noscript=1"
+        /></noscript>
+        <!-- DO NOT MODIFY -->
+        <!-- End Facebook Pixel Code -->
+
+  </section>
+{% endif %}
+{% if mensaje == 4 %}
+  <section id="error">
+    <div class="ventana"><div id="cierre"><img id="closee" src="imagenes/x.png"></div>
+    <div class="alerta"><p><strong>¡GRACIAS POR PARTICIPAR!</strong></p>
+    <p>Su formulario ha sido completado satisfactoriamente.</p>
+    <p>{{ nombre }}</p>
+    <p>{{ email }}</p>
+    <p>{{ lugar }}</p>
+    <p>{{ hora }}</p>
+    
+    <p>Muchas gracias
+por colaborar con LIBERA.</p></div>
+    </div>
+      <!-- Facebook Pixel Code COMPLETE REGISTRATION -->
+        <script>
+        fbq('track', 'CompleteRegistration');
+        </script>
+        <noscript><img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=1550276978316959&ev=PageView&noscript=1"
+        /></noscript>
+        <!-- DO NOT MODIFY -->
+        <!-- End Facebook Pixel Code -->
+    <script>ga('send', 'event', 'Botón', 'Enviar', 'Ok');</script>
+  </section>
+{% endif %}
+{% if mensaje == 5 %}
+  <section id="error">
+    <div class="ventana"><div id="cierre"><img id="closee" src="imagenes/x.png"></div>
+    <div class="alerta"><p><strong>¡GRACIAS POR PARTICIPAR!</strong></p>
+    <p>Su formulario ha sido completado satisfactoriamente</p>
+    <p>{{ nombre }}</p>
+    <p>{{ email }}</p>
+    <p>{{ lugar }}</p>
+    <p>{{ hora }}</p>
+    
+    <p>Muchas gracias
+por colaborar con LIBERA.</p></div>
+    </div>
+      <!-- Facebook Pixel Code COMPLETE REGISTRATION -->
+        <script>
+        fbq('track', 'PageView');
+        fbq('track', 'Lead');
+        </script>
+        <noscript><img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=1550276978316959&ev=PageView&noscript=1"
+        /></noscript>
+
+        <!-- DO NOT MODIFY -->
+        <!-- End Facebook Pixel Code -->
+    <script>ga('send', 'event', 'Botón', 'Enviar', 'Ok');</script>
+  </section>
+{% endif %}
+<section class="participa separacionHeader">
+	<div class="centrador">
+	<article class="titular">
+    	<h1>TARDAS MÁS EN<br>PENSAR CÓMO LIMPIAR <span class="txt_amarillo cambiacolor">1m<sup>2</sup></span><br>QUE EN LIMPIARLO</h1>
+    </article>
+    <article class="seleccion">
+    	<div class="opcion amarillo">
+        	<div class="cuadro" onClick="verFormulario('organiza');ga('send', 'event', 'Botón', ' Participa_Organiza_1 ');">
+            	<div class="txt">
+            	ORGANIZA
+                </div>
+            </div>
+            <div class="entradilla">
+            	<p>Si estás plenamente comprometido con la naturaleza y quieres organizar y liderar un grupo de limpieza en la zona que tú elijas, créalo desde aquí.</p>
+            </div>
+            <div class="boton" onClick="verFormulario('organiza');ga('send', 'event', 'Botón', ' Participa_Organiza_1 ');" id="btn1">
+            	APÚNTATE
+            </div>
+        </div>
+        <div class="opcion verde">
+        	<div class="cuadro" onClick="verFormulario('unete');ga('send', 'event', 'Botón', ' Participa_Únete_1 ');">
+            	<div class="txt">
+            	ÚNETE
+                </div>
+            </div>
+            <div class="entradilla">
+            	<p>Si no tienes el tiempo o la energía para liderar un grupo de limpieza pero sigues concienciado con la naturaleza, busca y únete a un grupo de limpieza ya creado.</p>
+            </div>
+            <div class="boton" onClick="verFormulario('unete');ga('send', 'event', 'Botón', ' Participa_Únete_1 ');" id="btn2">
+            	APÚNTATE
+            </div>
+        </div>
+        <div class="opcion azul">
+        	<div class="cuadro">
+            	<div class="txt" onClick="verFormulario('portucuenta');ga('send', 'event', 'Botón', ' Participa_Cuenta_1 ');">
+            	POR <br>TU CUENTA
+                </div>
+            </div>
+            <div class="entradilla">
+            	<p>Si por el contrario el día 17 de junio estás ocupado pero quieres colaborar con la naturaleza en tu día a día, aquí te decimos cómo.</p>
+            </div>
+            <div class="boton" onClick="verFormulario('portucuenta');ga('send', 'event', 'Botón', ' Participa_Cuenta_1 ');" id="btn3">
+            	APÚNTATE
+            </div>
+        </div>
+    </article>
+    </div>
+</section>
+<section class="seleccion2">
+	<article>
+    	<div class="opcion amarillo">
+        	<div class="cuadro" onClick="verFormulario('organiza');">
+            	<div class="txt">
+            	ORGANIZA
+                </div>
+            </div>
+            <div class="entradilla">
+            	<p>Si estás plenamente comprometido con la naturaleza y quieres organizar y liderar un grupo de limpieza en la zona que tú elijas, créalo desde aquí.</p>
+            </div>
+            <div class="boton" onClick="verFormulario('organiza');" id="btn1">
+            	APÚNTATE
+            </div>
+        </div>
+    </article>
+</section>
+<section id="form_organiza" class="formulario cerrado">	
+	<article class="centrador">		
+    	<h1>El plazo de inscripción para ser organizador ya ha sido cerrado,<br /> pero hemos dejado abierto el de participantes unos días más<br /> para que puedas apuntarte a cualquiera de los grupos que hay creados.<br />
+		Encuentra el más cercano a ti y ¡apúntate!</h1>
+		<h1>¡Cuántos más seamos, más m2 liberaremos de basura!</h1>
+    </article>
+</section>
+<section class="seleccion2">
+	<article>
+    	<div class="opcion verde">
+        	<div class="cuadro" onClick="verFormulario('unete');">
+            	<div class="txt">
+            	ÚNETE
+                </div>
+            </div>
+            <div class="entradilla">
+            	<p>Si no tienes el tiempo o la energía para liderar un grupo de limpieza pero sigues concienciado con la naturaleza, busca y únete a un grupo de limpieza ya creado.</p>
+            </div>
+            <div class="boton" onClick="verFormulario('unete');" id="btn2">
+            	APÚNTATE
+            </div>
+        </div>
+    </article>
+</section>
+<section id="form_unete" class="formulario cerrado">
+	
+	<div class="centrador">
+    	<article class="arriba">
+        	* Obligatorio
+        </article>
+		<div class="seleccion2 cierre"><img src="imagenes/x.png" onclick="cerrarFormulario();"></div>
+        <form id="formunete" class="boxed-form" name="formunete" method="post" action="index.php?participa=2">
+    	<article class="columna izquierda">
+        	<label for="persona2" class="control-label">Persona de contacto*</label>
+            <p class="description">Nombre y apellidos para uso interno en las labores organizativas.</p>
+            <input class="form-control" value="" name="persona2" id="persona2" class="form-control" required >
+            
+			<label for="email2" class="control-label">Email de Contacto*</label>
+            <p class="description">Donde pueda ponerse en contacto contigo la organización.</p>
+            <input class="form-control" value="" name="email2" id="email2" type="email" required>
+            
+            <label for="telefono2" class="control-label">Teléfono de contacto*</label>
+            <p class="description">Para uso interno en las labores organizativas.</p>
+            <input maxlength="10" class="form-control" value="" name="telefono2" id="telefono2" type="text" required>
+        </article>
+        <article class="columna derecha">
+           <label for="lugar2" class="control-label">Lugar*</label>
+            
+            <p class="description">Indique un lugar de la lista para añadirse a un grupo ya creado el día del evento.</p>
+            <p id="lugaree" class="error" style="display:none;color:red;">Por favor, selecciona un punto en el mapa al que unirte.</p>
+             <select name="lugares" id="lugares" class="anchototal desplegablebuscador" required>
+                 <option value="">Seleccione un lugar...</option>
+                {% for loca in locations %}
+                <option rel="{{ loca.id }}" rel2="{{ loca.latitud }}" rel3="{{ loca.longitud }}" value="{{ loca.id }}">{{ loca.lugar }}</option>
+                {% endfor %}
+                </select>
+	      <!--  <input id="pac-input2" type="text" name="lugar2" id="lugar2" placeholder="Busca un lugar" required class="anchototal"> -->
+            <div style="display:none;"><input id="lugarid" name="lugarid" type="text" value="" />
+           
+            <input id="lugarname" name="lugarname" type="text" value="" />
+               <input id="horaa" name="horaa" type="hidden" value="" />
+            </div>
+            <div id="map2" class="mimapa"></div>
+            <div id="infomap" style="">
+            	<div class="info">
+                	<h3 class="tit">Lugar de la recogida</h3>
+                    <p class="horah">Hora de la recogida</p>
+                </div>
+                <img src="imagenes/1m2.jpg" class="logo">
+            </div>
+            
+              
+           <!-- <label for="numero2" class="control-label">Número de personas</label>
+            <p class="description">El número de personas que le pueden acompañar al evento.</p>
+            <input class="form-control" value="" name="numero2" id="numero2"  class="form-control" required >
+           -->
+           <input type="hidden" name="numero2" value="0" /> 
+            
+            <label for="comentarios2" class="control-label">Comentarios</label>
+            <p class="description">Alguna duda que tenga acerca de la organización<br /> del evento (lugar, fecha, hora, material, etc.)</p>
+            <textarea id="comentarios2" class="form-control" rows="10" name="comentarios2"></textarea>
+            
+			<div class="condiciones">
+            <input class="micheck" type="checkbox" onchange="this.setCustomValidity(validity.valueMissing ? 'Por favor, indica que aceptas las condiciones de participación' : '');"  required name="partip2"/>
+            <p>Acepto participar en la celebración cumpliendo con las <a href="pdf/condiciones_participacion.pdf" target="_blank">condiciones de participación.</a></p>
+			</div>
+            
+            <div class="condiciones">
+            <input class="micheck" type="checkbox" onchange="this.setCustomValidity(validity.valueMissing ? 'Por favor, indica que aceptas las condiciones de participación' : '');"  required name="terms2"/>
+            <p>Al aceptar me comprometo a organizar una recogida y devolver la info a la organización.</p>
+			</div>
+            
+            <div class="condiciones">
+            <input class="micheck" type="checkbox" onchange="this.setCustomValidity(validity.valueMissing ? 'Por favor, indica que aceptas las condiciones de participación' : '');"  required name="polit2"/>
+            <p>He leido y acepto la <a href="http://www.seo.org/aviso-legal" target="_blank">política de privacidad.</a></p>
+            </div>
+            
+            <button class="btn" type="submit" id="submit2" onclick="ga('send', 'event', 'Botón', ' Participa_Unete_Enviar '); return checkmapa();">ENVIAR</button>
+        </article>
+        </form>
+    </div>
+</section>
+<section class="seleccion2">
+	<article>
+    	
+        <div class="opcion azul">
+        	<div class="cuadro">
+            	<div class="txt" onClick="verFormulario('portucuenta');">
+            	POR <br>TU CUENTA
+                </div>
+            </div>
+            <div class="entradilla">
+            	<p>Si por el contrario el día 17 de junio estás ocupado pero quieres colaborar con la naturaleza en tu día a día, aquí te decimos cómo.</p>
+            </div>
+            <div class="boton" onClick="verFormulario('portucuenta');" id="btn3">
+            	APÚNTATE
+            </div>
+        </div>
+    </article>
+</section>
+<section id="portucuenta" class="formulario cerrado">
+	
+	<article class="centrador">
+		
+    	<h1>Cada vez que vayas a la playa, al campo, al monte o<br /> simplemente al área verde más cercana a tu casa<br /> podrás colaborar con la naturaleza. Descarga nuestro<br /> manifiesto y descubre cómo.</h1>
+        <p><a href="pdf/manifiesto_1m2.pdf" target="_blank" class="boton">DESCARGA MANIFIESTO</a></p>
+    </article>
+	<div class="seleccion2 cierre"><img src="imagenes/x.png" onclick="cerrarFormulario();"></div>
+</section>
+<section id="portucuentaform" class="formulario cerrado">
+        <form id="formcuenta" class="boxed-form" name="formcuenta" method="post" action="index.php?participa=3">
+	<div class="centrador">
+    <article class="arriba">
+    		<p>Déjanos tus datos para poder contarte las novedades sobre este y otros proyectos que tenemos en marcha.</p>
+        	* Obligatorio
+    </article>
+    <article class="columna izquierda">
+        	<label for="persona" class="control-label">Persona de contacto*</label>
+            <p class="description">Nombre y apellidos a los que dirigirnos en<br /> futuras comunicaciones y eventos.</p>
+            <input class="form-control" id="persona3" name="persona3"  class="form-control" required >
+    </article>
+    <article class="columna derecha">
+    		<label for="email" class="control-label">Email de Contacto*</label>
+            <p class="description">Para poder ponernos en<br /> contacto contigo.</p>
+            <input class="form-control" id="email3" name="email3" type="email" required>
+            <div class="help-block with-errors"></div>
+			<div class="condiciones">
+            <input class="micheck" type="checkbox" onchange="this.setCustomValidity(validity.valueMissing ? 'Por favor, indica que aceptas las condiciones de participación' : '');"  required name="polit2"/>
+            <p>He leido y acepto la <a href="http://www.seo.org/aviso-legal/" target="_blank">política de privacidad.</a></p>
+            </div>
+            <button class="btn" type="submit" id="submit2" onclick="ga('send', 'event', 'Botón', ' Participa_Cuenta_Enviar ');">ENVIAR</button>
+            </form>
+    </article>
+    </div>
+</section>
+<script>
+  var map2 = new Object;
+  function initMap() {
+    var map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: 39.3781, lng: -3.6795366},
+      zoom: 5
+    });
+    var map2 = new google.maps.Map(document.getElementById('map2'), {
+      center: {lat: 39.3781, lng: -3.6795366},
+      zoom: 5
+    });
+    
+    setPoints(map2);setPoints(map);
+    var card = document.getElementById('pac-card');
+    var input = document.getElementById('pac-input');
+    var autocomplete = new google.maps.places.Autocomplete(input);
+    // Set initial restrict to the greater list of countries.
+    autocomplete.setComponentRestrictions(
+        {'country': ['es']});
+    var infowindow = new google.maps.InfoWindow();
+    var infowindowContent = document.getElementById('infowindow-content');
+    infowindow.setContent(infowindowContent);
+    infowindow.close();
+    var marker = new google.maps.Marker({
+        map: map,
+        anchorPoint: new google.maps.Point(0, -29),
+        draggable:true,
+         title:"Arrastrame!"
+      });
+      
+    autocomplete.addListener('place_changed', function() {
+      infowindow.close();
+      marker.setVisible(false);
+      var place = autocomplete.getPlace();
+      if (!place.geometry) {
+        // User entered the name of a Place that was not suggested and
+        // pressed the Enter key, or the Place Details request failed.
+        window.alert("No details available for input: '" + place.name + "'");
+        return;
+      }
+      if (place.geometry.viewport) {
+        map.fitBounds(place.geometry.viewport);
+      } else {
+        map.setCenter(place.geometry.location);
+        map.setZoom(17);  // Why 17? Because it looks good.
+      }
+      marker.setPosition(place.geometry.location);
+      marker.setVisible(true);
+      var address = '';
+      if (place.address_components) {
+        address = [
+          (place.address_components[0] && place.address_components[0].short_name || ''),
+          (place.address_components[1] && place.address_components[1].short_name || ''),
+          (place.address_components[2] && place.address_components[2].short_name || '')
+        ].join(' ');
+      }
+      infowindowContent.children['place-name'].textContent = place.name;
+      infowindowContent.children['place-address'].textContent = address;
+      infowindow.open(map, marker);
+      document.getElementById('location').value = place.geometry.location;
+    });
+    
+    google.maps.event.addListener(marker, 'drag', function (event) {
+      infowindow.close();
+    });
+    google.maps.event.addListener(marker, 'dragend', function (event) {
+      document.getElementById("location").value = this.getPosition().lat()+","+ this.getPosition().lng();
+     var infowindow = new google.maps.InfoWindow({});
+      var latlng = {lat: parseFloat(event.latLng.lat()), lng: parseFloat(event.latLng.lng())};
+      var geocoder = new google.maps.Geocoder();
+      geocoder.geocode({ 'location': latlng,'region':'es'}, function(results, status) {
+          if (status == google.maps.GeocoderStatus.OK) {
+              document.getElementById("pac-input").value = results[0].formatted_address;
+              infowindow.setContent(results[0].formatted_address);
+          } else {
+            console.log("Geocode was not successful for the following reason: " + status);
+          }
+        });
+        infowindow.open(map,marker);
+      });
+      
+      $("#lugares").change(function(){
+        $( "#lugares option:selected" ).each(function() {
+            var id = $(this).attr("rel");
+            var lat = $(this).attr("rel2");
+            var lon = $(this).attr("rel3");
+            map2.setCenter(new google.maps.LatLng(lat,lon));
+            map2.setZoom(10);  // Why 17? Because it looks good.
+            $("#infomap .tit").html($(this).text());
+            $("#infomap .tit").html('');
+            $("#lugarid").val(id);
+            $("#lugarname").val($(this).text());
+           // infowindowContent.children['place-address'].textContent = address;
+            //$('location').val($(this).attr("rel"));
+        });
+    });
+      
+  }
+  function setPoints(map) {
+    {% for loca in locations %}
+        var num = Math.floor((Math.random() * 6) + 1);
+        var marker{{ loop.index }} = new google.maps.Marker({
+            map: map,
+            position: new google.maps.LatLng({{ loca.latitud }}, {{ loca.longitud }}),
+            title: '{{ loca.lugar }}',
+            icon: 'imagenes/pin'+num+'.png',
+          });
+       marker{{ loop.index }}.addListener('click', function() {
+         $("#infomap").show();
+         $("#infomap .tit").html('{{ loca.lugar }}');
+         $("#infomap .desc").html('');
+         $("#infomap .horah").html('{{ loca.hora }}');
+         $('#lugarid').val({{ loca.id }});
+         $('#lugarname').val('{{ loca.lugar }}'); $('#horaa').val('{{ loca.hora }}'); $('#lugaree').hide();
+       });
+      // marker.setMap(map);
+     {% endfor %}
+  }
+  function checkmapa(){
+      if ($("#lugarid").val() == '') {
+        $('#lugaree').show();
+            // alert('Por favor, selecciona un punto en el mapa al que unirte');
+          return false;
+      } else {
+          return true;
+      } 
+  }
+  
+  
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6w5d4eMIJxqEr0mM6-wBKKLz7DyEf54M&libraries=places&callback=initMap" async defer></script>
+{% endblock %}

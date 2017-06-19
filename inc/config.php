@@ -3,19 +3,16 @@ define("URL_HOME", "http://proyectolibera.org/proyectolibera");
 define("ACTIONFORM", "");
 
 #BBDD
-/*
+
 define("HOST","localhost");
 define("USER","libera2_pro");
 define("PASSWORD","iC1hQ8pzE");
 define("DATABASE", "libera2_pro");
- * */
- 
-
-
+/*
 define("HOST","localhost");
 define("USER","libera_proyecto");
 define("PASSWORD","5lGpRyNwY");
-define("DATABASE", "libera_proyecto");
+define("DATABASE", "libera_proyecto");*/
 
 $provincias = array(
 '2' => 'Álava',

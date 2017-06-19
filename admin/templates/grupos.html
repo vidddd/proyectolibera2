@@ -18,7 +18,13 @@
             <div class="hora">{{ pa.email }}</div>
             <div class="provincia">{{ pa.telefono }}</div>
             <div class="localizacion">{{ pa.personas }}</div>
-        <div class="localizacion">{{ pa.comentarios }}</div>
+            <div class="localizacion">{{ pa.comentarios }}</div>
+              <div class="btns">
+               {% if es == 6 %}<a class="denegar" href="index.php?change=4&id={{ pa.id }}">Denegar</a>
+               {% endif %}
+                 {% if es == 8 %}<a class="aceptar" href="index.php?change=5&id={{ pa.id }}">Aprobar</a>
+               {% endif %}
+             </div>
          </div>
         {% endfor %}
         </article>

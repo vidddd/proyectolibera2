@@ -66,7 +66,6 @@ else if($_GET['edit'] == 2) {
   $id = $_GET['id'];
   $paticipacion = $db->getPersonaId($id);
   echo $twig->render('edit-personas.html', array( "provincias" => $provincias, "participacion" => $paticipacion[0], "es" => $es));
-
 } // EDICION POR LIBRE
 else if($_GET['edit'] == 3) {
   $id = $_GET['id'];
@@ -79,10 +78,18 @@ else if($_GET['edit'] == 3) {
       if($_GET['change'] == 3 && $_GET['id']) {
           $db->updateEstado($_GET['id'],3);
       }
-
+      if($_GET['change'] == 4 && $_GET['id']) {
+          $db->updateEstadoPersona($_GET['id'],1);
+          header("Location: /admin/index.php?par=8");
+      }
+       if($_GET['change'] == 5 && $_GET['id']) {
+          $db->updateEstadoPersona($_GET['id'],0);
+          header("Location: /admin/index.php?par=4");
+      }
     $total1 = $db->getParticipacionesCount(1);
     $total2 = $db->getParticipacionesCount(2);
     $total3 = $db->getParticipacionesCount(3);
+    $total4 = $db->getParticipacionesCount(4);
     $totalp = $db->getPersonasCount();
     $totalpl = $db->getPorlibreCount();
     $parti = array(); $paticipantes = array();
@@ -92,8 +99,12 @@ else if($_GET['edit'] == 3) {
       $parti = $db->getParticipaciones(3); $es = 3;
     } else if($_GET['par'] == 4) {
       $parti = $db->getParticipaciones(2); $es = 4;
+    } else if($_GET['par'] == 7) {
+      $parti = $db->getParticipaciones(4); $es = 7;
     } else if($_GET['par'] == 5) {
       $parti = $db->getPorlibres(); $es = 5;
+    } else if($_GET['par'] == 8) {
+      $parti = $db->getPersonasEstado(1); $es = 8;
     } else if($_GET['par'] == 6) {
       $parti = $db->getPersona($_GET['id']); $es = 6;
       $pa = $db->getNombrelugar($_GET['id']);
@@ -101,16 +112,16 @@ else if($_GET['edit'] == 3) {
       $parti = $db->getParticipaciones(1);
     }
     
-
-    
     if($_GET['par'] == 5) {
     echo $twig->render('porlibres.html', array( "URLHOME" => URL_HOME, "total1" => $total1, "total2" => $total2, "total3" => $total3, "totalp" => $totalp, "totalpl" => $totalpl, "es" => $es, "parti" => $parti));
     } else if($_GET['par'] == 6) {
     echo $twig->render('grupos.html', array( "URLHOME" => URL_HOME, "total1" => $total1, "total2" => $total2, "total3" => $total3, "totalp" => $totalp, "totalpl" => $totalpl,"lugar" => $pa['lugar'], "es" => $es, "parti" => $parti));
+    }  else if($_GET['par'] == 8) {
+    echo $twig->render('grupos.html', array( "URLHOME" => URL_HOME, "total1" => $total1, "total2" => $total2, "total3" => $total3, "totalp" => $totalp, "totalpl" => $totalpl,"lugar" => "DENEGADOS", "es" => $es, "parti" => $parti));
     } 
     else if($_GET['par'] == 4) {
-    echo $twig->render('personas.html', array( "URLHOME" => URL_HOME, "total1" => $total1, "total2" => $total2, "total3" => $total3, "totalp" => $totalp, "totalpl" => $totalpl, "es" => $es, "parti" => $parti));
+    echo $twig->render('personas.html', array( "URLHOME" => URL_HOME, "total1" => $total1, "total2" => $total2, "total3" => $total3,"total4" => $total4, "totalp" => $totalp, "totalpl" => $totalpl, "lugar" => "DENEGADOS", "es" => $es, "parti" => $parti));
     } else {
-    echo $twig->render('index.html', array( "URLHOME" => URL_HOME, "total1" => $total1, "total2" => $total2, "total3" => $total3, "totalp" => $totalp, "totalpl" => $totalpl, "provincias" => $provincias, "es" => $es, "parti" => $parti));
+    echo $twig->render('index.html', array( "URLHOME" => URL_HOME, "total1" => $total1, "total2" => $total2, "total3" => $total3,"total4" => $total4, "totalp" => $totalp, "totalpl" => $totalpl, "provincias" => $provincias, "es" => $es, "parti" => $parti));
   }
 }

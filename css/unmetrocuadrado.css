@@ -1,5 +1,44 @@
 @charset "utf-8";
 /* CSS Document */
+.owl-dots{
+	display:none;	
+}
+.owl-prev {
+	background-image:url("../imagenes/carrusel_flecha_izq.png") !important;
+	background-color:transparent !important;
+    border-radius: 0 !important;
+    cursor: pointer !important;
+    display: block !important;
+    font-size: 0 !important;
+    left: 20px !important;
+    margin: -37px 0 0 0 !important;
+    padding: 0 !important;
+    position: absolute !important;
+    top: 50% !important;
+    z-index: 500000000 !important;
+	height:75px !important;
+	width:39px !important;
+}
+.owl-next {
+	background-image:url("../imagenes/carrusel_flecha_dch.png") !important;
+	background-color:transparent !important;
+    border-radius: 0 !important;
+    cursor: pointer !important;
+    display: block !important;
+    font-size: 0 !important;
+    right: 20px !important;
+    margin: -37px 0 0 0 !important;
+    padding: 0 !important;
+    position: absolute !important;
+    top: 50% !important;
+    z-index: 500000000 !important;
+	height:75px !important;
+	width:39px !important;
+}
+.mapa h3{
+	color:#fff;
+	font-size:20px;
+}
 
 .ocultarenmovil{
 	display:none;	
@@ -41,22 +80,22 @@
 }
 
 #form_unete .cierre{
-	width: 100%;
+	width: 95%;
     z-index: 500;
     text-align: right;
     float: left;
-    margin-top: -90px;
+    margin-top: -430px;
     padding: 0;
     filter: invert();
     -webkit-filter: invert();
 }
 
 #form_organiza .cierre{
-	width: 100%;
+	width: 95%;
     z-index: 500;
     text-align: right;
     float: left;
-    margin-top: -90px;
+    margin-top: -430px;
     padding: 0;
     filter: invert();
     -webkit-filter: invert();
@@ -192,7 +231,7 @@
 	.otras p{
 		font-size:22px;
 		line-height:29px;
-		width:560px;
+		width:610px;
 		margin:40px auto;	
 	}
 	.otras .boton{
@@ -417,15 +456,35 @@
 	.cerrado{
 		height:0px !important;
 	}
-	
-	#form_organiza.abierto{
-		height:1700px;
-		max-height:7000px;
-			
+	#form_organiza article{
+		background-position:left top;
+		background-image:url(../imagenes/flecha_blanca_grande.png);
+		background-repeat:no-repeat;	
+		padding:130px 0 120px;
+		text-align:center;
 	}
-	
+	#form_organiza h1{
+		margin:0 auto 50px;
+		color:#1d1d1b;	
+	}
+
+	#form_organiza.abierto{
+		height:450px;
+		max-height:7000px;			
+	}
+	#form_unete article{
+		background-position:center top;
+		background-image:url(../imagenes/flecha_blanca_grande.png);
+		background-repeat:no-repeat;	
+		padding:130px 0 120px;
+		text-align:center;
+	}
+	#form_unete h1{
+		margin:0 auto 50px;
+		color:#fff;	
+	}
 	#form_unete.abierto{
-		height:1350px;
+		height:450px;
 		max-height:7000px;
 	}
 	
@@ -864,8 +923,58 @@
 	#error #closee{
 		cursor:pointer;	
 	}
-
-
+	
+	#lugares{
+		border-bottom: 0 none;
+		margin: 0 0 30px;
+		padding: 0;
+		width: 482px !important;
+		z-index: 970;		
+	}
+	#lugares option{
+		background-color: #fff;
+		border: 0 none;
+		color: #333;
+		padding: 10px 5%;
+		width: 90%;
+	}
+	.listado_buscador{
+		background-color: #fff;
+		float: left;
+		margin: 0 0 30px;
+		padding: 0px 0px;
+		position: absolute;
+		width: 482px;
+		z-index: 970;
+	}
+	.listado_buscador a{
+		color: #333;
+		text-decoration:none;
+	}
+	
+	.listado_buscador li{
+		color: #333;
+		font-size: 12px;
+		list-style: outside none none;
+		padding: 10px 10px;
+		width:462px;
+		-webkit-transition: 0.5s;
+		-moz-transition: 0.5s;
+		transition: 0.5s;
+		cursor:pointer;
+	}
+	.listado_buscador li:hover{
+		background-color:#EFEFEF;	
+	}
+	
+	.micarrusel{
+		background-color:#f5f5f5;	
+	}
+	.micarrusel article{
+		margin: 0 0 -10px;
+		overflow: hidden;
+		width: 100%;	
+	}
 }
 
 /* DIFERENTES MEDIDAS DESKTOP -------------------------*/
@@ -903,6 +1012,12 @@
 	
 	.seleccion2{
 		display:none;	
+	}
+	#form_organiza h1 br{
+		display:none;
+	}
+	#form_unete h1 br{
+		display:none;
 	}
 }
 
@@ -983,13 +1098,13 @@
 	}
 	
 	#form_organiza.abierto{
-		height:1650px;
+		height:450px;
 		max-height:2000px;
 			
 	}
 	
 	#form_unete.abierto{
-		height:1250px;
+		height:450px;
 		max-height:2000px;
 	}
 	
@@ -1074,6 +1189,24 @@
 		padding-right: 5% !important;
 		width: 90%;
 	}
+	.listado_buscador{
+		 padding: 0;
+   		width: 34.8% !important;
+	}
+	#lugares{
+		width: 80.4% !important;
+	}
+	.listado_buscador li{
+		width:95% !important;
+		padding:5px 2.5% !important;
+	}
+	#form_organiza h1 br{
+		display:none;
+	}
+	#form_unete h1 br{
+		display:none;
+	}
+
 }
 @media only screen and (max-width: 799px) and (min-width: 400px) {
 	.mousedown{
@@ -1242,6 +1375,17 @@
 		width:93.5% !important;
 		padding:5px 2.5% !important;
 	}
+	.listado_buscador{
+		width:88.9% !important;
+		padding:0;
+	}
+	#lugares{
+		width: 98.7% !important;
+	}
+	.listado_buscador li{
+		width:95% !important;
+		padding:5px 2.5% !important;
+	}
 	.formulario textarea{
 		width:95%;
 		height:150px;
@@ -1268,11 +1412,28 @@
 		height:650px;
 		max-height:2000px;
 	}
+	#form_organiza h1 br{
+		display:none;
+	}
+	#form_unete h1 br{
+		display:none;
+	}
 }
 
 
 @media only screen and (max-width: 700px) and (orientation:portrait) {
 	
+	.ajuste{
+		width:100%;
+		height:auto;	
+	}
+	
+	#form_organiza h1 br{
+		display:none;
+	}
+	#form_unete h1 br{
+		display:none;
+	}
 	.cuadricula2{
 		background-image:url(../imagenes/unmetro_home_mobile.jpg) !important;
 		background-size:100% 100% !important;
@@ -1483,6 +1644,17 @@
 	}
 	.anchototal{
 		width:93.5% !important;
+		padding:5px 2.5% !important;
+	}
+	.listado_buscador{
+		width:89% !important;
+		padding:0;
+	}
+	#lugares{
+		width: 98.7% !important;
+	}
+	.listado_buscador li{
+		width:95% !important;
 		padding:5px 2.5% !important;
 	}
 	.formulario textarea{
@@ -1742,6 +1914,11 @@
 	#error #closee{
 		cursor:pointer;	
 	}
+	.mapa h3{
+	color:#fff;
+	font-size:23px;
+	line-height:28px;
+}
 }
 
 
